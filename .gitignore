@@ -1,0 +1,6 @@
+cmake-build*/
+.idea/
+seogll.h
+seogll.py
+src/main.c
+resources/
