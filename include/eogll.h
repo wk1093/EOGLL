@@ -261,7 +261,7 @@ typedef EOGLL_DECL_ENUM enum {
         fprintf(stream, message, ##__VA_ARGS__); \
     }
 
-#ifndef EOGLL_NO_DEBUG
+#ifdef EOGLL_DEBUG
 #define EOGLL_LOG_DEBUG(stream, message, ...) EOGLL_LOG(stream, EOGLL_LOG_LEVEL_DEBUG, message, ##__VA_ARGS__)
 #define EOGLL_LOG_DEBUG_POS(stream, message, ...) EOGLL_LOG_POS(stream, EOGLL_LOG_LEVEL_DEBUG, message, ##__VA_ARGS__)
 #else
