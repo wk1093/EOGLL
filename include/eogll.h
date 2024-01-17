@@ -443,11 +443,21 @@ typedef EOGLL_DECL_STRUCT struct {
     int width;
     int height;
     int channels;
-    GLenum format;
+    GLint format;
 
 } EogllTexture;
 
-EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTexture(const char* path);
+typedef EOGLL_DECL_STRUCT struct {
+    GLint minFilter;
+    GLint magFilter;
+    GLint wrapS;
+    GLint wrapT;
+} EogllTextureSettings;
+
+EOGLL_DECL_FUNC_ND EogllTextureSettings eogllCreateTextureSettings(GLint minFilter, GLint magFilter, GLint wrapS, GLint wrapT);
+EOGLL_DECL_FUNC_ND EogllTextureSettings eogllDefaultTextureSettings();
+
+EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTexture(const char* path, EogllTextureSettings settings);
 EOGLL_DECL_FUNC void eogllBindTexture(EogllTexture* texture);
 EOGLL_DECL_FUNC void eogllDeleteTexture(EogllTexture* texture);
 

@@ -692,7 +692,22 @@ void eogllSetWireframeMode(bool enable) {
     }
 }
 
-EogllTexture *eogllCreateTexture(const char *path) {
+EogllTextureSettings eogllCreateTextureSettings(GLint wrapS, GLint wrapT, GLint minFilter, GLint magFilter) {
+    EogllTextureSettings settings;
+    settings.wrapS = wrapS;
+    settings.wrapT = wrapT;
+    settings.minFilter = minFilter;
+    settings.magFilter = magFilter;
+    return settings;
+}
+
+EogllTextureSettings eogllDefaultTextureSettings() {
+    return eogllCreateTextureSettings(GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+}
+
+
+
+EogllTexture *eogllCreateTexture(const char *path, EogllTextureSettings settings) {
     EogllTexture *texture = (EogllTexture *) malloc(sizeof(EogllTexture));
     if (!texture) {
         EOGLL_LOG_ERROR(stderr, "Failed to allocate memory for texture\n");
@@ -707,7 +722,7 @@ EogllTexture *eogllCreateTexture(const char *path) {
     }
     EOGLL_LOG_DEBUG(stdout, "Loaded texture %s\n", path);
     EOGLL_LOG_DEBUG(stdout, "%d %d %d\n", width, height, nrChannels);
-    GLenum format;
+    GLint format;
     switch (nrChannels) {
         case 1:
             format = GL_RED;
@@ -728,10 +743,10 @@ EogllTexture *eogllCreateTexture(const char *path) {
     texture->format = format;
     glGenTextures(1, &texture->id);
     glBindTexture(GL_TEXTURE_2D, texture->id);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, settings.wrapS);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, settings.wrapT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, settings.minFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, settings.magFilter);
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
