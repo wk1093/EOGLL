@@ -663,6 +663,12 @@ void eogllDrawBufferObject(EogllBufferObject* bufferObject, GLenum mode) {
     glBindVertexArray(0);
 }
 
+void eogllDrawSimpleBufferObject(EogllBufferObject* bufferObject, GLenum mode) {
+    glBindVertexArray(bufferObject->vao);
+    glDrawArrays(mode, 0, (GLint)bufferObject->numIndices);
+    glBindVertexArray(0);
+}
+
 void eogllBindBufferObject(EogllBufferObject* bufferObject) {
     glBindVertexArray(bufferObject->vao);
 }
