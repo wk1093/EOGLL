@@ -401,6 +401,10 @@ void eogllCenterWindow(EogllWindow* window) {
     glfwSetWindowCenter(window->window);
 }
 
+double eogllGetTime() {
+    return (double)glfwGetTime();
+}
+
 void eogllClearColor(EogllColor color) {
     EOGLL_LOG_TRACE(stdout, "%f %f %f %f\n", color.r, color.g, color.b, color.a);
     glClearColor(color.r, color.g, color.b, color.a);
