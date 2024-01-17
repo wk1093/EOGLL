@@ -642,12 +642,12 @@ EogllBufferObject eogllCreateBufferObject(unsigned int vao, unsigned int vbo, un
     return bufferObject;
 }
 
-EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo) {
+EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices) {
     EogllBufferObject bufferObject;
     bufferObject.vao = vao;
     bufferObject.vbo = vbo;
     bufferObject.ebo = 0;
-    bufferObject.numIndices = 0;
+    bufferObject.numIndices = numVertices;
     bufferObject.indicesType = 0;
     bufferObject.hasIndices = false;
     return bufferObject;

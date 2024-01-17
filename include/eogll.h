@@ -429,7 +429,7 @@ typedef EOGLL_DECL_STRUCT struct {
 
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllConstructBufferObject(void* vertices, GLsizeiptr verticesSize, void* indices, GLsizeiptr indicesSize, EogllAttribBuilder *builder, GLenum usage, GLenum indicesType);
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);
-EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo);
+EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices);
 EOGLL_DECL_FUNC void eogllDrawBufferObject(EogllBufferObject* bufferObject, GLenum mode);
 EOGLL_DECL_FUNC void eogllDrawSimpleBufferObject(EogllBufferObject* bufferObject, GLenum mode);
 EOGLL_DECL_FUNC void eogllBindBufferObject(EogllBufferObject* bufferObject);
