@@ -432,7 +432,7 @@ EOGLL_DECL_FUNC_ND EogllBufferObject eogllConstructBufferObject(void* vertices, 
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices);
 EOGLL_DECL_FUNC void eogllDrawBufferObject(EogllBufferObject* bufferObject, GLenum mode);
-EOGLL_DECL_FUNC void eogllDrawSimpleBufferObject(EogllBufferObject* bufferObject, GLenum mode);
+EOGLL_DECL_FUNC void eogllDrawBasicBufferObject(EogllBufferObject* bufferObject, GLenum mode);
 EOGLL_DECL_FUNC void eogllBindBufferObject(EogllBufferObject* bufferObject);
 EOGLL_DECL_FUNC void eogllDeleteBufferObject(EogllBufferObject* bufferObject);
 
