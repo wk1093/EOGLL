@@ -14,7 +14,7 @@
 
 #define EOGLL_VERSION_MAJOR 0
 #define EOGLL_VERSION_MINOR 2
-#define EOGLL_VERSION_PATCH 0
+#define EOGLL_VERSION_PATCH 1
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
@@ -444,13 +444,15 @@ typedef EOGLL_DECL_STRUCT struct {
     int height;
     int channels;
     GLint format;
-
+    int maxTextureUnits;
 } EogllTexture;
 
 
 EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTexture(const char* path);
 EOGLL_DECL_FUNC void eogllBindTexture(EogllTexture* texture);
 EOGLL_DECL_FUNC void eogllDeleteTexture(EogllTexture* texture);
+
+EOGLL_DECL_FUNC void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index);
 
 // EogllView, EogllProjection, EogllModel
 typedef EOGLL_DECL_STRUCT struct { // basically a camera

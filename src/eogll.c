@@ -733,6 +733,9 @@ EogllTexture *eogllCreateTexture(const char *path) {
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
+    // texture->maxTextureUnits
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &texture->maxTextureUnits);
+
     stbi_image_free(data);
     return texture;
 }
@@ -744,6 +747,16 @@ void eogllBindTexture(EogllTexture *texture) {
 void eogllDeleteTexture(EogllTexture *texture) {
     glDeleteTextures(1, &texture->id);
     free(texture);
+}
+
+void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index) {
+    if (index >= texture->maxTextureUnits) {
+        EOGLL_LOG_ERROR(stderr, "Texture unit %d is not supported\n", index);
+        return;
+    }
+    glActiveTexture(GL_TEXTURE0 + index);
+    glBindTexture(GL_TEXTURE_2D, texture->id);
+    eogllSetUniform1i(shader, name, (int)index);
 }
 
 EogllView eogllCreateView() {
