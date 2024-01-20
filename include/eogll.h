@@ -182,6 +182,10 @@
 
 #define EOGLL_PRESS                  1
 
+#define EOGLL_CURSOR_NORMAL          0x00034001
+#define EOGLL_CURSOR_HIDDEN          0x00034002
+#define EOGLL_CURSOR_DISABLED        0x00034003
+
 #define EOGLL_SUCCESS 0
 #define EOGLL_FAILURE 1
 
