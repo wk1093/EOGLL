@@ -307,7 +307,9 @@ typedef EOGLL_DECL_STRUCT struct EogllWindow {
     bool mouseIsDown[EOGLL_MOUSE_BUTTON_LAST + 1];
 
     double mousex;
+    double mousedx;
     double mousey;
+    double mousedy;
     double mouseScrollx;
     double mouseScrolly;
 

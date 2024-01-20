@@ -80,6 +80,8 @@ void eogllWindowCursorPosCallback(GLFWwindow* window, double xpos, double ypos) 
         return;
     }
 
+    eogllWindow->mousedx += xpos - eogllWindow->mousex; // we add to it incase there is multiple mouse movements in one frame (we want to keep track of the total movement)
+    eogllWindow->mousedy += ypos - eogllWindow->mousey;
     eogllWindow->mousex = xpos;
     eogllWindow->mousey = ypos;
 }
@@ -220,6 +222,8 @@ void eogllPollEvents(EogllWindow* window) {
         window->mousePress[i] = false;
         window->mouseRelease[i] = false;
     }
+    window->mousedx = 0;
+    window->mousedy = 0;
     glfwPollEvents();
 }
 
