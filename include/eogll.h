@@ -14,7 +14,7 @@
 
 #define EOGLL_VERSION_MAJOR 0
 #define EOGLL_VERSION_MINOR 2
-#define EOGLL_VERSION_PATCH 1
+#define EOGLL_VERSION_PATCH 3
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
