@@ -408,6 +408,10 @@ double eogllGetTime() {
     return (double)glfwGetTime();
 }
 
+void eogllSetCursorMode(EogllWindow* window, int mode) {
+    glfwSetInputMode(window->window, GLFW_CURSOR, mode);
+}
+
 void eogllClearColor(EogllColor color) {
     EOGLL_LOG_TRACE(stdout, "%f %f %f %f\n", color.r, color.g, color.b, color.a);
     glClearColor(color.r, color.g, color.b, color.a);

@@ -351,6 +351,7 @@ EOGLL_DECL_FUNC void eogllGetCursorPos(EogllWindow* window, double* xpos, double
 EOGLL_DECL_FUNC void eogllSetCursorPos(EogllWindow* window, double xpos, double ypos);
 EOGLL_DECL_FUNC void eogllCenterWindow(EogllWindow* window);
 EOGLL_DECL_FUNC_ND double eogllGetTime();
+EOGLL_DECL_FUNC void eogllSetCursorMode(EogllWindow* window, int mode);
 
 typedef EOGLL_DECL_STRUCT struct {
     float r;
