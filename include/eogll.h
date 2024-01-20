@@ -14,7 +14,7 @@
 
 #define EOGLL_VERSION_MAJOR 0
 #define EOGLL_VERSION_MINOR 2
-#define EOGLL_VERSION_PATCH 3
+#define EOGLL_VERSION_PATCH 4
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
@@ -28,11 +28,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
-
-// TODO: Add this back later, (it causes issues with my indenting)
-//#ifdef __cplusplus
-//extern "C" {
-//#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define EOGLL_KEY_UNKNOWN            -1
 
@@ -537,8 +535,8 @@ EOGLL_DECL_FUNC void eogllUpdateCameraMatrix(EogllCamera* camera, EogllShaderPro
 
 
 
-//#ifdef __cplusplus
-//}
-//#endif
+#ifdef __cplusplus
+}
+#endif
 
 #endif // _EOGLL_H_
