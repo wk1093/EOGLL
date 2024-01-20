@@ -145,8 +145,8 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
         window->mouseRelease[i] = false;
         window->mouseIsDown[i] = false;
     }
-    window->mousex = 0;
-    window->mousey = 0;
+    window->mousedx = 0;
+    window->mousedy = 0;
     window->mouseScrollx = 0;
     window->mouseScrolly = 0;
     window->focused = hints.focused;
@@ -188,13 +188,12 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
         EOGLL_LOG_ERROR(stderr, "Failed to load OpenGL\n");
         return NULL;
     }
+    glfwGetCursorPos(window->window, &window->mousex, &window->mousey);
     EOGLL_LOG_INFO(stdout, "%s %s\n", glGetString(GL_VENDOR), glGetString(GL_VERSION));
     EOGLL_LOG_INFO(stdout, "%s\n", glGetString(GL_RENDERER));
     int max;
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &max);
     EOGLL_LOG_INFO(stdout, "%d vertex attributes max\n", max);
-
-
 
     return window;
 
