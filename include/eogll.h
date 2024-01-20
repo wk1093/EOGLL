@@ -462,6 +462,10 @@ typedef EOGLL_DECL_STRUCT struct { // basically a camera
 EOGLL_DECL_FUNC_ND EogllView eogllCreateView();
 EOGLL_DECL_FUNC void eogllTranslateView3f(EogllView* view, float x, float y, float z);
 EOGLL_DECL_FUNC void eogllTranslateView(EogllView* view, vec3 translation);
+EOGLL_DECL_FUNC void eogllRotateView3f(EogllView* view, float angle, float x, float y, float z);
+EOGLL_DECL_FUNC void eogllRotateView(EogllView* view, float angle, vec3 axis);
+EOGLL_DECL_FUNC void eogllScaleView3f(EogllView* view, float x, float y, float z);
+EOGLL_DECL_FUNC void eogllScaleView(EogllView* view, vec3 scale);
 EOGLL_DECL_FUNC void eogllUpdateViewMatrix(EogllView* view, EogllShaderProgram* shader, const char* name);
 
 typedef EOGLL_DECL_STRUCT struct {
