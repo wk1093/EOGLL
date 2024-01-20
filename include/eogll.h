@@ -497,6 +497,42 @@ EOGLL_DECL_FUNC void eogllUpdateModelMatrix(EogllModel* model, EogllShaderProgra
 EOGLL_DECL_FUNC void eogllEnableDepth();
 EOGLL_DECL_FUNC void eogllEnableTransparency();
 
+typedef EOGLL_DECL_STRUCT struct {
+    vec3 pos;
+    vec3 front;
+    vec3 up;
+    vec3 right;
+    vec3 worldUp;
+
+    float yaw;
+    float pitch;
+} EogllCamera;
+
+EOGLL_DECL_FUNC_ND EogllCamera eogllCreateCamera();
+
+EOGLL_DECL_FUNC_ND EogllView eogllCameraMatrix(EogllCamera* camera);
+
+EOGLL_DECL_FUNC void eogllTranslateCamera3f(EogllCamera* camera, float x, float y, float z);
+
+EOGLL_DECL_FUNC void eogllUpdateCameraVectors(EogllCamera* camera);
+
+EOGLL_DECL_FUNC void eogllYawCamera(EogllCamera* camera, float amount);
+
+EOGLL_DECL_FUNC void eogllPitchCamera(EogllCamera* camera, float amount);
+
+typedef EOGLL_DECL_ENUM enum {
+    EOGLL_FORWARD,
+    EOGLL_BACKWARD,
+    EOGLL_LEFT,
+    EOGLL_RIGHT,
+    EOGLL_UP,
+    EOGLL_DOWN
+} EogllCameraDirection;
+
+EOGLL_DECL_FUNC void eogllMoveCamera(EogllCamera* cam, EogllCameraDirection dir, float amount);
+
+EOGLL_DECL_FUNC void eogllUpdateCameraMatrix(EogllCamera* camera, EogllShaderProgram* program, const char* name);
+
 
 
 
