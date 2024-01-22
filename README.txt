@@ -1,1 +1,0 @@
-# Easy Open GL Library: EOGLL (pronounced Eagle)
