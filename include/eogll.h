@@ -289,11 +289,14 @@ typedef EOGLL_DECL_ENUM enum {
 #define EOGLL_LOG_FATAL_POS(stream, message, ...) EOGLL_LOG_POS(stream, EOGLL_LOG_LEVEL_FATAL, message, ##__VA_ARGS__)
 
 
+
 EOGLL_DECL_FUNC_ND const char* eogllGetVersionString();
 
 
 EOGLL_DECL_FUNC_ND uint8_t eogllInit();
 EOGLL_DECL_FUNC void eogllTerminate();
+
+EOGLL_DECL_FUNC_ND char* eogllReadFile(const char* path);
 
 typedef EOGLL_DECL_STRUCT struct EogllWindow {
     GLFWwindow* window;
@@ -382,6 +385,7 @@ typedef EOGLL_DECL_STRUCT struct {
 } EogllShaderProgram;
 
 EOGLL_DECL_FUNC_ND EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char* fragmentShaderSource);
+EOGLL_DECL_FUNC_ND EogllShaderProgram* eogllLinkProgramFromFile(const char* vertexShaderPath, const char* fragmentShaderPath);
 EOGLL_DECL_FUNC void eogllDeleteProgram(EogllShaderProgram* shader);
 EOGLL_DECL_FUNC void eogllUseProgram(EogllShaderProgram* shader);
 EOGLL_DECL_FUNC void eogllSetUniformMatrix4fv(EogllShaderProgram* shader, const char* name, mat4 matrix);

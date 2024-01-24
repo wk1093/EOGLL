@@ -30,6 +30,27 @@ void eogllTerminate() {
     EOGLL_LOG_INFO(stdout, "Bye!\n");
 }
 
+char* eogllReadFile(const char* path) {
+    EOGLL_LOG_TRACE(stdout, "%s\n", path);
+    FILE* file = fopen(path, "rb");
+    if (!file) {
+        EOGLL_LOG_ERROR(stderr, "Failed to open file %s\n", path);
+        return NULL;
+    }
+    fseek(file, 0, SEEK_END);
+    long length = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    char* buffer = (char*)malloc(length + 1);
+    if (!buffer) {
+        EOGLL_LOG_ERROR(stderr, "Failed to allocate memory for file %s\n", path);
+        return NULL;
+    }
+    fread(buffer, 1, length, file);
+    fclose(file);
+    buffer[length] = '\0';
+    return buffer;
+}
+
 void eogllFramebufferSizeCallback(GLFWwindow* window, int width, int height) {
     EOGLL_LOG_TRACE(stdout, "\n");
     EOGLL_LOG_DEBUG(stdout, "Framebuffer size changed to %dx%d\n", width, height);
@@ -441,7 +462,7 @@ EogllColor EOGLL_COLOR_CYAN = {0.0f, 1.0f, 1.0f, 1.0f};
 EogllColor EOGLL_COLOR_TRANSPARENT = {0.0f, 0.0f, 0.0f, 0.0f};
 
 EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char* fragmentShaderSource) {
-    EogllShaderProgram* shader = (EogllShaderProgram*)malloc(sizeof(EogllShaderProgram));
+    EogllShaderProgram *shader = (EogllShaderProgram *) malloc(sizeof(EogllShaderProgram));
 
     unsigned int vertexShader;
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -484,6 +505,23 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
+    return shader;
+}
+
+EogllShaderProgram* eogllLinkProgramFromFile(const char* vertexShaderPath, const char* fragmentShaderPath) {
+    char* vertexShaderSource = eogllReadFile(vertexShaderPath);
+    if (!vertexShaderSource) {
+        EOGLL_LOG_ERROR(stderr, "Failed to read vertex shader source from %s\n", vertexShaderPath);
+        return NULL;
+    }
+    char* fragmentShaderSource = eogllReadFile(fragmentShaderPath);
+    if (!fragmentShaderSource) {
+        EOGLL_LOG_ERROR(stderr, "Failed to read fragment shader source from %s\n", fragmentShaderPath);
+        return NULL;
+    }
+    EogllShaderProgram* shader = eogllLinkProgram(vertexShaderSource, fragmentShaderSource);
+    free(vertexShaderSource);
+    free(fragmentShaderSource);
     return shader;
 }
 
