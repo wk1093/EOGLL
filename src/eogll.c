@@ -1279,11 +1279,16 @@ EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float*
         return EOGLL_FAILURE;
     }
 
+    EOGLL_LOG_DEBUG(stdout, "Parsed object file %s\n", path);
+
     if (eogllObjectFileDataToVertices(&data, attrs, vertices, numVertices, indices, numIndices) != EOGLL_SUCCESS) {
         EOGLL_LOG_ERROR(stderr, "Failed to convert object file data to vertices\n");
         return EOGLL_FAILURE;
     }
     eogllDeleteObjectFileData(&data);
+
+    EOGLL_LOG_DEBUG(stdout, "Converted object file data to vertices\n");
+    EOGLL_LOG_DEBUG(stdout, "Num vertices: %d\n", *numVertices);
 
     return EOGLL_SUCCESS;
 

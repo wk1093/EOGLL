@@ -2,5 +2,5 @@ cmake-build*/
 .idea/
 seogll.h
 seogll.py
-src/main.c
+examples/dragon.c
 resources/
