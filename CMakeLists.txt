@@ -16,6 +16,6 @@ target_include_directories(eogll PUBLIC include)
 target_link_libraries(eogll glad glfw hedley stb cglm)
 
 
-add_executable(eogll_test src/main.c)
-
-target_link_libraries(eogll_test eogll)
+#add_executable(eogll_test src/main.c)
+#
+#target_link_libraries(eogll_test eogll)

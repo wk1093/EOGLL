@@ -15,7 +15,7 @@ void eogllGLFWErrorCallback(int error, const char* description) {
     EOGLL_LOG_ERROR(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
-uint8_t eogllInit() {
+EogllResult eogllInit() {
     EOGLL_LOG_TRACE(stdout, "\n");
     if (!glfwInit()) {
         return EOGLL_FAILURE;
@@ -1055,7 +1055,7 @@ typedef struct {
     EogllObjectTexCoord *texCoords;
 } EogllObjectFileData;
 
-uint8_t eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
+EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
     char line[256];
     data->numFaces = 0;
     data->numPositions = 0;
@@ -1137,9 +1137,23 @@ uint8_t eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
                     continue;
                 }
                 EogllObjectIndex objectIndex;
-                sscanf(token, "%d/%d/%d", &objectIndex.geomIndex, &objectIndex.texCoordIndex, &objectIndex.normalIndex);
-                objectIndex.hasNormal = true;
-                objectIndex.hasTexCoord = true;
+                objectIndex.hasNormal = false;
+                objectIndex.hasTexCoord = false;
+                if (strstr(token, "//")) {
+                    sscanf(token, "%d//%d", &objectIndex.geomIndex, &objectIndex.normalIndex);
+                    objectIndex.hasNormal = true;
+                } else if (strstr(token, "/")) {
+                    int numRead = sscanf(token, "%d/%d/%d", &objectIndex.geomIndex, &objectIndex.texCoordIndex, &objectIndex.normalIndex);
+                    if (numRead == 2) {
+                        objectIndex.hasTexCoord = true;
+                    } else if (numRead == 3) {
+                        objectIndex.hasTexCoord = true;
+                        objectIndex.hasNormal = true;
+                    }
+                } else {
+                    sscanf(token, "%d", &objectIndex.geomIndex);
+                }
+
                 face.indices[index++] = objectIndex;
                 token = strtok(NULL, " ");
             }
@@ -1150,15 +1164,23 @@ uint8_t eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
     return EOGLL_SUCCESS;
 }
 
-void eogllTriangulateObjectFileData(EogllObjectFileData *data) {
-    // TODO
+void eogllDeleteObjectFileData(EogllObjectFileData *data) {
+    for (int i = 0; i < data->numFaces; i++) {
+        free(data->faces[i].indices);
+    }
+    free(data->faces);
+    free(data->positions);
+    free(data->normals);
+    free(data->texCoords);
 }
 
-uint8_t eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices) {
+EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices) {
     // since at the moment, our indices have multiple attributes, we cannot index it easily.
     // The unoptimized easiest way to do this is to not use indices at all and just duplicate vertices
     // one thing we can do is to create a map of indices to vertices, and then use that to create the indices (maps are hard in C)
     // another is to do the first method, but then optimize it by removing duplicate vertices and using indices to reference them
+    // TODO: optimize this
+    // TODO: support rectangles and other polygons by triangulating them
 
     // first we need to calculate the number of vertices
     *numVertices = 0;
@@ -1221,33 +1243,31 @@ uint8_t eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObjectAttr
     return EOGLL_SUCCESS;
 }
 
-
-void eogllPrintObjectFileData(EogllObjectFileData* data) {
-    EOGLL_LOG_INFO(stdout, "Object file data:\n");
-    EOGLL_LOG_INFO(stdout, "Positions:\n");
+void eogllPrintObjectData(EogllObjectFileData* data) {
+    printf("Positions:\n");
     for (int i = 0; i < data->numPositions; i++) {
-        EOGLL_LOG_INFO(stdout, "%f %f %f %f\n", data->positions[i].x, data->positions[i].y, data->positions[i].z, data->positions[i].w);
+        printf("%f %f %f %f\n", data->positions[i].x, data->positions[i].y, data->positions[i].z, data->positions[i].w);
     }
-    EOGLL_LOG_INFO(stdout, "Normals:\n");
+    printf("Normals:\n");
     for (int i = 0; i < data->numNormals; i++) {
-        EOGLL_LOG_INFO(stdout, "%f %f %f\n", data->normals[i].x, data->normals[i].y, data->normals[i].z);
+        printf("%f %f %f\n", data->normals[i].x, data->normals[i].y, data->normals[i].z);
     }
-    EOGLL_LOG_INFO(stdout, "Texture coordinates:\n");
+    printf("Texture Coordinates:\n");
     for (int i = 0; i < data->numTexCoords; i++) {
-        EOGLL_LOG_INFO(stdout, "%f %f %f\n", data->texCoords[i].u, data->texCoords[i].v, data->texCoords[i].w);
+        printf("%f %f %f\n", data->texCoords[i].u, data->texCoords[i].v, data->texCoords[i].w);
     }
-    EOGLL_LOG_INFO(stdout, "Faces:\n");
+    printf("Faces:\n");
     for (int i = 0; i < data->numFaces; i++) {
-        EOGLL_LOG_INFO(stdout, "Face %d:\n", i);
+        printf("Face %d:\n", i);
         for (int j = 0; j < data->faces[i].numIndices; j++) {
-            EOGLL_LOG_INFO(stdout, "%d/%d/%d\n", data->faces[i].indices[j].geomIndex, data->faces[i].indices[j].texCoordIndex, data->faces[i].indices[j].normalIndex);
+            printf("%d/%d/%d ", data->faces[i].indices[j].geomIndex, data->faces[i].indices[j].texCoordIndex,
+                   data->faces[i].indices[j].normalIndex);
         }
-        EOGLL_LOG_INFO(stdout, "\n");
+        printf("\n");
     }
 }
 
-
-uint8_t eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices) {
+EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices) {
     FILE* file = fopen(path, "r");
     if (!file) {
         EOGLL_LOG_ERROR(stderr, "Failed to open file %s\n", path);
@@ -1259,16 +1279,11 @@ uint8_t eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** ve
         return EOGLL_FAILURE;
     }
 
-    eogllPrintObjectFileData(&data);
-
-//    eogllTriangulateObjectFileData(&data); // TODO: implement this
-
     if (eogllObjectFileDataToVertices(&data, attrs, vertices, numVertices, indices, numIndices) != EOGLL_SUCCESS) {
         EOGLL_LOG_ERROR(stderr, "Failed to convert object file data to vertices\n");
         return EOGLL_FAILURE;
     }
-//    eogllDeleteObjectFileData(&data);
-    // TODO
+    eogllDeleteObjectFileData(&data);
 
     return EOGLL_SUCCESS;
 
@@ -1287,13 +1302,6 @@ EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs
     unsigned int numVerts = 0;
     for (int i = 0; i < attrs.numTypes; i++) {
         numVerts += attrs.builder.attribs[i].size / eogllSizeOf(attrs.builder.attribs[i].type);
-    }
-    // print out all vertices
-    for (int i = 0; i < numVertices; i++) {
-        for (int j = 0; j < numVerts; j++) {
-            printf("%f ", vertices[i * numVerts + j]);
-        }
-        printf("\n");
     }
     unsigned int vao = eogllGenVertexArray();
     unsigned int vbo = eogllGenBuffer(vao, GL_ARRAY_BUFFER, (unsigned int)sizeof(float) * numVertices * numVerts, vertices, usage);

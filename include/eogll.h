@@ -186,6 +186,7 @@ extern "C" {
 
 #define EOGLL_SUCCESS 0
 #define EOGLL_FAILURE 1
+typedef uint8_t EogllResult;
 
 #define EOGLL_NO_DISCARD HEDLEY_WARN_UNUSED_RESULT
 
@@ -293,7 +294,7 @@ typedef EOGLL_DECL_ENUM enum {
 EOGLL_DECL_FUNC_ND const char* eogllGetVersionString();
 
 
-EOGLL_DECL_FUNC_ND uint8_t eogllInit();
+EOGLL_DECL_FUNC_ND EogllResult eogllInit();
 EOGLL_DECL_FUNC void eogllTerminate();
 
 EOGLL_DECL_FUNC_ND char* eogllReadFile(const char* path);
