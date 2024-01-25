@@ -14,7 +14,7 @@
 
 #define EOGLL_VERSION_MAJOR 0
 #define EOGLL_VERSION_MINOR 2
-#define EOGLL_VERSION_PATCH 4
+#define EOGLL_VERSION_PATCH 5
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
@@ -437,7 +437,7 @@ typedef EOGLL_DECL_STRUCT struct {
 } EogllBufferObject;
 
 
-EOGLL_DECL_FUNC_ND EogllBufferObject eogllConstructBufferObject(void* vertices, GLsizeiptr verticesSize, void* indices, GLsizeiptr indicesSize, EogllAttribBuilder *builder, GLenum usage, GLenum indicesType);
+EOGLL_DECL_FUNC_ND HEDLEY_DEPRECATED_FOR(2.5, eogllCreateBufferObject) EogllBufferObject eogllConstructBufferObject(void* vertices, GLsizeiptr verticesSize, void* indices, GLsizeiptr indicesSize, EogllAttribBuilder *builder, GLenum usage, GLenum indicesType);
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices);
 EOGLL_DECL_FUNC void eogllDrawBufferObject(EogllBufferObject* bufferObject, GLenum mode);
@@ -535,7 +535,31 @@ EOGLL_DECL_FUNC void eogllMoveCamera(EogllCamera* cam, EogllCameraDirection dir,
 
 EOGLL_DECL_FUNC void eogllUpdateCameraMatrix(EogllCamera* camera, EogllShaderProgram* program, const char* name);
 
+// Object loading stuff
 
+// EogllObjectAttrs is very similar to EogllAttribBuilder, but it also stores the type of the attributes (where it comes from in the obj file)
+
+//EogllObjectAttrs objMode = eogllCreateObjectAttrs();
+//eogllAddObjectAttr(&objMode, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
+//eogllAddObjectAttr(&objMode, GL_FLOAT, 2, EOGLL_ATTR_TEXTURE);
+//EogllBufferObject bufferObject = eogllBufferObjectLoad("resources/models/cube.obj", objMode);
+
+typedef EOGLL_DECL_ENUM enum {
+    EOGLL_ATTR_NONE,
+    EOGLL_ATTR_POSITION,
+    EOGLL_ATTR_TEXTURE,
+    EOGLL_ATTR_NORMAL
+} EogllObjectAttrType;
+
+typedef EOGLL_DECL_STRUCT struct {
+    EogllObjectAttrType types[8]; // probably will only use 3, but maybe there is more to the obj format that I don't know about
+    uint32_t numTypes;
+    EogllAttribBuilder builder;
+} EogllObjectAttrs;
+
+EOGLL_DECL_FUNC_ND EogllObjectAttrs eogllCreateObjectAttrs();
+EOGLL_DECL_FUNC void eogllAddObjectAttr(EogllObjectAttrs* attrs, GLenum type, GLint num, EogllObjectAttrType attrType);
+EOGLL_DECL_FUNC_ND EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs, GLenum usage);
 
 
 
