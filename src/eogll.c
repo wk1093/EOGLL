@@ -1101,18 +1101,16 @@ uint8_t eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
             data->normals[normalIndex++] = normal;
         } else if (line[0] == 'v' && line[1] == 't') {
             EogllObjectTexCoord texCoord;
-            sscanf(line, "vt %f", &texCoord.u);
             // if there is another texture coordinate, read one
             // after that, read another one if there is one
             texCoord.hasV = false;
             texCoord.hasW = false;
-            if (strchr(line, ' ') != strrchr(line, ' ')) {
-                sscanf(strchr(line, ' ') + 1, "%f", &texCoord.v);
+            int numRead = sscanf(line, "vt %f %f %f", &texCoord.u, &texCoord.v, &texCoord.w);
+            if (numRead == 2) {
                 texCoord.hasV = true;
-                if (strchr(strchr(line, ' ') + 1, ' ') != strrchr(strchr(line, ' ') + 1, ' ')) {
-                    sscanf(strchr(strchr(line, ' ') + 1, ' ') + 1, "%f", &texCoord.w);
-                    texCoord.hasW = true;
-                }
+            } else if (numRead == 3) {
+                texCoord.hasV = true;
+                texCoord.hasW = true;
             }
 
             data->texCoords[texCoordIndex++] = texCoord;
@@ -1261,7 +1259,7 @@ uint8_t eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** ve
         return EOGLL_FAILURE;
     }
 
-//    eogllPrintObjectFileData(&data);
+    eogllPrintObjectFileData(&data);
 
 //    eogllTriangulateObjectFileData(&data); // TODO: implement this
 
@@ -1281,15 +1279,24 @@ EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs
     unsigned int* indices;
     uint32_t numVertices;
     uint32_t numIndices;
-    // somehow loading the object file causes glfwPollEvents to fail EVEN THOUGH NO GLFW OR OPENGL CODE IS USED IN THE FUNCTION
     if (eogllLoadObjectFile(path, attrs, &vertices, &numVertices, &indices, &numIndices) != EOGLL_SUCCESS) {
         EOGLL_LOG_ERROR(stderr, "Failed to load object %s\n", path);
         return (EogllBufferObject){0};
     }
 
-    // I thought this part causes the error (because it has something to do with OpenGL/GLFW), but it still errors even when I comment it out
+    unsigned int numVerts = 0;
+    for (int i = 0; i < attrs.numTypes; i++) {
+        numVerts += attrs.builder.attribs[i].size / eogllSizeOf(attrs.builder.attribs[i].type);
+    }
+    // print out all vertices
+    for (int i = 0; i < numVertices; i++) {
+        for (int j = 0; j < numVerts; j++) {
+            printf("%f ", vertices[i * numVerts + j]);
+        }
+        printf("\n");
+    }
     unsigned int vao = eogllGenVertexArray();
-    unsigned int vbo = eogllGenBuffer(vao, GL_ARRAY_BUFFER, (unsigned int)sizeof(float) * numVertices, vertices, usage);
+    unsigned int vbo = eogllGenBuffer(vao, GL_ARRAY_BUFFER, (unsigned int)sizeof(float) * numVertices * numVerts, vertices, usage);
     unsigned int ebo = eogllGenBuffer(vao, GL_ELEMENT_ARRAY_BUFFER, (unsigned int)sizeof(unsigned int) * numIndices, indices, usage);
     eogllBuildAttributes(&attrs.builder, vao);
     free(vertices);
