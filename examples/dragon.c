@@ -1,5 +1,3 @@
-// TODO: timing helper
-
 #include "eogll.h"
 
 int main() {
@@ -54,6 +52,5 @@ int main() {
 
         eogllSwapBuffers(window);
         eogllPollEvents(window);
-
     }
 }

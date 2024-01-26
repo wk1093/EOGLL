@@ -1886,6 +1886,7 @@ typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
     EOGLL_ATTR_NORMAL
 } EogllObjectAttrType;
 
+// TODO: specify the number of positions (normally 3 or 4) to use for the position attribute + same for texture and normal
 typedef EOGLL_DECL_STRUCT struct EogllObjectAttrs {
     EogllObjectAttrType types[8]; // probably will only use 3, but maybe there is more to the obj format that I don't know about
     uint32_t numTypes;

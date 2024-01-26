@@ -1101,8 +1101,13 @@ EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
     while (fgets(line, sizeof(line), file)) {
         if (line[0] == 'v' && line[1] == ' ') {
             EogllObjectPosition position;
-            sscanf(line, "v %f %f %f %f", &position.x, &position.y, &position.z, &position.w);
-            position.hasW = true;
+            position.hasW = false;
+            position.w = 1.0f;
+            int numRead = sscanf(line, "v %f %f %f %f", &position.x, &position.y, &position.z, &position.w);
+            if (numRead == 4) {
+                position.hasW = true;
+            }
+
             data->positions[positionIndex++] = position;
         } else if (line[0] == 'v' && line[1] == 'n') {
             EogllObjectNormal normal;
@@ -1148,6 +1153,9 @@ EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
                 EogllObjectIndex objectIndex;
                 objectIndex.hasNormal = false;
                 objectIndex.hasTexCoord = false;
+                objectIndex.geomIndex = 0;
+                objectIndex.normalIndex = 0;
+                objectIndex.texCoordIndex = 0;
                 if (strstr(token, "//")) {
                     sscanf(token, "%d//%d", &objectIndex.geomIndex, &objectIndex.normalIndex);
                     objectIndex.hasNormal = true;
@@ -1214,9 +1222,18 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
     for (int i = 0; i < data->numFaces; i++) {
         for (int j = 0; j < data->faces[i].numIndices; j++) {
             EogllObjectIndex index = data->faces[i].indices[j];
-            EogllObjectPosition position = data->positions[index.geomIndex - 1];
-            EogllObjectNormal normal = data->normals[index.normalIndex - 1];
-            EogllObjectTexCoord texCoord = data->texCoords[index.texCoordIndex - 1];
+            EogllObjectPosition position;
+            EogllObjectNormal normal;
+            EogllObjectTexCoord texCoord;
+            if (data->numPositions > 0) {
+                position = data->positions[index.geomIndex - 1];
+            }
+            if (data->numNormals > 0) {
+                normal = data->normals[index.normalIndex - 1];
+            }
+            if (data->numTexCoords > 0) {
+                texCoord = data->texCoords[index.texCoordIndex - 1];
+            }
             for (int k = 0; k < attrs.numTypes; k++) {
                 if (vertexIndex >= max) {
                     EOGLL_LOG_ERROR(stderr, "Vertex index %d is out of bounds\n", vertexIndex);
@@ -1227,6 +1244,9 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
                         (*vertices)[vertexIndex++] = position.x;
                         (*vertices)[vertexIndex++] = position.y;
                         (*vertices)[vertexIndex++] = position.z;
+                        if (position.hasW) {
+                            (*vertices)[vertexIndex++] = position.w;
+                        }
                         break;
                     case EOGLL_ATTR_NORMAL:
                         (*vertices)[vertexIndex++] = normal.x;
