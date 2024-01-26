@@ -1783,91 +1783,549 @@ EOGLL_DECL_FUNC void eogllDeleteBufferObject(EogllBufferObject* bufferObject);
  */
 EOGLL_DECL_FUNC void eogllSetWireframeMode(bool enable);
 
+/**
+ * @brief This struct represents a texture
+ * @see eogllCreateTexture
+ * @see eogllBindTexture
+ * @see eogllDeleteTexture
+ *
+ * This struct represents a texture.
+ * This struct is used to handle all texture related things.
+ * Sample usage:
+ * @code{.c}
+ * // init code
+ * EogllTexture* texture = eogllCreateTexture("resources/textures/texture.png");
+ *
+ * // before drawing
+ * eogllBindTexture(texture);
+ *
+ * // or if you want to use a specific texture unit and uniform
+ * eogllBindTextureUniform(texture, shader, "texture", 0);
+ *
+ */
 typedef EOGLL_DECL_STRUCT struct EogllTexture {
+    /// The id of the texture
     unsigned int id;
+
+    /// The width of the texture
     int width;
+
+    /// The height of the texture
     int height;
+
+    /// The number of channels in the texture (3 for RGB, 4 for RGBA)
     int channels;
+
+    /// The format of the texture (GL_RGB, GL_RGBA)
     GLint format;
+
+    /// GL_MAX_TEXTURE_IMAGE_UNITS value, used to check if the texture unit is valid
     int maxTextureUnits;
 } EogllTexture;
 
-
+/**
+ * @brief Creates a texture
+ * @param path The path to the texture
+ * @return The created texture
+ * @see eogllBindTexture
+ * @see eogllDeleteTexture
+ * @see EogllTexture
+ *
+ * This function creates a texture.
+ */
 EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTexture(const char* path);
+
+/**
+ * @brief Binds a texture
+ * @param texture The texture to bind
+ * @see eogllCreateTexture
+ * @see eogllDeleteTexture
+ * @see EogllTexture
+ *
+ * This function binds a texture.
+ */
 EOGLL_DECL_FUNC void eogllBindTexture(EogllTexture* texture);
+
+/**
+ * @brief Deletes a texture
+ * @param texture The texture to delete
+ * @see eogllCreateTexture
+ * @see eogllBindTexture
+ * @see EogllTexture
+ *
+ * This function deletes a texture.
+ * This function should be called when you are done with the texture.
+ */
 EOGLL_DECL_FUNC void eogllDeleteTexture(EogllTexture* texture);
 
+/**
+ * @brief Binds a texture to a specific texture unit and uniform
+ * @param texture The texture to bind
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ * @param index The index of the texture unit
+ * @see eogllCreateTexture
+ * @see eogllBindTexture
+ * @see eogllDeleteTexture
+ * @see EogllTexture
+ *
+ * This function binds a texture to a specific texture unit and uniform.
+ * This function does check if the texture unit is valid (below GL_MAX_TEXTURE_IMAGE_UNITS value).
+ */
 EOGLL_DECL_FUNC void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index);
 
-// EogllView, EogllProjection, EogllModel
+#define DEPRECATED HEDLEY_DEPRECATED_FOR(0.2.8, mat4)
+/**
+ * @brief A struct that represents a view matrix
+ * @see eogllCreateView
+ *
+ * @deprecated This struct is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This struct is used to handle all view matrix related things.
+ */
 typedef EOGLL_DECL_STRUCT struct EogllView { // basically a camera
+    /// The view matrix
     mat4 view;
 } EogllView;
 
-EOGLL_DECL_FUNC_ND EogllView eogllCreateView();
-EOGLL_DECL_FUNC void eogllTranslateView3f(EogllView* view, float x, float y, float z);
-EOGLL_DECL_FUNC void eogllTranslateView(EogllView* view, vec3 translation);
-EOGLL_DECL_FUNC void eogllRotateView3f(EogllView* view, float angle, float x, float y, float z);
-EOGLL_DECL_FUNC void eogllRotateView(EogllView* view, float angle, vec3 axis);
-EOGLL_DECL_FUNC void eogllScaleView3f(EogllView* view, float x, float y, float z);
-EOGLL_DECL_FUNC void eogllScaleView(EogllView* view, vec3 scale);
-EOGLL_DECL_FUNC void eogllUpdateViewMatrix(EogllView* view, EogllShaderProgram* shader, const char* name);
-// TODO: add more view functions
+/**
+ * @brief Creates a view matrix
+ * @return The created view matrix
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function creates a view matrix.
+ */
+EOGLL_DECL_FUNC_ND DEPRECATED EogllView eogllCreateView();
 
+/**
+ * @brief Translates a view matrix
+ * @param view The view matrix to translate
+ * @param x The x component of the translation
+ * @param y The y component of the translation
+ * @param z The z component of the translation
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function translates the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllTranslateView3f(EogllView* view, float x, float y, float z);
+
+/**
+ * @brief Translates a view matrix
+ * @param view The view matrix to translate
+ * @param translation The translation
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function translates the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllTranslateView(EogllView* view, vec3 translation);
+
+/**
+ * @brief Rotates a view matrix
+ * @param view The view matrix to rotate
+ * @param angle The angle to rotate by
+ * @param x The x component of the axis to rotate around
+ * @param y The y component of the axis to rotate around
+ * @param z The z component of the axis to rotate around
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function rotates the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllRotateView3f(EogllView* view, float angle, float x, float y, float z);
+
+/**
+ * @brief Rotates a view matrix
+ * @param view The view matrix to rotate
+ * @param angle The angle to rotate by
+ * @param axis The axis to rotate around
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function rotates the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllRotateView(EogllView* view, float angle, vec3 axis);
+
+/**
+ * @brief Scales a view matrix
+ * @param view The view matrix to scale
+ * @param x The x component of the scale
+ * @param y The y component of the scale
+ * @param z The z component of the scale
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function scales the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllScaleView3f(EogllView* view, float x, float y, float z);
+
+/**
+ * @brief Scales a view matrix
+ * @param view The view matrix to scale
+ * @param scale The scale
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function scales the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllScaleView(EogllView* view, vec3 scale);
+
+/**
+ * @brief Updates a view matrix
+ * @param view The view matrix to update
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ * @see eogllCreateView
+ * @see EogllView
+ *
+ * @deprecated This function is deprecated (since 0.2.8), use mat4 instead
+ *
+ * This function updates the given view matrix.
+ */
+EOGLL_DECL_FUNC DEPRECATED void eogllUpdateViewMatrix(EogllView* view, EogllShaderProgram* shader, const char* name);
+#undef DEPRECATED
+
+/**
+ * @brief A struct that represents a projection matrix
+ * @see eogllCreateProjection
+ *
+ * This struct is used to handle all projection matrix related things.
+ *
+ * Sample usage:
+ * @code{.c}
+ * // init code
+ * EogllProjection* projection = eogllCreateProjection(45.0f, 0.1f, 100.0f);
+ *
+ * // before drawing
+ * eogllUpdateProjectionMatrix(projection, shader, "projection", width, height); // mat4 projection in the shader
+ * @endcode
+ */
 typedef EOGLL_DECL_STRUCT struct EogllProjection {
+    /// The fov of the projection matrix
     float fov;
+    /// The near of the projection matrix
     float near;
+    /// The far of the projection matrix
     float far;
+
+    /// The projection matrix
+    mat4 projection;
+
+    /// The last width used to update the projection matrix
+    uint32_t lastWidth;
+    /// The last height used to update the projection matrix
+    uint32_t lastHeight;
 } EogllProjection;
 
+/**
+ * @brief Creates a projection matrix
+ * @param fov The fov of the projection matrix
+ * @param near The near of the projection matrix
+ * @param far The far of the projection matrix
+ * @return The created projection matrix
+ * @see EogllProjection
+ *
+ * This function creates a projection matrix.
+ */
 EOGLL_DECL_FUNC_ND EogllProjection eogllPerspectiveProjection(float fov, float near, float far);
+
+/**
+ * @brief Updates a projection matrix
+ * @param projection The projection matrix to update
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ * @param width The width of the window
+ * @param height The height of the window
+ *
+ * This function updates the given projection matrix.
+ * This function should be called before drawing.
+ */
 EOGLL_DECL_FUNC void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
 
-
+/**
+ * @brief A struct that represents a model matrix
+ * @see eogllCreateModel
+ *
+ * This struct is used to handle all model matrix related things.
+ *
+ * Sample usage:
+ * @code{.c}
+ * // init code
+ * EogllModel* model = eogllCreateModel();
+ *
+ * // before drawing
+ * eogllRotateModel(model, (vec3){0.0f, 0.2f, 0.0f}); // rotates a bit
+ * eogllUpdateModelMatrix(model, shader, "model"); // mat4 model in the shader
+ * @endcode
+ */
 typedef EOGLL_DECL_STRUCT struct EogllModel {
+    /// The position
     vec3 pos;
+    /// The rotation
     vec3 rot;
+    /// The scale
     vec3 scale;
 } EogllModel;
 
+/**
+ * @brief Creates a model matrix
+ * @return The created model matrix
+ * @see EogllModel
+ *
+ * This function creates a model matrix.
+ */
 EOGLL_DECL_FUNC_ND EogllModel eogllCreateModel();
-EOGLL_DECL_FUNC void eogllRotateModel(EogllModel* model, vec3 axis);
-EOGLL_DECL_FUNC void eogllUpdateModelMatrix(EogllModel* model, EogllShaderProgram* shader, const char* name);
-// TODO: add more model functions
 
+/**
+ * @brief Rotates a model matrix
+ * @param model The model matrix to rotate
+ * @param angle The angle to rotate by
+ * @param x The x component of the axis to rotate around
+ * @param y The y component of the axis to rotate around
+ * @param z The z component of the axis to rotate around
+ *
+ * This function rotates the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllRotateModel3f(EogllModel* model, float angle, float x, float y, float z);
+
+/**
+ * @brief Rotates a model matrix
+ * @param model The model matrix to rotate
+ * @param angle The angle to rotate by
+ * @param axis The axis to rotate around
+ *
+ * This function rotates the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllRotateModel(EogllModel* model, float angle, vec3 axis);
+
+/**
+ * @brief Translates a model matrix
+ * @param model The model matrix to translate
+ * @param x The x component of the translation
+ * @param y The y component of the translation
+ * @param z The z component of the translation
+ *
+ * This function translates the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllTranslateModel3f(EogllModel* model, float x, float y, float z);
+
+/**
+ * @brief Translates a model matrix
+ * @param model The model matrix to translate
+ * @param translation The translation
+ *
+ * This function translates the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllTranslateModel(EogllModel* model, vec3 translation);
+
+/**
+ * @brief Scales a model matrix
+ * @param model The model matrix to scale
+ * @param x The x component of the scale
+ * @param y The y component of the scale
+ * @param z The z component of the scale
+ *
+ * This function scales the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllScaleModel3f(EogllModel* model, float x, float y, float z);
+
+/**
+ * @brief Scales a model matrix
+ * @param model The model matrix to scale
+ * @param scale The scale
+ *
+ * This function scales the given model matrix.
+ */
+EOGLL_DECL_FUNC void eogllScaleModel(EogllModel* model, vec3 scale);
+
+/**
+ * @brief Updates a model matrix
+ * @param model The model matrix to update
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ *
+ * This function updates the given model matrix.
+ * This function should be called before drawing.
+ */
+EOGLL_DECL_FUNC void eogllUpdateModelMatrix(EogllModel* model, EogllShaderProgram* shader, const char* name);
+
+/**
+ * @brief Enables depth testing
+ *
+ * This function enables depth testing.
+ */
 EOGLL_DECL_FUNC void eogllEnableDepth();
+
+/**
+ * @brief Enables transparency
+ *
+ * This function enables transparency.
+ */
 EOGLL_DECL_FUNC void eogllEnableTransparency();
 
-typedef EOGLL_DECL_STRUCT struct EogllCamera {
-    vec3 pos;
-    vec3 front;
-    vec3 up;
-    vec3 right;
-    vec3 worldUp;
+/**
+ * @brief Enables face culling
+ *
+ * This function enables face culling.
+ */
+EOGLL_DECL_FUNC void eogllEnableFaceCulling();
 
+/**
+ * @brief A struct that represents a camera
+ * @see eogllCreateCamera
+ *
+ * This struct is used to handle all camera related things.
+ */
+typedef EOGLL_DECL_STRUCT struct EogllCamera {
+    /// The position of the camera
+    vec3 pos;
+    /// The front vector of the camera
+    vec3 front;
+    /// The up vector of the camera
+    vec3 up;
+    /// The right vector of the camera
+    vec3 right;
+    /// The world up vector of the camera
+    vec3 worldUp;
+    /// The yaw of the camera
     float yaw;
+    /// The pitch of the camera
     float pitch;
 } EogllCamera;
 
+/**
+ * @brief A struct that represents a camera matrix
+ * @see eogllCameraMatrix
+ *
+ * This struct is used to return a matrix from eogllCameraMatrix.
+ * Since the mat4 is an array type, it can't be returned from a function.
+ */
+typedef EOGLL_DECL_STRUCT struct EogllCameraMatrix {
+    /// The view matrix
+    mat4 view;
+} EogllCameraMatrix;
+
+/**
+ * @brief Creates a camera
+ * @return The created camera
+ * @see EogllCamera
+ *
+ * This function creates a camera.
+ */
 EOGLL_DECL_FUNC_ND EogllCamera eogllCreateCamera();
-EOGLL_DECL_FUNC_ND EogllView eogllCameraMatrix(EogllCamera* camera);
+
+/**
+ * @brief Gets the camera matrix
+ * @param camera The camera to get the matrix from
+ * @return The camera matrix
+ * @see EogllCamera
+ *
+ * This function gets the camera matrix.
+ */
+EOGLL_DECL_FUNC_ND EogllCameraMatrix eogllCameraMatrix(EogllCamera* camera);
+
+/**
+ * @brief Translates a camera
+ * @param camera The camera to translate
+ * @param x The x component of the translation
+ * @param y The y component of the translation
+ * @param z The z component of the translation
+ *
+ * This function translates the given camera.
+ */
 EOGLL_DECL_FUNC void eogllTranslateCamera3f(EogllCamera* camera, float x, float y, float z);
+
+/**
+ * @brief Translates a camera
+ * @param camera The camera to translate
+ * @param translation The translation
+ *
+ * This function translates the given camera.
+ */
+EOGLL_DECL_FUNC void eogllTranslateCamera(EogllCamera* camera, vec3 translation);
+
+/**
+ * @brief Upadtes the camera vectors
+ * @param camera The camera to update the vectors for
+ *
+ * This function is used internally to update the camera vectors after using yaw or pitch.
+ * This function is not meant to be used by the user.
+ */
 EOGLL_DECL_FUNC void eogllUpdateCameraVectors(EogllCamera* camera);
+
+/**
+ * @brief Yaws a camera
+ * @param camera The camera to yaw
+ * @param amount The amount to yaw by
+ *
+ * This function yaws the given camera.
+ */
 EOGLL_DECL_FUNC void eogllYawCamera(EogllCamera* camera, float amount);
+
+/**
+ * @brief Pitches a camera
+ * @param camera The camera to pitch
+ * @param amount The amount to pitch by
+ *
+ * This function pitches the given camera.
+ */
 EOGLL_DECL_FUNC void eogllPitchCamera(EogllCamera* camera, float amount);
-// TODO: add more camera functions
 
-
+/**
+ * @brief An enum that represents a camera direction
+ *
+ * This enum is used to specify a camera direction.
+ * This enum is used by eogllMoveCamera.
+ */
 typedef EOGLL_DECL_ENUM enum EogllCameraDirection {
+    /// The camera direction forward
     EOGLL_FORWARD,
+    /// The camera direction backward
     EOGLL_BACKWARD,
+    /// The camera direction left
     EOGLL_LEFT,
+    /// The camera direction right
     EOGLL_RIGHT,
+    /// The camera direction up
     EOGLL_UP,
+    /// The camera direction down
     EOGLL_DOWN
 } EogllCameraDirection;
 
+/**
+ * @brief Moves a camera
+ * @param cam The camera to move
+ * @param dir The direction to move in
+ * @param amount The amount to move by
+ *
+ * This function moves the given camera.
+ */
 EOGLL_DECL_FUNC void eogllMoveCamera(EogllCamera* cam, EogllCameraDirection dir, float amount);
+
+/**
+ * @brief Updates a camera matrix
+ * @param camera The camera to update
+ * @param program The shader program to use
+ * @param name The name of the uniform
+ *
+ * This function updates the given camera matrix.
+ * This function should be called before drawing.
+ */
 EOGLL_DECL_FUNC void eogllUpdateCameraMatrix(EogllCamera* camera, EogllShaderProgram* program, const char* name);
 
 // Object loading stuff
@@ -1879,25 +2337,255 @@ EOGLL_DECL_FUNC void eogllUpdateCameraMatrix(EogllCamera* camera, EogllShaderPro
 //eogllAddObjectAttr(&objMode, GL_FLOAT, 2, EOGLL_ATTR_TEXTURE);
 //EogllBufferObject bufferObject = eogllBufferObjectLoad("resources/models/cube.obj", objMode);
 
+/**
+ * @brief An enum that represents an object attribute type
+ *
+ * This enum is used to specify an object attribute type.
+ * This enum is used by EogllObjectAttrs.
+ */
 typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
+    /// The default object attribute type
     EOGLL_ATTR_NONE,
+    /// The position object attribute type
     EOGLL_ATTR_POSITION,
+    /// The texture object attribute type
     EOGLL_ATTR_TEXTURE,
+    /// The normal object attribute type
     EOGLL_ATTR_NORMAL
 } EogllObjectAttrType;
 
-// TODO: specify the number of positions (normally 3 or 4) to use for the position attribute + same for texture and normal
+/**
+ * @brief Internal object loading struct for indexing
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectIndex {
+    /// The geometry index (position)
+    unsigned int geomIndex;
+    /// The normal index
+    unsigned int normalIndex;
+    /// The texture coordinate index
+    unsigned int texCoordIndex;
+    /// Whether or not the object has normals
+    bool hasNormal;
+    /// Whether or not the object has texture coordinates
+    bool hasTexCoord;
+} EogllObjectIndex;
+
+/**
+ * @brief Internal object loading struct for faces
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectFileFace {
+    /// The number of indices
+    unsigned int numIndices;
+    /// The indices
+    EogllObjectIndex *indices;
+} EogllObjectFileFace;
+
+/**
+ * @brief Internal object loading struct for storing position data
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectPosition {
+    /// The x component of the position
+    float x;
+    /// The y component of the position
+    float y;
+    /// The z component of the position
+    float z;
+    /// The w component of the position
+    float w;
+    /// Whether or not the object has a w component
+    bool hasW;
+} EogllObjectPosition;
+
+/**
+ * @brief Internal object loading struct for storing normal data
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectNormal {
+    /// The x component of the normal
+    float x;
+    /// The y component of the normal
+    float y;
+    /// The z component of the normal
+    float z;
+} EogllObjectNormal;
+
+/**
+ * @brief Internal object loading struct for storing texture coordinate data
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectTexCoord {
+    /// The u component of the texture coordinate
+    float u;
+    /// The v component of the texture coordinate
+    float v;
+    /// The w component of the texture coordinate
+    float w;
+    /// Whether or not the object has a v component
+    bool hasV;
+    /// Whether or not the object has a w component
+    bool hasW;
+} EogllObjectTexCoord;
+
+/**
+ * @brief Internal object loading struct for storing all of the object data
+ * @see EogllObjectAttrs
+ * @see eogllLoadBufferObject
+ *
+ * This struct is used internally by eogllLoadBufferObject.
+ */
+typedef struct EogllObjectFileData {
+    /// The number of faces
+    unsigned int numFaces;
+    /// The faces
+    EogllObjectFileFace *faces;
+    /// The number of positions
+    unsigned int numPositions;
+    /// The positions
+    EogllObjectPosition *positions;
+    /// The number of normals
+    unsigned int numNormals;
+    /// The normals
+    EogllObjectNormal *normals;
+    /// The number of texture coordinates
+    unsigned int numTexCoords;
+    /// The texture coordinates
+    EogllObjectTexCoord *texCoords;
+} EogllObjectFileData;
+
+/**
+ * @brief Parses an object file
+ * @param file The file to parse
+ * @param data The data to store the parsed data in
+ * @return EOGLL_SUCCESS if successful, EOGLL_FAILURE if not
+ * @see EogllObjectFileData
+ * @see eogllLoadBufferObject
+ *
+ * This function parses an object file.
+ * This function is used internally by eogllLoadBufferObject.
+ */
+EOGLL_DECL_FUNC_ND EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data);
+
+/**
+ * @brief Deletes an object file data struct
+ * @param data The object file data struct to delete
+ * @see EogllObjectFileData
+ * @see eogllLoadBufferObject
+ *
+ * This function deletes an object file data struct.
+ * This function is used internally by eogllLoadBufferObject.
+ */
+EOGLL_DECL_FUNC void eogllDeleteObjectFileData(EogllObjectFileData *data);
+
+/**
+ * @brief A struct that represents object attributes
+ * @see eogllCreateObjectAttrs
+ * @see eogllAddObjectAttr
+ *
+ * This struct is used to handle object attributes.
+ * Object attributes are similar to vertex attributes, but they also store the type of the attribute (where it comes from in the obj file).
+ * This allows us to load object files with customizable attributes (like position, texture, and normal).
+ *
+ * TODO: specify the number of positions (normally 3 or 4) to use for the position attribute + same for texture and normal
+ */
 typedef EOGLL_DECL_STRUCT struct EogllObjectAttrs {
-    EogllObjectAttrType types[8]; // probably will only use 3, but maybe there is more to the obj format that I don't know about
+    /// The types of the attributes
+    EogllObjectAttrType types[8];
+    /// The number of attributes
     uint32_t numTypes;
+    /// The attribute builder
     EogllAttribBuilder builder;
 } EogllObjectAttrs;
 
+/**
+ * @brief Converts an object file data struct to vertices and indices
+ * @param data The object file data struct to convert
+ * @param attrs The object attributes to use
+ * @param vertices Resulting vertices
+ * @param numVertices Resulting number of vertices
+ * @param indices Resulting indices
+ * @param numIndices Resulting number of indices
+ * @return EOGLL_SUCCESS if successful, EOGLL_FAILURE if not
+ *
+ * This function converts an object file data struct to vertices and indices.
+ * If something goes wrong with object loading (SEGFAULT or alike), this function is probably the culprit.
+ * This function is still a work in progress, and is not optimized or hardly tested.
+ * Bad input will easily cause a SEGFAULT.
+ * This function is used internally by eogllLoadObjectFile.
+ */
+EOGLL_DECL_FUNC_ND EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices);
+
+/**
+ * @brief Loads an object file
+ * @param path The path to the object file
+ * @param attrs The object attributes to use
+ * @param vertices Resulting vertices
+ * @param numVertices Resulting number of vertices
+ * @param indices Resulting indices
+ * @param numIndices Resulting number of indices
+ * @return EOGLL_SUCCESS if successful, EOGLL_FAILURE if not
+ * @see EogllObjectAttrs
+ * @see eogllObjectFileDataToVertices
+ * @see eogllParseObjectFile
+ *
+ * Uses eogllParseObjectFile and eogllObjectFileDataToVertices to load an object file.
+ * This function is used internally by eogllLoadBufferObject.
+ */
+EOGLL_DECL_FUNC_ND EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices);
+
+/**
+ * @brief Creates an object attributes struct
+ * @return The created object attributes struct
+ * @see EogllObjectAttrs
+ * @see eogllAddObjectAttr
+ *
+ * This function creates an object attributes struct.
+ */
 EOGLL_DECL_FUNC_ND EogllObjectAttrs eogllCreateObjectAttrs();
+
+/**
+ * @brief Adds an object attribute to an object attributes struct
+ * @param attrs The object attributes struct to add the attribute to
+ * @param type The type of the attribute
+ * @param num The number of components in the attribute
+ * @param attrType The type of the attribute (where it comes from in the obj file)
+ * @see EogllObjectAttrs
+ * @see eogllCreateObjectAttrs
+ *
+ * This function adds an object attribute to an object attributes struct.
+ */
 EOGLL_DECL_FUNC void eogllAddObjectAttr(EogllObjectAttrs* attrs, GLenum type, GLint num, EogllObjectAttrType attrType);
+
+/**
+ * @brief Loads a buffer object from an object file
+ * @param path The path to the object file
+ * @param attrs The object attributes to use
+ * @param usage The usage
+ * @return The created buffer object
+ * @see EogllObjectAttrs
+ * @see eogllLoadObjectFile
+ * @see eogllCreateBufferObject
+ *
+ * This function loads a buffer object from an object file.
+ */
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs, GLenum usage);
-
-
 
 #ifdef __cplusplus
 }

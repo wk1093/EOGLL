@@ -860,9 +860,14 @@ EogllProjection eogllPerspectiveProjection(float fov, float near, float far) {
 }
 
 void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height) {
-    mat4 projectionMatrix;
-    glm_perspective(projection->fov, (float)width / (float)height, projection->near, projection->far, projectionMatrix);
-    eogllSetUniformMatrix4fv(shader, name, projectionMatrix);
+    if (width == projection->lastWidth && height == projection->lastHeight) {
+        eogllSetUniformMatrix4fv(shader, name, projection->projection);
+    } else {
+        glm_perspective(projection->fov, (float)width / (float)height, projection->near, projection->far, projection->projection);
+        eogllSetUniformMatrix4fv(shader, name, projection->projection);
+        projection->lastWidth = width;
+        projection->lastHeight = height;
+    }
 }
 
 EogllModel eogllCreateModel() {
@@ -873,8 +878,31 @@ EogllModel eogllCreateModel() {
     return model;
 }
 
-void eogllRotateModel(EogllModel *model, vec3 axis) {
-    glm_vec3_add(model->rot, axis, model->rot);
+void eogllRotateModel3f(EogllModel *model, float angle, float x, float y, float z) {
+    float r = glm_rad(angle);
+    glm_vec3_add(model->rot, (vec3){r*x, r*y, r*z}, model->rot);
+}
+
+void eogllRotateModel(EogllModel *model, float angle, vec3 axis) {
+    vec3 res;
+    glm_vec3_scale(axis, glm_rad(angle), res);
+    glm_vec3_add(model->rot, res, model->rot);
+}
+
+void eogllTranslateModel3f(EogllModel *model, float x, float y, float z) {
+    glm_vec3_add(model->pos, (vec3){x, y, z}, model->pos);
+}
+
+void eogllTranslateModel(EogllModel *model, vec3 translation) {
+    glm_vec3_add(model->pos, translation, model->pos);
+}
+
+void eogllScaleModel3f(EogllModel *model, float x, float y, float z) {
+    glm_vec3_add(model->scale, (vec3){x, y, z}, model->scale);
+}
+
+void eogllScaleModel(EogllModel *model, vec3 scale) {
+    glm_vec3_add(model->scale, scale, model->scale);
 }
 
 void eogllUpdateModelMatrix(EogllModel* model, EogllShaderProgram* shader, const char* name) {
@@ -897,6 +925,11 @@ void eogllEnableTransparency() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
+void eogllEnableCulling() {
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+}
+
 EogllCamera eogllCreateCamera() {
     EogllCamera camera = {
             .pos = {0.0f, 0.0f, 0.0f},
@@ -909,8 +942,8 @@ EogllCamera eogllCreateCamera() {
     return camera;
 }
 
-EogllView eogllCameraMatrix(EogllCamera *camera) {
-    EogllView view = eogllCreateView();
+EogllCameraMatrix eogllCameraMatrix(EogllCamera *camera) {
+    EogllCameraMatrix view;
     vec3 res;
     glm_vec3_add(camera->pos, camera->front, res);
     glm_lookat(camera->pos, res, camera->up, view.view);
@@ -920,6 +953,12 @@ EogllView eogllCameraMatrix(EogllCamera *camera) {
 void eogllTranslateCamera3f(EogllCamera *camera, float x, float y, float z) {
     vec3 res;
     glm_vec3_add(camera->pos, (vec3) {x, y, z}, res);
+    glm_vec3_copy(res, camera->pos);
+}
+
+void eogllTranslateCamera(EogllCamera *camera, vec3 translation) {
+    vec3 res;
+    glm_vec3_add(camera->pos, translation, res);
     glm_vec3_copy(res, camera->pos);
 }
 
@@ -1001,8 +1040,8 @@ void eogllMoveCamera(EogllCamera *cam, EogllCameraDirection dir, float amount) {
 }
 
 void eogllUpdateCameraMatrix(EogllCamera *camera, EogllShaderProgram *program, const char *name) {
-    EogllView view = eogllCameraMatrix(camera);
-    eogllUpdateViewMatrix(&view, program, name);
+    EogllCameraMatrix view = eogllCameraMatrix(camera);
+    eogllSetUniformMatrix4fv(program, name, view.view);
 }
 
 EogllObjectAttrs eogllCreateObjectAttrs() {
@@ -1015,54 +1054,6 @@ void eogllAddObjectAttr(EogllObjectAttrs* attrs, GLenum type, GLint num, EogllOb
     eogllAddAttribute(&attrs->builder, type, num);
 }
 
-// object file data is not in the header because it is not needed outside of this file
-
-typedef struct {
-    unsigned int geomIndex;
-    unsigned int normalIndex;
-    unsigned int texCoordIndex;
-    bool hasNormal;
-    bool hasTexCoord;
-} EogllObjectIndex;
-
-typedef struct {
-    unsigned int numIndices;
-    EogllObjectIndex *indices;
-} EogllObjectFileFace;
-
-typedef struct {
-    float x;
-    float y;
-    float z;
-    float w;
-    bool hasW;
-} EogllObjectPosition;
-
-typedef struct {
-    float x;
-    float y;
-    float z;
-} EogllObjectNormal;
-
-typedef struct {
-    float u;
-    float v;
-    float w;
-    bool hasV;
-    bool hasW;
-} EogllObjectTexCoord;
-
-typedef struct {
-    unsigned int numFaces;
-    EogllObjectFileFace *faces;
-    // each type of vertice data is in a seperate array
-    unsigned int numPositions;
-    EogllObjectPosition *positions;
-    unsigned int numNormals;
-    EogllObjectNormal *normals;
-    unsigned int numTexCoords;
-    EogllObjectTexCoord *texCoords;
-} EogllObjectFileData;
 
 EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
     char line[256];
@@ -1272,29 +1263,29 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
     return EOGLL_SUCCESS;
 }
 
-void eogllPrintObjectData(EogllObjectFileData* data) {
-    printf("Positions:\n");
-    for (int i = 0; i < data->numPositions; i++) {
-        printf("%f %f %f %f\n", data->positions[i].x, data->positions[i].y, data->positions[i].z, data->positions[i].w);
-    }
-    printf("Normals:\n");
-    for (int i = 0; i < data->numNormals; i++) {
-        printf("%f %f %f\n", data->normals[i].x, data->normals[i].y, data->normals[i].z);
-    }
-    printf("Texture Coordinates:\n");
-    for (int i = 0; i < data->numTexCoords; i++) {
-        printf("%f %f %f\n", data->texCoords[i].u, data->texCoords[i].v, data->texCoords[i].w);
-    }
-    printf("Faces:\n");
-    for (int i = 0; i < data->numFaces; i++) {
-        printf("Face %d:\n", i);
-        for (int j = 0; j < data->faces[i].numIndices; j++) {
-            printf("%d/%d/%d ", data->faces[i].indices[j].geomIndex, data->faces[i].indices[j].texCoordIndex,
-                   data->faces[i].indices[j].normalIndex);
-        }
-        printf("\n");
-    }
-}
+//void eogllPrintObjectData(EogllObjectFileData* data) {
+//    printf("Positions:\n");
+//    for (int i = 0; i < data->numPositions; i++) {
+//        printf("%f %f %f %f\n", data->positions[i].x, data->positions[i].y, data->positions[i].z, data->positions[i].w);
+//    }
+//    printf("Normals:\n");
+//    for (int i = 0; i < data->numNormals; i++) {
+//        printf("%f %f %f\n", data->normals[i].x, data->normals[i].y, data->normals[i].z);
+//    }
+//    printf("Texture Coordinates:\n");
+//    for (int i = 0; i < data->numTexCoords; i++) {
+//        printf("%f %f %f\n", data->texCoords[i].u, data->texCoords[i].v, data->texCoords[i].w);
+//    }
+//    printf("Faces:\n");
+//    for (int i = 0; i < data->numFaces; i++) {
+//        printf("Face %d:\n", i);
+//        for (int j = 0; j < data->faces[i].numIndices; j++) {
+//            printf("%d/%d/%d ", data->faces[i].indices[j].geomIndex, data->faces[i].indices[j].texCoordIndex,
+//                   data->faces[i].indices[j].normalIndex);
+//        }
+//        printf("\n");
+//    }
+//}
 
 EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices) {
     FILE* file = fopen(path, "r");

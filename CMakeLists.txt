@@ -4,7 +4,7 @@ project(eogll C)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 2)
-set(EOGLL_VERSION_PATCH 7)
+set(EOGLL_VERSION_PATCH 8)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
