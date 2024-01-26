@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.26)
 project(eogll C)
 
+# versioning
+set(EOGLL_VERSION_MAJOR 0)
+set(EOGLL_VERSION_MINOR 2)
+set(EOGLL_VERSION_PATCH 6)
+
+set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
+# this version goes into the header eogll_version.h
+configure_file(
+        "${PROJECT_SOURCE_DIR}/include/eogll_version.h.in"
+        "${PROJECT_BINARY_DIR}/include/eogll_version.h"
+)
 
 file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)
 if(EXISTS "${LOC_PATH}")
@@ -10,6 +21,7 @@ endif()
 
 set(CMAKE_C_STANDARD 11)
 
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 add_subdirectory(thirdparty/glad)
 add_subdirectory(thirdparty/glfw)
 add_subdirectory(thirdparty/hedley)
@@ -18,7 +30,7 @@ add_subdirectory(thirdparty/cglm)
 
 add_library(eogll STATIC include/eogll.h src/eogll.c)
 
-target_include_directories(eogll PUBLIC include)
+target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 
 target_link_libraries(eogll glad glfw hedley stb cglm)
 
@@ -30,3 +42,8 @@ endif()
 add_executable(eogll_test examples/dragon.c)
 
 target_link_libraries(eogll_test eogll)
+
+option(BUILD_WITH_DOCS "Generate Docs" ON)
+IF(BUILD_WITH_DOCS)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/docs)
+ENDIF()

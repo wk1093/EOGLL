@@ -310,6 +310,11 @@ void eogllSetMousePos(EogllWindow* window, double xpos, double ypos) {
     window->mousey = ypos;
 }
 
+void eogllGetMouseDelta(EogllWindow* window, double* dxpos, double* dypos) {
+    *dxpos = window->mousedx;
+    *dypos = window->mousedy;
+}
+
 void eogllGetMouseScroll(EogllWindow* window, double* xscroll, double* yscroll) {
     *xscroll = window->mouseScrollx;
     *yscroll = window->mouseScrolly;
@@ -343,6 +348,8 @@ void eogllGetCursorPos(EogllWindow* window, double* xpos, double* ypos) {
 void eogllSetCursorPos(EogllWindow* window, double xpos, double ypos) {
     EOGLL_LOG_TRACE(stdout, "%f %f\n", xpos, ypos);
     glfwSetCursorPos(window->window, xpos, ypos);
+    window->mousex = xpos;
+    window->mousey = ypos;
 }
 
 static inline int max( int a , int b )
@@ -708,6 +715,8 @@ EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vb
 
 void eogllDrawBufferObject(EogllBufferObject* bufferObject, GLenum mode) {
     if (!bufferObject->hasIndices) {
+        // Maybe we should just draw it as a basic buffer object?
+        // TODO: figure out what to do here (for now we just log an error)
         EOGLL_LOG_ERROR(stderr, "Buffer object has no indices\n");
         return;
     }
