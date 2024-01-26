@@ -1138,6 +1138,7 @@ EOGLL_DECL_FUNC_ND double eogllGetTime();
  */
 EOGLL_DECL_FUNC void eogllSetCursorMode(EogllWindow* window, int mode);
 
+#define DEPRECATED HEDLEY_DEPRECATED(0.2.6)
 /**
  * @brief A representation of a color
  * @see eogllClearColor
@@ -1149,7 +1150,7 @@ EOGLL_DECL_FUNC void eogllSetCursorMode(EogllWindow* window, int mode);
  * This struct is used to represent a color.
  *
  */
-typedef EOGLL_DECL_STRUCT struct EogllColor {
+typedef EOGLL_DECL_STRUCT DEPRECATED struct EogllColor {
     /// The red component of the color
     float r;
 
@@ -1162,6 +1163,7 @@ typedef EOGLL_DECL_STRUCT struct EogllColor {
     /// The alpha component of the color
     float a;
 } EogllColor;
+#undef DEPRECATED
 
 #define DEPRECATED HEDLEY_DEPRECATED_FOR(0.2.6, glClearColor(color.r, color.g, color.b, color.a))
 /**
@@ -1801,6 +1803,7 @@ EOGLL_DECL_FUNC void eogllSetWireframeMode(bool enable);
  *
  * // or if you want to use a specific texture unit and uniform
  * eogllBindTextureUniform(texture, shader, "texture", 0);
+ * @endcode
  *
  */
 typedef EOGLL_DECL_STRUCT struct EogllTexture {
@@ -1883,7 +1886,7 @@ EOGLL_DECL_FUNC void eogllBindTextureUniform(EogllTexture* texture, EogllShaderP
  *
  * This struct is used to handle all view matrix related things.
  */
-typedef EOGLL_DECL_STRUCT struct EogllView { // basically a camera
+typedef EOGLL_DECL_STRUCT DEPRECATED struct EogllView { // basically a camera
     /// The view matrix
     mat4 view;
 } EogllView;
@@ -2361,7 +2364,7 @@ typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectIndex {
+typedef EOGLL_DECL_STRUCT struct EogllObjectIndex {
     /// The geometry index (position)
     unsigned int geomIndex;
     /// The normal index
@@ -2381,7 +2384,7 @@ typedef struct EogllObjectIndex {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectFileFace {
+typedef EOGLL_DECL_STRUCT struct EogllObjectFileFace {
     /// The number of indices
     unsigned int numIndices;
     /// The indices
@@ -2395,7 +2398,7 @@ typedef struct EogllObjectFileFace {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectPosition {
+typedef EOGLL_DECL_STRUCT struct EogllObjectPosition {
     /// The x component of the position
     float x;
     /// The y component of the position
@@ -2415,7 +2418,7 @@ typedef struct EogllObjectPosition {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectNormal {
+typedef EOGLL_DECL_STRUCT struct EogllObjectNormal {
     /// The x component of the normal
     float x;
     /// The y component of the normal
@@ -2431,7 +2434,7 @@ typedef struct EogllObjectNormal {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectTexCoord {
+typedef EOGLL_DECL_STRUCT struct EogllObjectTexCoord {
     /// The u component of the texture coordinate
     float u;
     /// The v component of the texture coordinate
@@ -2451,7 +2454,7 @@ typedef struct EogllObjectTexCoord {
  *
  * This struct is used internally by eogllLoadBufferObject.
  */
-typedef struct EogllObjectFileData {
+typedef EOGLL_DECL_STRUCT struct EogllObjectFileData {
     /// The number of faces
     unsigned int numFaces;
     /// The faces
