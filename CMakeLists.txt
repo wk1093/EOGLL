@@ -4,7 +4,7 @@ project(eogll C)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 3)
-set(EOGLL_VERSION_PATCH 1)
+set(EOGLL_VERSION_PATCH 3)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -42,7 +42,18 @@ add_library(eogll STATIC include/eogll.h src/eogll.c
         include/eogll/texture.h
         include/eogll/transforms.h
         include/eogll/camera.h
-        include/eogll/obj_loader.h)
+        include/eogll/obj_loader.h
+        src/version.c
+        src/util.c
+        src/window.c
+        src/shader.c
+        src/gl.c
+        src/attrib_builder.c
+        src/buffer_object.c
+        src/texture.c
+        src/transforms.c
+        src/camera.c
+        src/obj_loader.c)
 
 target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 

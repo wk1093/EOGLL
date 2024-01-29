@@ -11,6 +11,7 @@
 #define _EOGLL_WINDOW_H_
 
 #include "pch.h"
+#include "input.h"
 
 #ifdef _cplusplus
 extern "C" {
