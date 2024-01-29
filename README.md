@@ -15,4 +15,3 @@ Documentation finished, will be available soon.
  - Squash commits
  - Publish docs
  - Write tutorials and examples
- - Publish documentation

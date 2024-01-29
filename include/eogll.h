@@ -2358,6 +2358,30 @@ typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
 } EogllObjectAttrType;
 
 /**
+ * @brief A struct that represents object attributes
+ * @see eogllCreateObjectAttrs
+ * @see eogllAddObjectAttr
+ *
+ * This struct is used to handle object attributes.
+ * Object attributes are similar to vertex attributes, but they also store the type of the attribute (where it comes from in the obj file).
+ * This allows us to load object files with customizable attributes.
+ *
+ * Sample usage:
+ * @code{.c}
+ * EogllObjectAttrs objMode = eogllCreateObjectAttrs();
+ * eogllAddObjectAttr(&objMode, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
+ * eogllAddObjectAttr(&objMode, GL_FLOAT, 2, EOGLL_ATTR_TEXTURE);
+ * EogllBufferObject bufferObject = eogllBufferObjectLoad("resources/models/cube.obj", objMode);
+ * @endcode
+ */
+typedef EOGLL_DECL_STRUCT struct EogllObjectAttr {
+    /// The type of the attribute
+    EogllObjectAttrType type;
+    /// The amount of components in the attribute
+    GLint num;
+} EogllObjectAttr;
+
+/**
  * @brief Internal object loading struct for indexing
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
@@ -2506,11 +2530,10 @@ EOGLL_DECL_FUNC void eogllDeleteObjectFileData(EogllObjectFileData *data);
  * Object attributes are similar to vertex attributes, but they also store the type of the attribute (where it comes from in the obj file).
  * This allows us to load object files with customizable attributes (like position, texture, and normal).
  *
- * TODO: specify the number of positions (normally 3 or 4) to use for the position attribute + same for texture and normal
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectAttrs {
     /// The types of the attributes
-    EogllObjectAttrType types[8];
+    EogllObjectAttr types[8];
     /// The number of attributes
     uint32_t numTypes;
     /// The attribute builder

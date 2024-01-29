@@ -12,7 +12,7 @@ int main() {
     EogllShaderProgram* shaderProgram = eogllLinkProgramFromFile("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");
 
     EogllModel model = eogllCreateModel(); // matrix
-    eogllRotateModel(&model, (vec3) {0.0f, 45.0f, 0.0f}); // rotate 45 degrees on y axis
+    eogllRotateModel(&model, 45.0f,  (vec3) {0.0f, 1.0f, 0.0f}); // rotate 45 degrees on y axis
 
     EogllCamera camera = eogllCreateCamera();
 
@@ -32,7 +32,7 @@ int main() {
     EOGLL_LOG_INFO(stdout, "Loaded model in %f seconds\n", end - start);
 
     while (!eogllWindowShouldClose(window)) {
-        eogllRotateModel(&model, (vec3) {0.52f, 1.0f, 0.123f});
+        eogllRotateModel(&model, 50.0f, (vec3) {0.52f, 1.0f, 0.123f});
 
         if (window->isDown[GLFW_KEY_ESCAPE]) {
             eogllSetWindowShouldClose(window, true);

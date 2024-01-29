@@ -1050,7 +1050,7 @@ EogllObjectAttrs eogllCreateObjectAttrs() {
 }
 
 void eogllAddObjectAttr(EogllObjectAttrs* attrs, GLenum type, GLint num, EogllObjectAttrType attrType) {
-    attrs->types[attrs->numTypes++] = attrType;
+    attrs->types[attrs->numTypes++] = (EogllObjectAttr){attrType, num};
     eogllAddAttribute(&attrs->builder, type, num);
 }
 
@@ -1230,29 +1230,67 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
                     EOGLL_LOG_ERROR(stderr, "Vertex index %d is out of bounds\n", vertexIndex);
                     return EOGLL_FAILURE;
                 }
-                switch (attrs.types[k]) {
-                    case EOGLL_ATTR_POSITION:
-                        (*vertices)[vertexIndex++] = position.x;
-                        (*vertices)[vertexIndex++] = position.y;
-                        (*vertices)[vertexIndex++] = position.z;
-                        if (position.hasW) {
-                            (*vertices)[vertexIndex++] = position.w;
+                GLint num = attrs.types[k].num;
+                switch (attrs.types[k].type) {
+                    case EOGLL_ATTR_POSITION: {
+                        if (num == 4) {
+                            (*vertices)[vertexIndex++] = position.x;
+                            (*vertices)[vertexIndex++] = position.y;
+                            (*vertices)[vertexIndex++] = position.z;
+                            if (position.hasW) {
+                                (*vertices)[vertexIndex++] = position.w;
+                            } else {
+                                (*vertices)[vertexIndex++] = 1.0f;
+                            }
+                        } else if (num == 3) {
+                            (*vertices)[vertexIndex++] = position.x;
+                            (*vertices)[vertexIndex++] = position.y;
+                            (*vertices)[vertexIndex++] = position.z;
+                        } else if (num == 2) {
+                            (*vertices)[vertexIndex++] = position.x;
+                            (*vertices)[vertexIndex++] = position.y;
+                        } else {
+                            EOGLL_LOG_WARN(stderr, "Unknown number of position components %d\n", num);
                         }
-                        break;
-                    case EOGLL_ATTR_NORMAL:
+
+                    } break;
+                    case EOGLL_ATTR_NORMAL: {
+                        if (num != 3) {
+                            EOGLL_LOG_WARN(stderr, "Unknown number of normal components %d (expected 3)\n", num);
+                        }
                         (*vertices)[vertexIndex++] = normal.x;
                         (*vertices)[vertexIndex++] = normal.y;
                         (*vertices)[vertexIndex++] = normal.z;
-                        break;
-                    case EOGLL_ATTR_TEXTURE:
-                        (*vertices)[vertexIndex++] = texCoord.u;
-                        if (texCoord.hasV) {
-                            (*vertices)[vertexIndex++] = texCoord.v;
+                    } break;
+                    case EOGLL_ATTR_TEXTURE: {
+                        if (num == 3) {
+                            (*vertices)[vertexIndex++] = texCoord.u;
+                            if (texCoord.hasV) {
+                                (*vertices)[vertexIndex++] = texCoord.v;
+                            } else {
+                                EOGLL_LOG_WARN(stderr, "Texture coordinate %d has no v component\n", index.texCoordIndex);
+                                (*vertices)[vertexIndex++] = 0.0f;
+                            }
+                            if (texCoord.hasW) {
+                                (*vertices)[vertexIndex++] = texCoord.w;
+                            } else {
+                                EOGLL_LOG_WARN(stderr, "Texture coordinate %d has no w component\n", index.texCoordIndex);
+                                (*vertices)[vertexIndex++] = 0.0f;
+                            }
+                        } else if (num == 2) {
+                            (*vertices)[vertexIndex++] = texCoord.u;
+                            if (texCoord.hasV) {
+                                (*vertices)[vertexIndex++] = texCoord.v;
+                            } else {
+                                EOGLL_LOG_WARN(stderr, "Texture coordinate %d has no v component\n", index.texCoordIndex);
+                                (*vertices)[vertexIndex++] = 0.0f;
+                            }
+                        } else if (num == 1) {
+                            (*vertices)[vertexIndex++] = texCoord.u;
+                        } else {
+                            EOGLL_LOG_WARN(stderr, "Unknown number of texture components %d\n", num);
                         }
-                        if (texCoord.hasW) {
-                            (*vertices)[vertexIndex++] = texCoord.w;
-                        }
-                        break;
+                    } break;
                     default:
                         EOGLL_LOG_WARN(stderr, "Unknown attribute type %d\n", attrs.types[k]);
                         break;
