@@ -38,6 +38,7 @@
 #include "eogll/transforms.h"
 #include "eogll/camera.h"
 #include "eogll/obj_loader.h"
+#include "eogll/gl.h"
 
 // TODO: Check if Doxygen still works
 // TODO: Add more documentation
