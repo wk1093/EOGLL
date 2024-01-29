@@ -1,17 +1,17 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/defines.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/defines.h">
-<area shape="rect" id="node1" title="EOGLL definitions header file." alt="" coords="337,5,555,47"/>
-<area shape="rect" id="node2" href="$pch_8h.html" title="EOGLL precompiled header file." alt="" coords="794,95,989,136"/>
-<area shape="rect" id="node5" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="667,392,857,433"/>
-<area shape="rect" id="node3" href="$attrib__builder_8h.html" title="EOGLL attribute builder header file." alt="" coords="39,184,234,240"/>
-<area shape="rect" id="node4" href="$obj__loader_8h.html" title="EOGLL object loading header file." alt="" coords="91,288,281,344"/>
-<area shape="rect" id="node6" href="$buffer__object_8h.html" title="EOGLL buffer object header file." alt="" coords="309,184,506,240"/>
-<area shape="rect" id="node7" href="$camera_8h.html" title="EOGLL camera header file." alt="" coords="896,295,1116,337"/>
-<area shape="rect" id="node8" href="$gl_8h.html" title="EOGLL gl header file." alt="" coords="1261,191,1452,233"/>
-<area shape="rect" id="node9" href="$input_8h.html" title="EOGLL input header file." alt="" coords="531,191,735,233"/>
-<area shape="rect" id="node10" href="$window_8h.html" title="EOGLL window header file." alt="" coords="408,295,628,337"/>
-<area shape="rect" id="node11" href="$logging_8h.html" title="EOGLL logging header file." alt="" coords="653,295,871,337"/>
-<area shape="rect" id="node12" href="$shader_8h.html" title="EOGLL shader header file." alt="" coords="971,191,1185,233"/>
-<area shape="rect" id="node13" href="$texture_8h.html" title="EOGLL texture header file." alt="" coords="1191,295,1410,337"/>
-<area shape="rect" id="node14" href="$transforms_8h.html" title="EOGLL shader header file." alt="" coords="1434,295,1677,337"/>
-<area shape="rect" id="node15" href="$util_8h.html" title="EOGLL utilities header file." alt="" coords="1534,191,1726,233"/>
+<area shape="rect" id="node1" title="EOGLL definitions header file." alt="" coords="334,5,553,47"/>
+<area shape="rect" id="node2" href="$pch_8h.html" title="EOGLL precompiled header file." alt="" coords="857,95,1051,136"/>
+<area shape="rect" id="node5" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="717,392,908,433"/>
+<area shape="rect" id="node3" href="$attrib__builder_8h.html" title="EOGLL attribute builder header file." alt="" coords="147,184,342,240"/>
+<area shape="rect" id="node4" href="$obj__loader_8h.html" title="EOGLL object loading header file." alt="" coords="312,288,503,344"/>
+<area shape="rect" id="node6" href="$buffer__object_8h.html" title="EOGLL buffer object header file." alt="" coords="417,184,614,240"/>
+<area shape="rect" id="node7" href="$camera_8h.html" title="EOGLL camera header file." alt="" coords="925,295,1145,337"/>
+<area shape="rect" id="node8" href="$gl_8h.html" title="EOGLL gl header file." alt="" coords="45,295,236,337"/>
+<area shape="rect" id="node9" href="$input_8h.html" title="EOGLL input header file." alt="" coords="639,191,843,233"/>
+<area shape="rect" id="node10" href="$window_8h.html" title="EOGLL window header file." alt="" coords="629,295,849,337"/>
+<area shape="rect" id="node11" href="$logging_8h.html" title="EOGLL logging header file." alt="" coords="918,191,1137,233"/>
+<area shape="rect" id="node12" href="$shader_8h.html" title="EOGLL shader header file." alt="" coords="1212,191,1427,233"/>
+<area shape="rect" id="node13" href="$texture_8h.html" title="EOGLL texture header file." alt="" coords="1221,295,1439,337"/>
+<area shape="rect" id="node14" href="$transforms_8h.html" title="EOGLL shader header file." alt="" coords="1463,295,1706,337"/>
+<area shape="rect" id="node15" href="$util_8h.html" title="EOGLL utilities header file." alt="" coords="1562,191,1754,233"/>
 </map>
