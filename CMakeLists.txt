@@ -1,10 +1,17 @@
 cmake_minimum_required(VERSION 3.26)
 project(eogll C)
 
+# If BUILD_EOGLL is OFF, then the examples are also not built.
+# The examples are built if BUILD_EOGLL is ON and BUILD_EXAMPLES is ON.
+# The docs are built if BUILD_DOCS is ON. BUILD_EOGLL does not affect the docs.
+option(BUILD_EOGLL "Build EOGLL Library" ON)
+option(BUILD_DOCS "Generate Docs" ON)
+option(BUILD_EXAMPLES "Build Examples" ON)
+
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 3)
-set(EOGLL_VERSION_PATCH 4)
+set(EOGLL_VERSION_PATCH 5)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -22,7 +29,6 @@ endif()
 set(CMAKE_C_STANDARD 11)
 
 # allow disabling of all libraries for docs
-option(BUILD_EOGLL "Build EOGLL" ON)
 
 if (BUILD_EOGLL)
     set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -69,12 +75,12 @@ if (BUILD_EOGLL)
     endif()
 
 
-    add_executable(eogll_test examples/dragon.c)
-    target_link_libraries(eogll_test eogll)
+        if (BUILD_EXAMPLES)
+            add_subdirectory(examples)
+        endif()
 
 endif()
 
-option(BUILD_WITH_DOCS "Generate Docs" ON)
-IF(BUILD_WITH_DOCS)
+IF(BUILD_DOCS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/docs)
 ENDIF()

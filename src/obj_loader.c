@@ -291,6 +291,7 @@ EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float*
         EOGLL_LOG_ERROR(stderr, "Failed to open file %s\n", path);
         return EOGLL_FAILURE;
     }
+    double start = eogllGetTime();
     EogllObjectFileData data;
     if (eogllParseObjectFile(file, &data) != EOGLL_SUCCESS) {
         EOGLL_LOG_ERROR(stderr, "Failed to parse object file %s\n", path);
@@ -299,14 +300,22 @@ EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float*
 
     EOGLL_LOG_DEBUG(stdout, "Parsed object file %s\n", path);
 
+    double middle = eogllGetTime();
+
     if (eogllObjectFileDataToVertices(&data, attrs, vertices, numVertices, indices, numIndices) != EOGLL_SUCCESS) {
         EOGLL_LOG_ERROR(stderr, "Failed to convert object file data to vertices\n");
         return EOGLL_FAILURE;
     }
+
+    double end = eogllGetTime();
+
+
     eogllDeleteObjectFileData(&data);
 
-    EOGLL_LOG_DEBUG(stdout, "Converted object file data to vertices\n");
-    EOGLL_LOG_DEBUG(stdout, "Num vertices: %d\n", *numVertices);
+    EOGLL_LOG_INFO(stdout, "Object Loaded.\n");
+    EOGLL_LOG_INFO(stdout, "Num vertices: %d\n", *numVertices);
+    EOGLL_LOG_INFO(stdout, "Parsed in %f seconds\n", middle - start);
+    EOGLL_LOG_INFO(stdout, "Converted in %f seconds\n", end - middle);
 
     return EOGLL_SUCCESS;
 

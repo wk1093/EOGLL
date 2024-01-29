@@ -25,11 +25,7 @@ int main() {
     eogllAddObjectAttr(&objMode, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
     eogllAddObjectAttr(&objMode, GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
     // time to load the model
-    double start = eogllGetTime();
     EogllBufferObject bufferObject = eogllLoadBufferObject("resources/models/dragon.obj", objMode, GL_STATIC_DRAW);
-    double end = eogllGetTime();
-
-    EOGLL_LOG_INFO(stdout, "Loaded model in %f seconds\n", end - start);
 
     while (!eogllWindowShouldClose(window)) {
         eogllRotateModel(&model, 50.0f, (vec3) {0.52f, 1.0f, 0.123f});
