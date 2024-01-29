@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
 /**
- * @brief This struct represents a vertex attribute
+ * @brief *Internal*
  * @see eogllCreateAttribBuilder
  * @see eogllAddAttribute
  * @see EogllAttribBuilder

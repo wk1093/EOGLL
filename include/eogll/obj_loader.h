@@ -1,5 +1,5 @@
 /**
- * @file camera.h
+ * @file obj_loader.h
  * @brief EOGLL object loading header file
  * @date 2024-01-28
  *
@@ -19,11 +19,12 @@ extern "C" {
 #endif
 
 /**
-* @brief An enum that represents an object attribute type
-*
-* This enum is used to specify an object attribute type.
-* This enum is used by EogllObjectAttrs.
-*/
+ * @brief An enum that represents an object attribute type
+ *
+ * This enum is used to specify an object attribute type.
+ * This enum is used by EogllObjectAttrs.
+ *
+ */
 typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
     /// The default object attribute type
     EOGLL_ATTR_NONE,
@@ -35,8 +36,10 @@ typedef EOGLL_DECL_ENUM enum EogllObjectAttrType {
     EOGLL_ATTR_NORMAL
 } EogllObjectAttrType;
 
+
+// we want this to display as if it is in a namespace Internal
 /**
- * @brief A struct that represents object attributes
+ * @brief *Internal*
  * @see eogllCreateObjectAttrs
  * @see eogllAddObjectAttr
  *
@@ -60,11 +63,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectAttr {
 } EogllObjectAttr;
 
 /**
- * @brief Internal object loading struct for indexing
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A way to store indices for an object.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectIndex {
     /// The geometry index (position)
@@ -80,11 +83,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectIndex {
 } EogllObjectIndex;
 
 /**
- * @brief Internal object loading struct for faces
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A way to store faces for an object.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectFileFace {
     /// The number of indices
@@ -94,11 +97,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectFileFace {
 } EogllObjectFileFace;
 
 /**
- * @brief Internal object loading struct for storing position data
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A way to store positions for an object.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectPosition {
     /// The x component of the position
@@ -114,11 +117,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectPosition {
 } EogllObjectPosition;
 
 /**
- * @brief Internal object loading struct for storing normal data
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A way to store normals for an object.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectNormal {
     /// The x component of the normal
@@ -130,11 +133,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectNormal {
 } EogllObjectNormal;
 
 /**
- * @brief Internal object loading struct for storing texture coordinate data
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A way to store texture coordinates for an object.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectTexCoord {
     /// The u component of the texture coordinate
@@ -150,11 +153,11 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectTexCoord {
 } EogllObjectTexCoord;
 
 /**
- * @brief Internal object loading struct for storing all of the object data
+ * @brief *Internal*
  * @see EogllObjectAttrs
  * @see eogllLoadBufferObject
  *
- * This struct is used internally by eogllLoadBufferObject.
+ * A representation of an object file, that can be used to load an object file.
  */
 typedef EOGLL_DECL_STRUCT struct EogllObjectFileData {
     /// The number of faces
@@ -176,26 +179,24 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectFileData {
 } EogllObjectFileData;
 
 /**
- * @brief Parses an object file
+ * @brief *Internal*
  * @param file The file to parse
  * @param data The data to store the parsed data in
  * @return EOGLL_SUCCESS if successful, EOGLL_FAILURE if not
  * @see EogllObjectFileData
  * @see eogllLoadBufferObject
  *
- * This function parses an object file.
- * This function is used internally by eogllLoadBufferObject.
+ * This function parses an object file into an object file data struct.
  */
 EOGLL_DECL_FUNC_ND EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data);
 
 /**
- * @brief Deletes an object file data struct
+ * @brief *Internal*
  * @param data The object file data struct to delete
  * @see EogllObjectFileData
  * @see eogllLoadBufferObject
  *
  * This function deletes an object file data struct.
- * This function is used internally by eogllLoadBufferObject.
  */
 EOGLL_DECL_FUNC void eogllDeleteObjectFileData(EogllObjectFileData *data);
 
@@ -219,7 +220,7 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectAttrs {
 } EogllObjectAttrs;
 
 /**
- * @brief Converts an object file data struct to vertices and indices
+ * @brief *Internal*
  * @param data The object file data struct to convert
  * @param attrs The object attributes to use
  * @param vertices Resulting vertices
@@ -233,11 +234,15 @@ typedef EOGLL_DECL_STRUCT struct EogllObjectAttrs {
  * This function is still a work in progress, and is not optimized or hardly tested.
  * Bad input will easily cause a SEGFAULT.
  * This function is used internally by eogllLoadObjectFile.
+ *
+ * @warning This function is still a work in progress, and is not optimized or hardly tested.
+ *
+ * @todo Optimize this function and test it more
  */
 EOGLL_DECL_FUNC_ND EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices);
 
 /**
- * @brief Loads an object file
+ * @brief *Internal*
  * @param path The path to the object file
  * @param attrs The object attributes to use
  * @param vertices Resulting vertices
@@ -250,7 +255,6 @@ EOGLL_DECL_FUNC_ND EogllResult eogllObjectFileDataToVertices(EogllObjectFileData
  * @see eogllParseObjectFile
  *
  * Uses eogllParseObjectFile and eogllObjectFileDataToVertices to load an object file.
- * This function is used internally by eogllLoadBufferObject.
  */
 EOGLL_DECL_FUNC_ND EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float** vertices, uint32_t* numVertices, unsigned int** indices, uint32_t* numIndices);
 

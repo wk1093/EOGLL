@@ -1,0 +1,42 @@
+name: Doxygen CMake GitHub Pages Deploy Action
+# Builds doxygen with CMake and deploys the documentation to GitHub Pages
+# cmake -B build .
+# cmake --build build --target docs
+# (output in build/docs/html)
+# we need to be allowed to push to gh-pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen
+          sudo apt-get install -y graphviz
+          sudo apt-get install -y cmake
+      - name: Build Docs
+        run: |
+          cmake -DBUILD_EOGLL=OFF -B build .
+          cmake --build build --target docs
+      - name: Create .nojekyll
+        run: |
+          touch build/docs/html/.nojekyll
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build/docs/html
+          target-folder: .

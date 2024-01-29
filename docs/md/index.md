@@ -60,7 +60,7 @@ int main() {
 
 ## Deprecation
 
-Any function that is deprecated before the 1.0.0 release will be removed in 1.0.0.
+Any function that is deprecated before the 1.0.0 release will be removed in, or before, 1.0.0.
 
 ## License
 

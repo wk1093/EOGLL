@@ -6,6 +6,7 @@ HTML_EXTRA_STYLESHEET  = "@CMAKE_CURRENT_SOURCE_DIR@/doxygen-awesome.css" "@CMAK
 HTML_COLORSTYLE        = LIGHT
 HTML_HEADER            = "@CMAKE_CURRENT_SOURCE_DIR@/header.html"
 HTML_EXTRA_FILES       = "@CMAKE_CURRENT_SOURCE_DIR@/doxygen-awesome-darkmode-toggle.js" "@CMAKE_CURRENT_SOURCE_DIR@/doxygen-awesome-fragment-copy-button.js"
+RECURSIVE              = YES
 
 # Project related stuff
 PROJECT_NAME           = "@PROJECT_NAME@"

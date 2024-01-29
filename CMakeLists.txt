@@ -4,7 +4,7 @@ project(eogll C)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 3)
-set(EOGLL_VERSION_PATCH 3)
+set(EOGLL_VERSION_PATCH 4)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -21,52 +21,58 @@ endif()
 
 set(CMAKE_C_STANDARD 11)
 
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-add_subdirectory(thirdparty/glad)
-add_subdirectory(thirdparty/glfw)
-add_subdirectory(thirdparty/hedley)
-add_subdirectory(thirdparty/stb)
-add_subdirectory(thirdparty/cglm)
+# allow disabling of all libraries for docs
+option(BUILD_EOGLL "Build EOGLL" ON)
 
-add_library(eogll STATIC include/eogll.h src/eogll.c
-        include/eogll/input.h
-        include/eogll/defines.h
-        include/eogll/logging.h
-        include/eogll/util.h
-        include/eogll/window.h
-        include/eogll/shader.h
-        include/eogll/pch.h
-        include/eogll/gl.h
-        include/eogll/attrib_builder.h
-        include/eogll/buffer_object.h
-        include/eogll/texture.h
-        include/eogll/transforms.h
-        include/eogll/camera.h
-        include/eogll/obj_loader.h
-        src/version.c
-        src/util.c
-        src/window.c
-        src/shader.c
-        src/gl.c
-        src/attrib_builder.c
-        src/buffer_object.c
-        src/texture.c
-        src/transforms.c
-        src/camera.c
-        src/obj_loader.c)
+if (BUILD_EOGLL)
+    set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+    add_subdirectory(thirdparty/glad)
+    add_subdirectory(thirdparty/glfw)
+    add_subdirectory(thirdparty/hedley)
+    add_subdirectory(thirdparty/stb)
+    add_subdirectory(thirdparty/cglm)
 
-target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
+    add_library(eogll STATIC include/eogll.h src/eogll.c
+            include/eogll/input.h
+            include/eogll/defines.h
+            include/eogll/logging.h
+            include/eogll/util.h
+            include/eogll/window.h
+            include/eogll/shader.h
+            include/eogll/pch.h
+            include/eogll/gl.h
+            include/eogll/attrib_builder.h
+            include/eogll/buffer_object.h
+            include/eogll/texture.h
+            include/eogll/transforms.h
+            include/eogll/camera.h
+            include/eogll/obj_loader.h
+            src/version.c
+            src/util.c
+            src/window.c
+            src/shader.c
+            src/gl.c
+            src/attrib_builder.c
+            src/buffer_object.c
+            src/texture.c
+            src/transforms.c
+            src/camera.c
+            src/obj_loader.c)
 
-target_link_libraries(eogll glad glfw hedley stb cglm)
+    target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 
-if (CMAKE_BUILD_TYPE MATCHES Debug)
-    message("Debug build.")
-    target_compile_definitions(eogll PUBLIC EOGLL_DEBUG)
+    target_link_libraries(eogll glad glfw hedley stb cglm)
+
+    if (CMAKE_BUILD_TYPE MATCHES Debug)
+        message("Debug build.")
+        target_compile_definitions(eogll PUBLIC EOGLL_DEBUG)
+    endif()
+
+
+    add_executable(eogll_test examples/dragon.c)
+    target_link_libraries(eogll_test eogll)
+
 endif()
-
-add_executable(eogll_test examples/dragon.c)
-
-target_link_libraries(eogll_test eogll)
 
 option(BUILD_WITH_DOCS "Generate Docs" ON)
 IF(BUILD_WITH_DOCS)
