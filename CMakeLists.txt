@@ -9,8 +9,8 @@ set(EOGLL_VERSION_PATCH 1)
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
 configure_file(
-        "${PROJECT_SOURCE_DIR}/include/eogll_version.h.in"
-        "${PROJECT_BINARY_DIR}/include/eogll_version.h"
+        "include/eogll/version.h.in"
+        "${PROJECT_BINARY_DIR}/include/eogll/version.h"
 )
 
 file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)
@@ -28,7 +28,21 @@ add_subdirectory(thirdparty/hedley)
 add_subdirectory(thirdparty/stb)
 add_subdirectory(thirdparty/cglm)
 
-add_library(eogll STATIC include/eogll.h src/eogll.c)
+add_library(eogll STATIC include/eogll.h src/eogll.c
+        include/eogll/input.h
+        include/eogll/defines.h
+        include/eogll/logging.h
+        include/eogll/util.h
+        include/eogll/window.h
+        include/eogll/shader.h
+        include/eogll/pch.h
+        include/eogll/gl.h
+        include/eogll/attrib_builder.h
+        include/eogll/buffer_object.h
+        include/eogll/texture.h
+        include/eogll/transforms.h
+        include/eogll/camera.h
+        include/eogll/obj_loader.h)
 
 target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 

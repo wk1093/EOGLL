@@ -24,7 +24,6 @@ EogllResult eogllInit() {
     EOGLL_LOG_INFO(stdout, "%s\n", eogllGetVersionString());
     EOGLL_LOG_INFO(stdout, "GLFW %s\n", glfwGetVersionString());
 
-
     return EOGLL_SUCCESS;
 }
 
@@ -444,33 +443,6 @@ void eogllSetCursorMode(EogllWindow* window, int mode) {
     glfwSetInputMode(window->window, GLFW_CURSOR, mode);
 }
 
-void eogllClearColor(EogllColor color) {
-    EOGLL_LOG_TRACE(stdout, "%f %f %f %f\n", color.r, color.g, color.b, color.a);
-    glClearColor(color.r, color.g, color.b, color.a);
-}
-
-EogllColor eogllCreateColor(float r, float g, float b, float a) {
-    EogllColor color;
-    color.r = r;
-    color.g = g;
-    color.b = b;
-    color.a = a;
-    return color;
-}
-
-bool eogllColorEqual(EogllColor a, EogllColor b) {
-    return a.r == b.r && a.g == b.g && a.b == b.b && a.a == b.a;
-}
-
-EogllColor EOGLL_COLOR_BLACK = {0.0f, 0.0f, 0.0f, 1.0f};
-EogllColor EOGLL_COLOR_WHITE = {1.0f, 1.0f, 1.0f, 1.0f};
-EogllColor EOGLL_COLOR_RED = {1.0f, 0.0f, 0.0f, 1.0f};
-EogllColor EOGLL_COLOR_GREEN = {0.0f, 1.0f, 0.0f, 1.0f};
-EogllColor EOGLL_COLOR_BLUE = {0.0f, 0.0f, 1.0f, 1.0f};
-EogllColor EOGLL_COLOR_YELLOW = {1.0f, 1.0f, 0.0f, 1.0f};
-EogllColor EOGLL_COLOR_MAGENTA = {1.0f, 0.0f, 1.0f, 1.0f};
-EogllColor EOGLL_COLOR_CYAN = {0.0f, 1.0f, 1.0f, 1.0f};
-EogllColor EOGLL_COLOR_TRANSPARENT = {0.0f, 0.0f, 0.0f, 0.0f};
 
 EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char* fragmentShaderSource) {
     EogllShaderProgram *shader = (EogllShaderProgram *) malloc(sizeof(EogllShaderProgram));
