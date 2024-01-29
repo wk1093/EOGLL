@@ -1,0 +1,8 @@
+<map id="EogllObjectFileData" name="EogllObjectFileData">
+<area shape="rect" id="node1" title="Internal" alt="" coords="304,184,455,211"/>
+<area shape="rect" id="node2" href="$structEogllObjectPosition.html" title="Internal" alt="" coords="5,95,153,121"/>
+<area shape="rect" id="node3" href="$structEogllObjectFileFace.html" title="Internal" alt="" coords="177,95,325,121"/>
+<area shape="rect" id="node4" href="$structEogllObjectIndex.html" title="Internal" alt="" coords="185,5,317,32"/>
+<area shape="rect" id="node5" href="$structEogllObjectNormal.html" title="Internal" alt="" coords="350,95,494,121"/>
+<area shape="rect" id="node6" href="$structEogllObjectTexCoord.html" title="Internal" alt="" coords="519,95,675,121"/>
+</map>
