@@ -1,29 +1,18 @@
 var transforms_8h =
 [
-    [ "EogllView", "structEogllView.html", "structEogllView" ],
     [ "EogllProjection", "structEogllProjection.html", "structEogllProjection" ],
     [ "EogllModel", "structEogllModel.html", "structEogllModel" ],
     [ "_EOGLL_TRANSFORMS_H_", "transforms_8h.html#afdbec77ddd96f3e731b3ec7e8069cdd0", null ],
-    [ "DEPRECATED", "transforms_8h.html#ac1e8a42306d8e67cb94ca31c3956ee78", null ],
     [ "EogllModel", "transforms_8h.html#af56bb6947e6d6e72b819028a34022d0c", null ],
     [ "EogllProjection", "transforms_8h.html#a1841c44611a393c7929a4919579c25f0", null ],
-    [ "EogllView", "transforms_8h.html#a43fd20ab20e56290650d997c8801bdf2", null ],
     [ "eogllCreateModel", "transforms_8h.html#a8f0e6793e4dc0f0184c3a6f786dcef5c", null ],
-    [ "eogllCreateView", "transforms_8h.html#a9d60c5fafdbaf7bfff177b7166b955da", null ],
     [ "eogllPerspectiveProjection", "transforms_8h.html#a86792d8eb0dd329b5ad80e6fc5665807", null ],
     [ "eogllRotateModel", "transforms_8h.html#a58d92a2d00911bad51fc167afdb06339", null ],
     [ "eogllRotateModel3f", "transforms_8h.html#ad143b268024736b956a408af084247ac", null ],
-    [ "eogllRotateView", "transforms_8h.html#a78c29f7ea5908e59d6cb78a3e401a374", null ],
-    [ "eogllRotateView3f", "transforms_8h.html#a02043d0e0da91a4ebce30cffaf07b87f", null ],
     [ "eogllScaleModel", "transforms_8h.html#ae28a415c4b798843f71eebf22ee205b6", null ],
     [ "eogllScaleModel3f", "transforms_8h.html#a3ebba10fe697d98f7d04ab1edb237fff", null ],
-    [ "eogllScaleView", "transforms_8h.html#a1a40edeae971365b0efc9d023854aa58", null ],
-    [ "eogllScaleView3f", "transforms_8h.html#a4ff4371eb601d9c02cf5b0ec4edf2a05", null ],
     [ "eogllTranslateModel", "transforms_8h.html#a3e3ad37f7d9f3c24a0bff68bdec8e2c6", null ],
     [ "eogllTranslateModel3f", "transforms_8h.html#ae0e87da4684615788a15ab61557147d9", null ],
-    [ "eogllTranslateView", "transforms_8h.html#afc23b0682a05d90a922495d85948c028", null ],
-    [ "eogllTranslateView3f", "transforms_8h.html#ae378bc08b1e689e95f462ec8f230b521", null ],
     [ "eogllUpdateModelMatrix", "transforms_8h.html#a8f126cb5ad55298f33dd53aaa6b8de34", null ],
-    [ "eogllUpdateProjectionMatrix", "transforms_8h.html#a949e213b9209d6bd32aa7fbd65eb603a", null ],
-    [ "eogllUpdateViewMatrix", "transforms_8h.html#a91ff535de3ccc5a603be220963d6f2e6", null ]
+    [ "eogllUpdateProjectionMatrix", "transforms_8h.html#a949e213b9209d6bd32aa7fbd65eb603a", null ]
 ];

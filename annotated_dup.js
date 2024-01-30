@@ -17,7 +17,6 @@ var annotated_dup =
     [ "EogllShaderProgram", "structEogllShaderProgram.html", "structEogllShaderProgram" ],
     [ "EogllTexture", "structEogllTexture.html", "structEogllTexture" ],
     [ "EogllVertAttribData", "structEogllVertAttribData.html", "structEogllVertAttribData" ],
-    [ "EogllView", "structEogllView.html", "structEogllView" ],
     [ "EogllWindow", "structEogllWindow.html", "structEogllWindow" ],
     [ "EogllWindowHints", "structEogllWindowHints.html", "structEogllWindowHints" ]
 ];
