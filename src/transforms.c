@@ -1,39 +1,5 @@
 #include "eogll/transforms.h"
 
-EogllView eogllCreateView() {
-    EogllView view;
-    glm_mat4_identity(view.view);
-    return view;
-}
-
-void eogllTranslateView(EogllView *view, vec3 translation) {
-    glm_translate(view->view, translation);
-}
-
-void eogllTranslateView3f(EogllView *view, float x, float y, float z) {
-    glm_translate(view->view, (vec3){x, y, z});
-}
-
-void eogllRotateView(EogllView *view, float angle, vec3 axis) {
-    glm_rotate(view->view, glm_rad(angle), axis);
-}
-
-void eogllRotateView3f(EogllView *view, float angle, float x, float y, float z) {
-    glm_rotate(view->view, glm_rad(angle), (vec3){x, y, z});
-}
-
-void eogllScaleView(EogllView *view, vec3 scale) {
-    glm_scale(view->view, scale);
-}
-
-void eogllScaleView3f(EogllView *view, float x, float y, float z) {
-    glm_scale(view->view, (vec3){x, y, z});
-}
-
-void eogllUpdateViewMatrix(EogllView* view, EogllShaderProgram* shader, const char* name) {
-    eogllSetUniformMatrix4fv(shader, name, view->view);
-}
-
 EogllProjection eogllPerspectiveProjection(float fov, float near, float far) {
     EogllProjection projection;
     projection.fov = glm_rad(fov);
