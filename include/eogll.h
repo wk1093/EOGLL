@@ -40,10 +40,8 @@
 #include "eogll/obj_loader.h"
 #include "eogll/gl.h"
 
-// TODO: Check if Doxygen still works
 // TODO: Add more documentation
 // TODO: Add more examples and tutorials
-// TODO: Publish Doxygen documentation
 // TODO: Add trace logging everywhere
 // TODO: File logging
 // TODO: Search for memory leaks
@@ -52,7 +50,6 @@
 // Might have been because I had previous info in my build folder, because it happened when I laumched the first time, then I
 // relaunched, but for some reason it rebuilt, then it never happened again
 // TODO: Better debug logging
-// TODO: Squash commits
 
 #ifdef __cplusplus
 extern "C" {
