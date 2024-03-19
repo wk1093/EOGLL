@@ -6,5 +6,6 @@ var texture_8h =
     [ "eogllBindTexture", "texture_8h.html#af4075911696987eda2cabefdabe9c41b", null ],
     [ "eogllBindTextureUniform", "texture_8h.html#ace4eefd019c1a821665b0d9136507c55", null ],
     [ "eogllCreateTexture", "texture_8h.html#ae1a15aa99bef40eb6488c8abe80090bd", null ],
+    [ "eogllCreateTextureFromBuffer", "texture_8h.html#abebe351e3f5e73aae9e861b1fa9a35d3", null ],
     [ "eogllDeleteTexture", "texture_8h.html#afd16c44dd22d60a2e996860012065662", null ]
 ];
