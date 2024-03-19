@@ -300,12 +300,12 @@ void eogllSetCursorPos(EogllWindow* window, double xpos, double ypos) {
     window->mousey = ypos;
 }
 
-static inline int max( int a , int b )
+static inline int inl_max(int a , int b )
 {
     return a > b ? a : b;
 }
 
-static inline int min( int a , int b )
+static inline int inl_min( int a , int b )
 {
     return a < b ? a : b;
 }
@@ -337,14 +337,14 @@ bool glfwSetWindowCenter(GLFWwindow *window) {
             continue;
 
         // Get intersection of two rectangles - screen and window
-        int minX = max(mx, px);
-        int minY = max(my, py);
+        int minX = inl_max(mx, px);
+        int minY = inl_max(my, py);
 
-        int maxX = min(mx+mode->width, px+sx);
-        int maxY = min(my+mode->height, py+sy);
+        int maxX = inl_min(mx+mode->width, px+sx);
+        int maxY = inl_min(my+mode->height, py+sy);
 
         // Calculate area of the intersection
-        int area = max(maxX - minX, 0) * max(maxY - minY , 0);
+        int area = inl_max(maxX - minX, 0) * inl_max(maxY - minY, 0);
 
         // If its bigger than actual (window covers more space on this monitor)
         if(area > best_area)
