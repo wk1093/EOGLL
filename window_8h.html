@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.3.8</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
   </td>
  </tr>
@@ -183,9 +183,9 @@ typedef <a class="el" href="defines_8h.html#af67c01ae7506c9243d1d35b5513e0d07">E
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3cc3c655ae04f50ae0e6ae5af7c59258"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllWindowHints.html">EogllWindowHints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a3cc3c655ae04f50ae0e6ae5af7c59258">eogllCreateWindowHints</a> (bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused)</td></tr>
-<tr class="memdesc:a3cc3c655ae04f50ae0e6ae5af7c59258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a window hints struct.  <a href="window_8h.html#a3cc3c655ae04f50ae0e6ae5af7c59258">More...</a><br /></td></tr>
-<tr class="separator:a3cc3c655ae04f50ae0e6ae5af7c59258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b74485fd9ab3fce3482754220df3925"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllWindowHints.html">EogllWindowHints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a0b74485fd9ab3fce3482754220df3925">eogllCreateWindowHints</a> (bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent)</td></tr>
+<tr class="memdesc:a0b74485fd9ab3fce3482754220df3925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a window hints struct.  <a href="window_8h.html#a0b74485fd9ab3fce3482754220df3925">More...</a><br /></td></tr>
+<tr class="separator:a0b74485fd9ab3fce3482754220df3925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54d84f180d20db16873e23110e0e6b6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllWindowHints.html">EogllWindowHints</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a54d84f180d20db16873e23110e0e6b6b">eogllDefaultWindowHints</a> ()</td></tr>
 <tr class="memdesc:a54d84f180d20db16873e23110e0e6b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a window hints struct with default values.  <a href="window_8h.html#a54d84f180d20db16873e23110e0e6b6b">More...</a><br /></td></tr>
 <tr class="separator:a54d84f180d20db16873e23110e0e6b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -353,8 +353,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3cc3c655ae04f50ae0e6ae5af7c59258"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cc3c655ae04f50ae0e6ae5af7c59258">&#9670;&nbsp;</a></span>eogllCreateWindowHints()</h2>
+<a id="a0b74485fd9ab3fce3482754220df3925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b74485fd9ab3fce3482754220df3925">&#9670;&nbsp;</a></span>eogllCreateWindowHints()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +393,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>focused</em>&#160;</td>
+          <td class="paramname"><em>focused</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>transparent</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -412,6 +418,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">maximized</td><td>Whether or not the window is maximized </td></tr>
     <tr><td class="paramname">visible</td><td>Whether or not the window is visible </td></tr>
     <tr><td class="paramname">focused</td><td>Whether or not the window is focused (this is only the starting state, the window can go in and out of focus later) </td></tr>
+    <tr><td class="paramname">transparent</td><td>Whether or not the window is transparent </td></tr>
   </table>
   </dd>
 </dl>
@@ -440,7 +447,7 @@ Functions</h2></td></tr>
 
 <p>Creates a window hints struct with default values. </p>
 <dl class="section return"><dt>Returns</dt><dd>The created window hints struct </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#a3cc3c655ae04f50ae0e6ae5af7c59258" title="Creates a window hints struct.">eogllCreateWindowHints</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#a0b74485fd9ab3fce3482754220df3925" title="Creates a window hints struct.">eogllCreateWindowHints</a> </dd>
 <dd>
 <a class="el" href="structEogllWindowHints.html" title="A struct that holds all the extra data to create a window.">EogllWindowHints</a></dd></dl>
 <p>This function creates a window hints struct with the following values: resizable: true decorated: true floating: false maximized: false visible: true focused: true </p>

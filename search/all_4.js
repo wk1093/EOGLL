@@ -57,7 +57,7 @@ var searchData=
   ['eogllcreatetexture_63',['eogllCreateTexture',['../texture_8h.html#ae1a15aa99bef40eb6488c8abe80090bd',1,'texture.h']]],
   ['eogllcreatetexturefrombuffer_64',['eogllCreateTextureFromBuffer',['../texture_8h.html#abebe351e3f5e73aae9e861b1fa9a35d3',1,'texture.h']]],
   ['eogllcreatewindow_65',['eogllCreateWindow',['../window_8h.html#a19ccc6053cb2bcf7e3d5b1c520f85400',1,'window.h']]],
-  ['eogllcreatewindowhints_66',['eogllCreateWindowHints',['../window_8h.html#a3cc3c655ae04f50ae0e6ae5af7c59258',1,'window.h']]],
+  ['eogllcreatewindowhints_66',['eogllCreateWindowHints',['../window_8h.html#a0b74485fd9ab3fce3482754220df3925',1,'window.h']]],
   ['eoglldefaultwindowhints_67',['eogllDefaultWindowHints',['../window_8h.html#a54d84f180d20db16873e23110e0e6b6b',1,'window.h']]],
   ['eoglldeletebufferobject_68',['eogllDeleteBufferObject',['../buffer__object_8h.html#a18ce77beaa1cf2b237271f8688ecc68d',1,'buffer_object.h']]],
   ['eoglldeleteobjectfiledata_69',['eogllDeleteObjectFileData',['../obj__loader_8h.html#a2b2f0cfa4cd4c811ef1903d4a7cc0b59',1,'obj_loader.h']]],

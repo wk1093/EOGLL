@@ -13,7 +13,7 @@ var window_8h =
     [ "EogllWindowHints", "window_8h.html#a95f1516227e5a2e4167c6244ebccdea6", null ],
     [ "eogllCenterWindow", "window_8h.html#ab7d2d02ecb3e2f69bac661a15c8e5933", null ],
     [ "eogllCreateWindow", "window_8h.html#a19ccc6053cb2bcf7e3d5b1c520f85400", null ],
-    [ "eogllCreateWindowHints", "window_8h.html#a3cc3c655ae04f50ae0e6ae5af7c59258", null ],
+    [ "eogllCreateWindowHints", "window_8h.html#a0b74485fd9ab3fce3482754220df3925", null ],
     [ "eogllDefaultWindowHints", "window_8h.html#a54d84f180d20db16873e23110e0e6b6b", null ],
     [ "eogllDestroyWindow", "window_8h.html#afb5d65630c22e8ec16730911ba42d7a5", null ],
     [ "eogllGetCursorPos", "window_8h.html#ad002f86745078ec5eb5d1d75a6a77963", null ],

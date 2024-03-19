@@ -5,6 +5,7 @@ var searchData=
   ['texture_2eh_225',['texture.h',['../texture_8h.html',1,'']]],
   ['todo_20list_226',['Todo List',['../todo.html',1,'']]],
   ['transforms_2eh_227',['transforms.h',['../transforms_8h.html',1,'']]],
-  ['type_228',['type',['../structEogllVertAttribData.html#a124a36aff53ed6c56d465ca53887d356',1,'EogllVertAttribData::type()'],['../structEogllObjectAttr.html#a94f9583009e7d93b422dfbb178431f58',1,'EogllObjectAttr::type()']]],
-  ['types_229',['types',['../structEogllObjectAttrs.html#ac9efdbea5aa17839467e61c407ddd4ca',1,'EogllObjectAttrs']]]
+  ['transparent_228',['transparent',['../structEogllWindowHints.html#a95878ec5b38ed23e2e63617f66a4fbb2',1,'EogllWindowHints']]],
+  ['type_229',['type',['../structEogllVertAttribData.html#a124a36aff53ed6c56d465ca53887d356',1,'EogllVertAttribData::type()'],['../structEogllObjectAttr.html#a94f9583009e7d93b422dfbb178431f58',1,'EogllObjectAttr::type()']]],
+  ['types_230',['types',['../structEogllObjectAttrs.html#ac9efdbea5aa17839467e61c407ddd4ca',1,'EogllObjectAttrs']]]
 ];
