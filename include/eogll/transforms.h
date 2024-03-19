@@ -72,7 +72,7 @@ EOGLL_DECL_FUNC_ND EogllProjection eogllPerspectiveProjection(float fov, float n
  * This function updates the given projection matrix.
  * This function should be called before drawing.
  */
-EOGLL_DECL_FUNC void eogllUpdateProjectionMatrix(const EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
+EOGLL_DECL_FUNC void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
 
 /**
  * @brief A struct that represents a model matrix
