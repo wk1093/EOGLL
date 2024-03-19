@@ -71,6 +71,16 @@ typedef EOGLL_DECL_STRUCT struct EogllTexture {
 EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTexture(const char* path);
 
 /**
+ * @brief Creates a texture from a buffer
+ * @param buffer The buffer to create the texture from
+ * @param size The length of the buffer
+ * @return The created texture
+ * @see eogllBindTexture
+ * @see eogllCreateTexture
+ */
+EOGLL_DECL_FUNC_ND EogllTexture* eogllCreateTextureFromBuffer(const uint8_t* buffer, size_t size);
+
+/**
  * @brief Binds a texture
  * @param texture The texture to bind
  * @see eogllCreateTexture
