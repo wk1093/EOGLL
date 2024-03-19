@@ -82,7 +82,7 @@ void eogllWindowFocusCallback(GLFWwindow* window, int focused) {
     eogllWindow->focused = focused;
 }
 
-EogllWindowHints eogllCreateWindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused) {
+EogllWindowHints eogllCreateWindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent) {
     EogllWindowHints hints;
     hints.resizable = resizable;
     hints.decorated = decorated;
@@ -90,11 +90,12 @@ EogllWindowHints eogllCreateWindowHints(bool resizable, bool decorated, bool flo
     hints.maximized = maximized;
     hints.visible = visible;
     hints.focused = focused;
+    hints.transparent = transparent;
     return hints;
 }
 
 EogllWindowHints eogllDefaultWindowHints() {
-    return eogllCreateWindowHints(true, true, false, false, true, true);
+    return eogllCreateWindowHints(true, true, false, false, true, true, false);
 }
 
 EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* title, EogllWindowHints hints) {
@@ -129,6 +130,7 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
     glfwWindowHint(GLFW_MAXIMIZED, hints.maximized);
     glfwWindowHint(GLFW_VISIBLE, hints.visible);
     glfwWindowHint(GLFW_FOCUSED, hints.focused);
+    glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, hints.transparent);
     // 330 core
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);

@@ -100,6 +100,9 @@ typedef EOGLL_DECL_STRUCT struct EogllWindowHints {
 
     /// Whether or not the window is focused (this is only the starting state, the window can go in and out of focus later)
     bool focused;
+
+    /// Whether or not the window is transparent
+    bool transparent;
 } EogllWindowHints;
 
 /**
@@ -110,13 +113,14 @@ typedef EOGLL_DECL_STRUCT struct EogllWindowHints {
  * @param maximized Whether or not the window is maximized
  * @param visible Whether or not the window is visible
  * @param focused Whether or not the window is focused (this is only the starting state, the window can go in and out of focus later)
+ * @param transparent Whether or not the window is transparent
  * @return The created window hints struct
  * @see eogllDefaultWindowHints
  * @see EogllWindowHints
  *
  * This function creates a window hints struct with the given values
  */
-EOGLL_DECL_FUNC_ND EogllWindowHints eogllCreateWindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused);
+EOGLL_DECL_FUNC_ND EogllWindowHints eogllCreateWindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent);
 
 /**
  * @brief Creates a window hints struct with default values
