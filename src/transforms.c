@@ -8,7 +8,7 @@ EogllProjection eogllPerspectiveProjection(float fov, float near, float far) {
     return projection;
 }
 
-void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height) {
+void eogllUpdateProjectionMatrix(const EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height) {
     if (width == projection->lastWidth && height == projection->lastHeight) {
         eogllSetUniformMatrix4fv(shader, name, projection->projection);
     } else {
@@ -54,7 +54,7 @@ void eogllScaleModel(EogllModel *model, vec3 scale) {
     glm_vec3_add(model->scale, scale, model->scale);
 }
 
-void eogllUpdateModelMatrix(EogllModel* model, EogllShaderProgram* shader, const char* name) {
+void eogllUpdateModelMatrix(const EogllModel* model, EogllShaderProgram* shader, const char* name) {
     mat4 modelMatrix;
     glm_mat4_identity(modelMatrix);
     glm_translate(modelMatrix, model->pos);
