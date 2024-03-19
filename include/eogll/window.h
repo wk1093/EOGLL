@@ -486,7 +486,7 @@ EOGLL_DECL_FUNC void eogllCenterWindow(EogllWindow* window);
  */
 EOGLL_DECL_FUNC void eogllSetCursorMode(EogllWindow* window, int mode);
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 }
 #endif
 
