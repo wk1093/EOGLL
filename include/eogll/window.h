@@ -13,7 +13,7 @@
 #include "pch.h"
 #include "input.h"
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
