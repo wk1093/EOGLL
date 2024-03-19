@@ -13,6 +13,6 @@ var transforms_8h =
     [ "eogllScaleModel3f", "transforms_8h.html#a3ebba10fe697d98f7d04ab1edb237fff", null ],
     [ "eogllTranslateModel", "transforms_8h.html#a3e3ad37f7d9f3c24a0bff68bdec8e2c6", null ],
     [ "eogllTranslateModel3f", "transforms_8h.html#ae0e87da4684615788a15ab61557147d9", null ],
-    [ "eogllUpdateModelMatrix", "transforms_8h.html#a8f126cb5ad55298f33dd53aaa6b8de34", null ],
-    [ "eogllUpdateProjectionMatrix", "transforms_8h.html#a949e213b9209d6bd32aa7fbd65eb603a", null ]
+    [ "eogllUpdateModelMatrix", "transforms_8h.html#a4bb208927c479a917ceb251a37f5cb64", null ],
+    [ "eogllUpdateProjectionMatrix", "transforms_8h.html#a4552c31b2d8eeacea03e2695f5ddf12f", null ]
 ];
