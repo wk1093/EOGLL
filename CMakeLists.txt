@@ -11,7 +11,7 @@ option(BUILD_EXAMPLES "Build Examples" ON)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 4)
-set(EOGLL_VERSION_PATCH 1)
+set(EOGLL_VERSION_PATCH 2)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -32,6 +32,9 @@ set(CMAKE_C_STANDARD 11)
 
 if (BUILD_EOGLL)
     set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+    set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+    set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
     add_subdirectory(thirdparty/glad)
     add_subdirectory(thirdparty/glfw)
     add_subdirectory(thirdparty/hedley)
