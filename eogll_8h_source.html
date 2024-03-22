@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.4.1</span>
    </div>
   </td>
  </tr>
@@ -126,31 +126,32 @@ $(document).ready(function(){initNavTree('eogll_8h_source.html',''); initResizab
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="camera_8h.html">eogll/camera.h</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="obj__loader_8h.html">eogll/obj_loader.h</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gl_8h.html">eogll/gl.h</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// TODO: Add more documentation</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// TODO: Add more examples and tutorials</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// TODO: Add trace logging everywhere</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// TODO: File logging</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// TODO: Search for memory leaks</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// TODO: Test on Linux</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// TODO: I think there might be a bug where it will crash sometimes when launching (might be fixed, only happened to me once)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// Might have been because I had previous info in my build folder, because it happened when I laumched the first time, then I</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// relaunched, but for some reason it rebuilt, then it never happened again</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// TODO: Better debug logging</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">   65</a></span>&#160;<a class="code" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="code" href="defines_8h.html#ab0114e706396cd01f152212950b26e66">EogllResult</a> <a class="code" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">   72</a></span>&#160;<a class="code" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> <span class="keywordtype">void</span> <a class="code" href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">eogllTerminate</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// _EOGLL_H_</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="framebuffer_8h.html">eogll/framebuffer.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// TODO: Add more documentation</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// TODO: Add more examples and tutorials</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// TODO: Add trace logging everywhere</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// TODO: File logging</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// TODO: Search for memory leaks</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// TODO: Test on Linux</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// TODO: I think there might be a bug where it will crash sometimes when launching (might be fixed, only happened to me once)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// Might have been because I had previous info in my build folder, because it happened when I laumched the first time, then I</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// relaunched, but for some reason it rebuilt, then it never happened again</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// TODO: Better debug logging</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">   66</a></span>&#160;<a class="code" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="code" href="defines_8h.html#ab0114e706396cd01f152212950b26e66">EogllResult</a> <a class="code" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">   73</a></span>&#160;<a class="code" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> <span class="keywordtype">void</span> <a class="code" href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">eogllTerminate</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// _EOGLL_H_</span></div>
 <div class="ttc" id="aattrib__builder_8h_html"><div class="ttname"><a href="attrib__builder_8h.html">attrib_builder.h</a></div><div class="ttdoc">EOGLL attribute builder header file.</div></div>
 <div class="ttc" id="abuffer__object_8h_html"><div class="ttname"><a href="buffer__object_8h.html">buffer_object.h</a></div><div class="ttdoc">EOGLL buffer object header file.</div></div>
 <div class="ttc" id="acamera_8h_html"><div class="ttname"><a href="camera_8h.html">camera.h</a></div><div class="ttdoc">EOGLL camera header file.</div></div>
@@ -160,6 +161,7 @@ $(document).ready(function(){initNavTree('eogll_8h_source.html',''); initResizab
 <div class="ttc" id="adefines_8h_html_ab292762855c67e24b0380967c244b7a5"><div class="ttname"><a href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a></div><div class="ttdeci">#define EOGLL_DECL_FUNC_ND</div><div class="ttdoc">Declares a function where the return value is not meant to be discarded.</div><div class="ttdef"><b>Definition:</b> defines.h:57</div></div>
 <div class="ttc" id="aeogll_8h_html_a24c56625e687f4c0033bc3c78cd9da2b"><div class="ttname"><a href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a></div><div class="ttdeci">EOGLL_DECL_FUNC_ND EogllResult eogllInit()</div><div class="ttdoc">Initializes EOGLL.</div></div>
 <div class="ttc" id="aeogll_8h_html_aa88b6823e9482a1fabffc8b7ddca59c6"><div class="ttname"><a href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">eogllTerminate</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllTerminate()</div><div class="ttdoc">Terminates EOGLL.</div></div>
+<div class="ttc" id="aframebuffer_8h_html"><div class="ttname"><a href="framebuffer_8h.html">framebuffer.h</a></div><div class="ttdoc">EOGLL framebuffer header file.</div></div>
 <div class="ttc" id="agl_8h_html"><div class="ttname"><a href="gl_8h.html">gl.h</a></div><div class="ttdoc">EOGLL gl header file.</div></div>
 <div class="ttc" id="ainput_8h_html"><div class="ttname"><a href="input_8h.html">input.h</a></div><div class="ttdoc">EOGLL input header file.</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div><div class="ttdoc">EOGLL logging header file.</div></div>

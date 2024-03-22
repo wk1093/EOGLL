@@ -4,6 +4,7 @@ var annotated_dup =
     [ "EogllBufferObject", "structEogllBufferObject.html", "structEogllBufferObject" ],
     [ "EogllCamera", "structEogllCamera.html", "structEogllCamera" ],
     [ "EogllCameraMatrix", "structEogllCameraMatrix.html", "structEogllCameraMatrix" ],
+    [ "EogllFramebuffer", "structEogllFramebuffer.html", "structEogllFramebuffer" ],
     [ "EogllModel", "structEogllModel.html", "structEogllModel" ],
     [ "EogllObjectAttr", "structEogllObjectAttr.html", "structEogllObjectAttr" ],
     [ "EogllObjectAttrs", "structEogllObjectAttrs.html", "structEogllObjectAttrs" ],

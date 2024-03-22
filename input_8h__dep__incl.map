@@ -1,5 +1,6 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/input.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/input.h">
-<area shape="rect" id="node1" title="EOGLL input header file." alt="" coords="87,5,291,47"/>
-<area shape="rect" id="node2" href="$window_8h.html" title="EOGLL window header file." alt="" coords="5,95,225,136"/>
-<area shape="rect" id="node3" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="93,184,284,225"/>
+<area shape="rect" id="node1" title="EOGLL input header file." alt="" coords="163,5,367,47"/>
+<area shape="rect" id="node2" href="$window_8h.html" title="EOGLL window header file." alt="" coords="81,95,301,136"/>
+<area shape="rect" id="node4" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="193,273,384,315"/>
+<area shape="rect" id="node3" href="$framebuffer_8h.html" title="EOGLL framebuffer header file." alt="" coords="5,184,252,225"/>
 </map>
