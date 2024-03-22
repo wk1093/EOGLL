@@ -39,6 +39,7 @@
 #include "eogll/camera.h"
 #include "eogll/obj_loader.h"
 #include "eogll/gl.h"
+#include "eogll/framebuffer.h"
 
 // TODO: Add more documentation
 // TODO: Add more examples and tutorials

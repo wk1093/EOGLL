@@ -11,7 +11,7 @@ option(BUILD_EXAMPLES "Build Examples" ON)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 4)
-set(EOGLL_VERSION_PATCH 0)
+set(EOGLL_VERSION_PATCH 1)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -63,7 +63,9 @@ if (BUILD_EOGLL)
             src/texture.c
             src/transforms.c
             src/camera.c
-            src/obj_loader.c)
+            src/obj_loader.c
+            include/eogll/framebuffer.h
+            src/framebuffer.c)
 
     target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 
