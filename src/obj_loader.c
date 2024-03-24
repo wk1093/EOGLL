@@ -252,7 +252,7 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
                         }
                     } break;
                     default:
-                        EOGLL_LOG_WARN(stderr, "Unknown attribute type %d\n", attrs.types[k]);
+                        EOGLL_LOG_WARN(stderr, "Unknown attribute type %d\n", attrs.types[k].type);
                         break;
                 }
             }

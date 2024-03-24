@@ -19,9 +19,9 @@ extern "C" {
 
 
 typedef EOGLL_DECL_STRUCT struct EogllFramebuffer {
-    uint32_t fbo;
-    uint32_t texture;
-    uint32_t rbo;
+    GLuint fbo;
+    GLuint texture;
+    GLuint rbo;
     uint32_t width;
     uint32_t height;
 } EogllFramebuffer;
