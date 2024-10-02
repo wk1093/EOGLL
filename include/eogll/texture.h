@@ -119,6 +119,27 @@ EOGLL_DECL_FUNC void eogllDeleteTexture(EogllTexture* texture);
  */
 EOGLL_DECL_FUNC void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index);
 
+/**
+ * @brief Starts creation of a texture
+ * @return A partially initialized texture
+ * @see eogllFinishTexture
+ * 
+ * This function starts creation of a texture.
+ * This allows you to set the texture parameters before finishing the creation.
+ */
+EOGLL_DECL_FUNC EogllTexture *eogllStartTexture();
+
+/**
+ * @brief Finishes creation of a texture
+ * @param texture The texture to finish
+ * @param path The path to the texture
+ * @see eogllStartTexture
+ * 
+ * This function finishes creation of a texture.
+ * This allows you to set the texture parameters before finishing the creation.
+ */
+EOGLL_DECL_FUNC void eogllFinishTexture(EogllTexture *texture, const char *path);
+
 
 #ifdef __cplusplus
 }
