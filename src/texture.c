@@ -16,6 +16,8 @@ EogllTexture *eogllStartTexture() {
     }
     glGenTextures(1, &texture->id);
     glBindTexture(GL_TEXTURE_2D, texture->id);
+
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &texture->maxTextureUnits);
     return texture;
 }
 void eogllFinishTexture(EogllTexture *texture, const char *path) {
