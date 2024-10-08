@@ -33,7 +33,7 @@ void eogllEnableTransparency() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void eogllEnableCulling() {
+void eogllEnableFaceCulling() {
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 }
