@@ -7,6 +7,7 @@ project(eogll C)
 option(BUILD_EOGLL "Build EOGLL Library" ON)
 option(BUILD_DOCS "Generate Docs" ON)
 option(BUILD_EXAMPLES "Build Examples" ON)
+option(BUILD_JAVA_BINDINGS "Build Java Bindings" OFF)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
@@ -88,4 +89,8 @@ endif()
 
 IF(BUILD_DOCS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/docs)
+ENDIF()
+
+IF(BUILD_JAVA_BINDINGS)
+    add_subdirectory(bindings/java)
 ENDIF()
