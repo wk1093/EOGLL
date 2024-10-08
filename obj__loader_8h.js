@@ -27,6 +27,7 @@ var obj__loader_8h =
     [ "eogllAddObjectAttr", "obj__loader_8h.html#acfe7114879bcae1841bb30360ee01af1", null ],
     [ "eogllCreateObjectAttrs", "obj__loader_8h.html#a92339171ffd8348b4244bd8cba26da8e", null ],
     [ "eogllDeleteObjectFileData", "obj__loader_8h.html#a2b2f0cfa4cd4c811ef1903d4a7cc0b59", null ],
+    [ "eogllGenerateNormals", "obj__loader_8h.html#a3c29a8fd07ac35c256712a4bd0d039e1", null ],
     [ "eogllLoadBufferObject", "obj__loader_8h.html#afb34125b59e02f197e87c6a5a9d39e0a", null ],
     [ "eogllLoadObjectFile", "obj__loader_8h.html#a9cdbd9a4f5215b32067729fd4792c10a", null ],
     [ "eogllObjectFileDataToVertices", "obj__loader_8h.html#a58633d693008483a25bc670e55cb29d6", null ],

@@ -232,6 +232,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afb34125b59e02f197e87c6a5a9d39e0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllBufferObject.html">EogllBufferObject</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj__loader_8h.html#afb34125b59e02f197e87c6a5a9d39e0a">eogllLoadBufferObject</a> (const char *path, <a class="el" href="structEogllObjectAttrs.html">EogllObjectAttrs</a> attrs, GLenum usage)</td></tr>
 <tr class="memdesc:afb34125b59e02f197e87c6a5a9d39e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a buffer object from an object file.  <a href="obj__loader_8h.html#afb34125b59e02f197e87c6a5a9d39e0a">More...</a><br /></td></tr>
 <tr class="separator:afb34125b59e02f197e87c6a5a9d39e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c29a8fd07ac35c256712a4bd0d039e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="obj__loader_8h.html#a3c29a8fd07ac35c256712a4bd0d039e1">eogllGenerateNormals</a> (<a class="el" href="structEogllObjectFileData.html">EogllObjectFileData</a> *data)</td></tr>
+<tr class="memdesc:a3c29a8fd07ac35c256712a4bd0d039e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates normals for an object file.  <a href="obj__loader_8h.html#a3c29a8fd07ac35c256712a4bd0d039e1">More...</a><br /></td></tr>
+<tr class="separator:a3c29a8fd07ac35c256712a4bd0d039e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>EOGLL object loading header file. </p>
@@ -372,6 +375,38 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="obj__loader_8h.html#afb34125b59e02f197e87c6a5a9d39e0a" title="Loads a buffer object from an object file.">eogllLoadBufferObject</a></dd></dl>
 <p>This function deletes an object file data struct. </p>
+
+</div>
+</div>
+<a id="a3c29a8fd07ac35c256712a4bd0d039e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c29a8fd07ac35c256712a4bd0d039e1">&#9670;&nbsp;</a></span>eogllGenerateNormals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllGenerateNormals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structEogllObjectFileData.html">EogllObjectFileData</a> *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates normals for an object file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The object file data struct to generate normals for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structEogllObjectFileData.html" title="Internal">EogllObjectFileData</a> </dd>
+<dd>
+<a class="el" href="obj__loader_8h.html#a58633d693008483a25bc670e55cb29d6" title="Internal">eogllObjectFileDataToVertices</a> </dd>
+<dd>
+<a class="el" href="obj__loader_8h.html#a9cdbd9a4f5215b32067729fd4792c10a" title="Internal">eogllLoadObjectFile</a></dd></dl>
+<p>This function generates normals for an object file. </p>
 
 </div>
 </div>
