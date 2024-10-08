@@ -295,6 +295,17 @@ EOGLL_DECL_FUNC void eogllAddObjectAttr(EogllObjectAttrs* attrs, GLenum type, GL
  */
 EOGLL_DECL_FUNC_ND EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs, GLenum usage);
 
+/**
+ * @brief Generates normals for an object file
+ * @param data The object file data struct to generate normals for
+ * @see EogllObjectFileData
+ * @see eogllObjectFileDataToVertices
+ * @see eogllLoadObjectFile
+ * 
+ * This function generates normals for an object file.
+ */
+EOGLL_DECL_FUNC void eogllGenerateNormals(EogllObjectFileData *data);
+
 #ifdef __cplusplus
 }
 #endif

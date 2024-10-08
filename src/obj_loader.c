@@ -88,6 +88,11 @@ EogllResult eogllParseObjectFile(FILE* file, EogllObjectFileData *data) {
                     face.numIndices++;
                 }
             }
+            if (face.numIndices != 3) {
+                EOGLL_LOG_WARN(stderr, "Face %d has %d indices, but only 3 are supported\n", faceIndex, face.numIndices);
+                EOGLL_LOG_WARN(stderr, "Skipping face\n");
+                continue;
+            }
             face.indices = (EogllObjectIndex*)malloc(sizeof(EogllObjectIndex) * face.numIndices);
             if (!face.indices) {
                 EOGLL_LOG_ERROR(stderr, "Failed to allocate memory for object file face indices\n");
@@ -149,6 +154,19 @@ EogllResult eogllObjectFileDataToVertices(EogllObjectFileData *data, EogllObject
     // another is to do the first method, but then optimize it by removing duplicate vertices and using indices to reference them
     // TODO: optimize this
     // TODO: support rectangles and other polygons by triangulating them
+
+    bool attrHasNormal = false;
+    for (int i = 0; i < attrs.numTypes; i++) {
+        if (attrs.types[i].type == EOGLL_ATTR_NORMAL) {
+            attrHasNormal = true;
+            break;
+        }
+    }
+    if (attrHasNormal && (data->numNormals == 0 || data->faces[0].indices[0].hasNormal == false)) {
+        // this means that we requested normals, but the obj file does not have them
+        // we will do some calculations to approximate them
+        eogllGenerateNormals(data);
+    }
 
     // first we need to calculate the number of vertices
     *numVertices = 0;
@@ -342,4 +360,35 @@ EogllBufferObject eogllLoadBufferObject(const char* path, EogllObjectAttrs attrs
     free(vertices);
     free(indices);
     return eogllCreateBufferObject(vao, vbo, ebo, (unsigned int)sizeof(unsigned int) * numIndices, GL_UNSIGNED_INT);
+}
+
+void eogllGenerateNormals(EogllObjectFileData *data) {
+    for (int i = 0; i < data->numFaces; i++) {
+        if (data->faces[i].numIndices != 3) {
+            EOGLL_LOG_WARN(stderr, "Face %d has %d indices, but only 3 are supported\n", i, data->faces[i].numIndices);
+            continue;
+        }
+        EogllObjectIndex indexA = data->faces[i].indices[0];
+        EogllObjectIndex indexB = data->faces[i].indices[1];
+        EogllObjectIndex indexC = data->faces[i].indices[2];
+        EogllObjectPosition positionA = data->positions[indexA.geomIndex - 1];
+        EogllObjectPosition positionB = data->positions[indexB.geomIndex - 1];
+        EogllObjectPosition positionC = data->positions[indexC.geomIndex - 1];
+        // cross(b-a, c-a)
+        float nx = (positionB.x - positionA.x) * (positionC.y - positionA.y) - (positionC.x - positionA.x) * (positionB.y - positionA.y);
+        float ny = (positionB.y - positionA.y) * (positionC.z - positionA.z) - (positionC.y - positionA.y) * (positionB.z - positionA.z);
+        float nz = (positionB.z - positionA.z) * (positionC.x - positionA.x) - (positionC.z - positionA.z) * (positionB.x - positionA.x);
+        // we have our normal
+        EogllObjectNormal normal;
+        normal.x = nx;
+        normal.y = ny;
+        normal.z = nz;
+        data->normals[data->numNormals++] = normal;
+        indexA.hasNormal = true;
+        indexB.hasNormal = true;
+        indexC.hasNormal = true;
+        indexA.normalIndex = data->numNormals - 1;
+        indexB.normalIndex = data->numNormals - 1;
+        indexC.normalIndex = data->numNormals - 1;
+    }
 }
