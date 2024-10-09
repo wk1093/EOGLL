@@ -1,8 +1,10 @@
 var structEogllWindow =
 [
+    [ "dt", "structEogllWindow.html#a0a1d1d037c589f5734eb771e40c59411", null ],
     [ "focused", "structEogllWindow.html#abf01dffbec0588d765dc21905c791250", null ],
     [ "height", "structEogllWindow.html#a44de13a6734a277eaebc4386fec0339d", null ],
     [ "isDown", "structEogllWindow.html#afdcb8aebd7d201a6e270eba3aa3cbe97", null ],
+    [ "lastTime", "structEogllWindow.html#a134d3c9dcf40b930553956d09a130e0c", null ],
     [ "mousedx", "structEogllWindow.html#a07d23dc66ece8c64af9e603d77d6b33c", null ],
     [ "mousedy", "structEogllWindow.html#acc582f7e8b86e487d14445f4d9b6c312", null ],
     [ "mouseIsDown", "structEogllWindow.html#aa885401fc99a8740590430de4365881c", null ],
