@@ -2,6 +2,7 @@
 
 #include "eogll/logging.h"
 #include "eogll/input.h"
+#include "eogll/util.h"
 
 void eogllFramebufferSizeCallback(GLFWwindow* window, int width, int height) {
     EOGLL_LOG_TRACE(stdout, "\n");
@@ -170,6 +171,9 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &max);
     EOGLL_LOG_INFO(stdout, "%d vertex attributes max\n", max);
 
+    window->dt = 0.001;
+    window->lastTime = eogllGetTime();
+
     return window;
 
 }
@@ -187,6 +191,10 @@ void eogllSetWindowShouldClose(EogllWindow* window, bool shouldClose) {
 
 void eogllPollEvents(EogllWindow* window) {
     EOGLL_LOG_TRACE(stdout, "\n");
+
+    double currentTime = eogllGetTime();
+    window->dt = currentTime - window->lastTime;
+    window->lastTime = currentTime;
 
     for (int i = 0; i < EOGLL_KEY_LAST + 1; i++) {
         window->press[i] = false;

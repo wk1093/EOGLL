@@ -22,10 +22,16 @@ int main() {
         tinydir_readfile(&dir, &file);
 
         if (file.name[0] == 'e' && file.name[1] == 'o' && file.name[2] == 'g' && file.name[3] == 'l' && file.name[4] == 'l' && file.name[5] == '_' && file.name[6] == 'e' && file.name[7] == 'x' && file.name[8] == '_') {
-            printf("Running %s\n", file.name);
+            printf("########## Running %s\n", file.name);
             sprintf(command, "cd /D @CMAKE_CURRENT_SOURCE_DIR@/.. && @CMAKE_CURRENT_BINARY_DIR@/%s", file.name);
             system(command);
-            break;
+            printf("########## Finished running %s\n", file.name);
+            printf("\n");
+            printf("\n");
+            fflush(stdout);
+            fflush(stderr);
+            Sleep(1);
+
         }
 
         tinydir_next(&dir);

@@ -31,8 +31,6 @@ int main() {
     // time to load the model
     EogllBufferObject bufferObject = eogllLoadBufferObject("resources/models/cube.obj", objMode, GL_STATIC_DRAW);
 
-    double lastTime = eogllGetTime();
-
     double speed = 1.0;
     double lastSpeed = 0.0;
 
@@ -42,23 +40,20 @@ int main() {
     bool mouseDisabled = false;
 
     while (!eogllWindowShouldClose(window)) {
-        double currentTime = eogllGetTime();
-        float deltaTime = (float)(currentTime - lastTime);
-        lastTime = currentTime;
 
-        eogllRotateModel(&model, 50.0f, (vec3) {5.2f*deltaTime*speed, 10.0f*deltaTime*speed, 1.23f*deltaTime*speed});
+        eogllRotateModel(&model, 50.0f, (vec3) {5.2f*window->dt*speed, 10.0f*window->dt*speed, 1.23f*window->dt*speed});
 
         if (window->isDown[GLFW_KEY_LEFT]) {
-            speed -= deltaTime*5;
+            speed -= window->dt*5;
         }
         if (window->isDown[GLFW_KEY_RIGHT]) {
-            speed += deltaTime*5;
+            speed += window->dt*5;
         }
         if (window->isDown[GLFW_KEY_UP]) {
-            moveSpeed += deltaTime*5;
+            moveSpeed += window->dt*5;
         }
         if (window->isDown[GLFW_KEY_DOWN]) {
-            moveSpeed -= deltaTime*5;
+            moveSpeed -= window->dt*5;
         }
         if (window->press[GLFW_KEY_E]) {
             if (lastSpeed == 0.0) {
@@ -71,22 +66,22 @@ int main() {
         }
 
         if (window->isDown[GLFW_KEY_W]) {
-            eogllMoveCamera(&camera, EOGLL_FORWARD, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_FORWARD, window->dt*moveSpeed);
         }
         if (window->isDown[GLFW_KEY_S]) {
-            eogllMoveCamera(&camera, EOGLL_BACKWARD, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_BACKWARD, window->dt*moveSpeed);
         }
         if (window->isDown[GLFW_KEY_A]) {
-            eogllMoveCamera(&camera, EOGLL_LEFT, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_LEFT, window->dt*moveSpeed);
         }
         if (window->isDown[GLFW_KEY_D]) {
-            eogllMoveCamera(&camera, EOGLL_RIGHT, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_RIGHT, window->dt*moveSpeed);
         }
         if (window->isDown[GLFW_KEY_LEFT_SHIFT]) {
-            eogllMoveCamera(&camera, EOGLL_DOWN, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_DOWN, window->dt*moveSpeed);
         }
         if (window->isDown[GLFW_KEY_SPACE]) {
-            eogllMoveCamera(&camera, EOGLL_UP, deltaTime*moveSpeed);
+            eogllMoveCamera(&camera, EOGLL_UP, window->dt*moveSpeed);
         }
 
         if (window->mouseIsDown[GLFW_MOUSE_BUTTON_LEFT]) {

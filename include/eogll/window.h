@@ -71,7 +71,11 @@ typedef EOGLL_DECL_STRUCT struct EogllWindow {
     /// whether or not the window is focused
     bool focused;
 
-    // TODO: add more window properties
+    /// Delta time since last frame
+    double dt;
+    
+    /// Time of last frame (used internally for calculating dt)
+    double lastTime;
 } EogllWindow;
 
 /**
