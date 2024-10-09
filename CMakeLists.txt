@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(eogll C)
+project(eogll)
 
 # If BUILD_EOGLL is OFF, then the examples are also not built.
 # The examples are built if BUILD_EOGLL is ON and BUILD_EXAMPLES is ON.
@@ -7,7 +7,6 @@ project(eogll C)
 option(BUILD_EOGLL "Build EOGLL Library" ON)
 option(BUILD_DOCS "Generate Docs" ON)
 option(BUILD_EXAMPLES "Build Examples" ON)
-option(BUILD_JAVA_BINDINGS "Build Java Bindings" OFF)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
@@ -42,7 +41,7 @@ if (BUILD_EOGLL)
     add_subdirectory(thirdparty/stb)
     add_subdirectory(thirdparty/cglm)
 
-    add_library(eogll STATIC include/eogll.h src/eogll.c
+    add_library(eogll STATIC include/eogll.h
             include/eogll/input.h
             include/eogll/defines.h
             include/eogll/logging.h
@@ -57,20 +56,20 @@ if (BUILD_EOGLL)
             include/eogll/transforms.h
             include/eogll/camera.h
             include/eogll/obj_loader.h
-            src/version.c
-            src/util.c
-            src/window.c
-            src/shader.c
-            src/gl.c
-            src/attrib_builder.c
-            src/buffer_object.c
-            src/texture.c
-            src/transforms.c
-            src/camera.c
-            src/obj_loader.c
             include/eogll/framebuffer.h
-            src/framebuffer.c)
-
+            src/eogll/version.c
+            src/eogll/util.c
+            src/eogll/window.c
+            src/eogll/shader.c
+            src/eogll/gl.c
+            src/eogll/attrib_builder.c
+            src/eogll/buffer_object.c
+            src/eogll/texture.c
+            src/eogll/transforms.c
+            src/eogll/camera.c
+            src/eogll/obj_loader.c
+            src/eogll/framebuffer.c
+            src/eogll/eogll.c)
     target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
 
     target_link_libraries(eogll glad glfw hedley stb cglm)
@@ -80,17 +79,23 @@ if (BUILD_EOGLL)
         target_compile_definitions(eogll PUBLIC EOGLL_DEBUG)
     endif()
 
+    if (BUILD_EXAMPLES)
+        add_subdirectory(examples)
+    endif()
 
-        if (BUILD_EXAMPLES)
-            add_subdirectory(examples)
-        endif()
+    add_library(hogll STATIC include/hogll.hpp
+            include/hogll/pch.hpp
+            include/hogll/window.hpp
+            src/hogll/window.cpp)
+    target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
+    target_link_libraries(hogll eogll)
+    if (CMAKE_BUILD_TYPE MATCHES Debug)
+        target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
+    endif()
+
 
 endif()
 
 IF(BUILD_DOCS)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/docs)
-ENDIF()
-
-IF(BUILD_JAVA_BINDINGS)
-    add_subdirectory(bindings/java)
 ENDIF()

@@ -6,6 +6,9 @@ target_link_libraries(eogll_ex_dragon eogll)
 add_executable(eogll_ex_textured textured.c)
 target_link_libraries(eogll_ex_textured eogll)
 
+add_executable(eogll_ex_h_window hogll.cpp)
+target_link_libraries(eogll_ex_h_window hogll)
+
 
 # The example runner is a basic program that asks the user which example to run and runs it
 # it depends on the examples being built
