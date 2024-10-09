@@ -2,10 +2,6 @@
 
 #include "eogll.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 JNIEXPORT jlong JNICALL Java_WindowHints_wh_1create(JNIEnv* env, jclass clazz, jboolean resizable, jboolean decorated, jboolean floating, jboolean maximized, jboolean visible, jboolean focused, jboolean transparent) {
     EogllWindowHints e = eogllCreateWindowHints(resizable, decorated, floating, maximized, visible, focused, transparent);
     EogllWindowHints* ePtr = (EogllWindowHints*) malloc(sizeof(EogllWindowHints));
@@ -60,8 +56,3 @@ JNIEXPORT jlong JNICALL Java_WindowHints_wh_1create_1default(JNIEnv* env, jclass
     *ePtr = e;
     return (jlong) ePtr;
 }
-
-#ifdef __cplusplus
-}
-#endif
-

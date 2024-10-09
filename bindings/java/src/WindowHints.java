@@ -1,5 +1,5 @@
 class WindowHints {
-    private long wh_hints;
+    public long wh_hints;
 
     public WindowHints() {
         wh_hints = wh_create_default();

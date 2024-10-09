@@ -4,6 +4,7 @@ An easy to use OpenGL library that includes many other libraries. Makes setting 
 
 Documentation will be available soon.
 
-### In the works
-
- - SEGE (Pronounced Siege) (Simple EOGLL Game Engine) - A game engine based off of EOGLL ***ON HOLD UNTIL EOGLL v1.0.0 RELEASE***
+### TODO
+- [glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) support
+- More features
+- Higher level abstractions (optional)
