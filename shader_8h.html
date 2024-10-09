@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.4.4</span>
+   &#160;<span id="projectnumber">0.4.5</span>
    </div>
   </td>
  </tr>
@@ -214,6 +214,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a88998c9845e4025ba8d340231d509631"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shader_8h.html#a88998c9845e4025ba8d340231d509631">eogllSetUniform1uiv</a> (<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, unsigned int *vector, GLsizei count)</td></tr>
 <tr class="memdesc:a88998c9845e4025ba8d340231d509631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a uniform unsigned int array.  <a href="shader_8h.html#a88998c9845e4025ba8d340231d509631">More...</a><br /></td></tr>
 <tr class="separator:a88998c9845e4025ba8d340231d509631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b95ee80e603f0c20cce25000529226a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shader_8h.html#a1b95ee80e603f0c20cce25000529226a">eogllSetUniform2fl</a> (<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, vec2 *vectors, GLsizei count)</td></tr>
+<tr class="memdesc:a1b95ee80e603f0c20cce25000529226a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a uniform list of vec2.  <a href="shader_8h.html#a1b95ee80e603f0c20cce25000529226a">More...</a><br /></td></tr>
+<tr class="separator:a1b95ee80e603f0c20cce25000529226a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa1fc3bb96c78c520391dd06440a96c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shader_8h.html#acaa1fc3bb96c78c520391dd06440a96c">eogllSetUniform3fl</a> (<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, vec3 *vectors, GLsizei count)</td></tr>
+<tr class="memdesc:acaa1fc3bb96c78c520391dd06440a96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a uniform list of vec3.  <a href="shader_8h.html#acaa1fc3bb96c78c520391dd06440a96c">More...</a><br /></td></tr>
+<tr class="separator:acaa1fc3bb96c78c520391dd06440a96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b0cb4d697a74a5b9abc6f8de4f2d8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shader_8h.html#a22b0cb4d697a74a5b9abc6f8de4f2d8b">eogllSetUniform4fl</a> (<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, vec4 *vectors, GLsizei count)</td></tr>
+<tr class="memdesc:a22b0cb4d697a74a5b9abc6f8de4f2d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a uniform list of vec4.  <a href="shader_8h.html#a22b0cb4d697a74a5b9abc6f8de4f2d8b">More...</a><br /></td></tr>
+<tr class="separator:a22b0cb4d697a74a5b9abc6f8de4f2d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>EOGLL shader header file. </p>
@@ -684,6 +693,57 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1b95ee80e603f0c20cce25000529226a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b95ee80e603f0c20cce25000529226a">&#9670;&nbsp;</a></span>eogllSetUniform2fl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllSetUniform2fl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec2 *&#160;</td>
+          <td class="paramname"><em>vectors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a uniform list of vec2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shader</td><td>The shader program to set the uniform for </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
+    <tr><td class="paramname">vectors</td><td>The list of vectors to set the uniform to </td></tr>
+    <tr><td class="paramname">count</td><td>The number of elements in the list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="af1bc33d945f39cab431202fc9437502c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1bc33d945f39cab431202fc9437502c">&#9670;&nbsp;</a></span>eogllSetUniform2fv()</h2>
 
@@ -780,6 +840,57 @@ Functions</h2></td></tr>
     <tr><td class="paramname">x</td><td>The x component of the vector </td></tr>
     <tr><td class="paramname">y</td><td>The y component of the vector </td></tr>
     <tr><td class="paramname">z</td><td>The z component of the vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acaa1fc3bb96c78c520391dd06440a96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaa1fc3bb96c78c520391dd06440a96c">&#9670;&nbsp;</a></span>eogllSetUniform3fl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllSetUniform3fl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec3 *&#160;</td>
+          <td class="paramname"><em>vectors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a uniform list of vec3. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shader</td><td>The shader program to set the uniform for </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
+    <tr><td class="paramname">vectors</td><td>The list of vectors to set the uniform to </td></tr>
+    <tr><td class="paramname">count</td><td>The number of elements in the list </td></tr>
   </table>
   </dd>
 </dl>
@@ -889,6 +1000,57 @@ Functions</h2></td></tr>
     <tr><td class="paramname">y</td><td>The y component of the vector </td></tr>
     <tr><td class="paramname">z</td><td>The z component of the vector </td></tr>
     <tr><td class="paramname">w</td><td>The w component of the vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a22b0cb4d697a74a5b9abc6f8de4f2d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b0cb4d697a74a5b9abc6f8de4f2d8b">&#9670;&nbsp;</a></span>eogllSetUniform4fl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllSetUniform4fl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec4 *&#160;</td>
+          <td class="paramname"><em>vectors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a uniform list of vec4. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shader</td><td>The shader program to set the uniform for </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
+    <tr><td class="paramname">vectors</td><td>The list of vectors to set the uniform to </td></tr>
+    <tr><td class="paramname">count</td><td>The number of elements in the list </td></tr>
   </table>
   </dd>
 </dl>
