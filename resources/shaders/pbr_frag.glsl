@@ -12,6 +12,11 @@ uniform sampler2D roughness;
 uniform sampler2D ao;
 uniform vec3 viewPos;
 
+uniform vec3[2] lights;
+uniform vec3[2] lightColors;
+
+const float PI = (3.1415926535897932384626433832795);
+
 vec3 getNormalFromMap() {
     vec3 tangentNormal = texture(normal, TexCoord).xyz * 2.0 - 1.0;
 
@@ -36,7 +41,7 @@ float DistributionGGX(vec3 N, vec3 H, float roughness) {
 
     float nom = a2;
     float denom = (NdotH2*(a2 - 1.0) + 1.0);
-    denom = (3.1415926535897932384626433832795)*denom*denom;
+    denom = PI*denom*denom;
 
     return nom/denom;
 }
@@ -65,8 +70,6 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 }
 
 void main() {
-    vec3 lightPos = vec3(0.0, 2.0, 0.0);
-    vec3 lightColor = vec3(1.0, 1.0, 1.0);
 
     vec3 albedo = pow(texture(albedo, TexCoord).rgb, vec3(2.2));
     float metallic = texture(metallic, TexCoord).r;
@@ -80,28 +83,29 @@ void main() {
     F0 = mix(F0, albedo, metallic);
 
     vec3 Lo = vec3(0.0);
-    
-    vec3 L = normalize(lightPos - FragPos);
-    vec3 H = normalize(V + L);
-    float distance = length(lightPos - FragPos);
-    float attenuation = 1.0 / (distance * distance);
-    vec3 radiance = lightColor * attenuation;
+    for (int i = 0; i < 2; i++) {
+        vec3 L = normalize(lights[i] - FragPos);
+        vec3 H = normalize(V + L);
+        float distance = length(lights[i] - FragPos);
+        float attenuation = 1.0 / (distance * distance);
+        vec3 radiance = lightColors[i] * attenuation;
 
-    float NDF = DistributionGGX(N, H, roughness);
-    float G = GeometrySmith(N, V, L, roughness);
-    vec3 F = fresnelSchlick(max(dot(H, V), 0.0), F0);
+        float NDF = DistributionGGX(N, H, roughness);
+        float G = GeometrySmith(N, V, L, roughness);
+        vec3 F = fresnelSchlick(max(dot(H, V), 0.0), F0);
 
-    vec3 numerator = NDF * G * F;
-    float denominator = 4 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.001;
-    vec3 specular = numerator / denominator;
+        vec3 numerator = NDF * G * F;
+        float denominator = 4 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.001;
+        vec3 specular = numerator / denominator;
 
-    vec3 kS = F;
-    vec3 kD = vec3(1.0) - kS;
-    kD *= 1.0 - metallic;
+        vec3 kS = F;
+        vec3 kD = vec3(1.0) - kS;
+        kD *= 1.0 - metallic;
 
-    float NdotL = max(dot(N, L), 0.0);
+        float NdotL = max(dot(N, L), 0.0);
 
-    Lo += (kD * albedo / (3.1415926535897932384626433832795) + specular) * radiance * NdotL;
+        Lo += (kD * albedo / PI + specular) * radiance * NdotL;
+    }
 
     vec3 ambient = vec3(0.03) * albedo * ao;
 

@@ -14,11 +14,20 @@ int main() {
     EogllModel model = eogllCreateModel(); // matrix
     eogllRotateModel(&model, 45.0f,  (vec3) {0.0f, 1.0f, 0.0f}); // rotate 45 degrees on y axis
 
-    EogllTexture* albedo = eogllCreateTexture("resources/textures/rusted_iron/albedo.png");
-    EogllTexture* normal = eogllCreateTexture("resources/textures/rusted_iron/normal.png");
-    EogllTexture* metallic = eogllCreateTexture("resources/textures/rusted_iron/metallic.png");
+    vec3 lights[2] = {
+        {0.0f, 2.0f, 0.0f},
+        {1.0f, 2.0f, 0.0f}
+    };
+    vec3 lightColors[2] = {
+        {1.0f, 1.0f, 1.0f},
+        {0.5f, 0.5f, 1.0f}
+    };
+
+    EogllTexture* albedo =    eogllCreateTexture("resources/textures/rusted_iron/albedo.png");
+    EogllTexture* normal =    eogllCreateTexture("resources/textures/rusted_iron/normal.png");
+    EogllTexture* metallic =  eogllCreateTexture("resources/textures/rusted_iron/metallic.png");
     EogllTexture* roughness = eogllCreateTexture("resources/textures/rusted_iron/roughness.png");
-    EogllTexture* ao = eogllCreateTexture("resources/textures/rusted_iron/ao.png");
+    EogllTexture* ao =        eogllCreateTexture("resources/textures/rusted_iron/ao.png");
 
     EogllCamera camera = eogllCreateCamera();
 
@@ -123,6 +132,8 @@ int main() {
         eogllUpdateCameraMatrix(&camera, shaderProgram, "view");
         eogllUpdateProjectionMatrix(&projection, shaderProgram, "projection", window->width, window->height);
         eogllUpdateModelMatrix(&model, shaderProgram, "model");
+        glUniform3fv(glGetUniformLocation(shaderProgram->id, "lights"), 2, lights[0]);
+        glUniform3fv(glGetUniformLocation(shaderProgram->id, "lightColors"), 2, lightColors[0]);
         eogllBindTextureUniform(albedo, shaderProgram, "albedo", 0);
         eogllBindTextureUniform(normal, shaderProgram, "normal", 1);
         eogllBindTextureUniform(metallic, shaderProgram, "metallic", 2);
