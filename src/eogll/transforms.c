@@ -56,11 +56,12 @@ void eogllScaleModel(EogllModel *model, vec3 scale) {
 
 void eogllUpdateModelMatrix(const EogllModel* model, EogllShaderProgram* shader, const char* name) {
     mat4 modelMatrix;
+    EogllModel copy = *model;
     glm_mat4_identity(modelMatrix);
-    glm_translate(modelMatrix, model->pos);
+    glm_translate(modelMatrix, copy.pos);
     glm_rotate(modelMatrix, glm_rad(model->rot[0]), (vec3){1.0f, 0.0f, 0.0f});
     glm_rotate(modelMatrix, glm_rad(model->rot[1]), (vec3){0.0f, 1.0f, 0.0f});
     glm_rotate(modelMatrix, glm_rad(model->rot[2]), (vec3){0.0f, 0.0f, 1.0f});
-    glm_scale(modelMatrix, model->scale);
+    glm_scale(modelMatrix, copy.scale);
     eogllSetUniformMatrix4fv(shader, name, modelMatrix);
 }

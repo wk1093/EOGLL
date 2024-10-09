@@ -215,7 +215,32 @@ EOGLL_DECL_FUNC void eogllSetUniform1ui(EogllShaderProgram* shader, const char* 
  */
 EOGLL_DECL_FUNC void eogllSetUniform1uiv(EogllShaderProgram* shader, const char* name, unsigned int* vector, GLsizei count);
 
-// TODO: list of vectors and matrices
+/**
+ * @brief Sets a uniform list of vec2
+ * @param shader The shader program to set the uniform for
+ * @param name The name of the uniform
+ * @param vectors The list of vectors to set the uniform to
+ * @param count The number of elements in the list
+ */
+EOGLL_DECL_FUNC void eogllSetUniform2fl(EogllShaderProgram* shader, const char* name, vec2* vectors, GLsizei count);
+
+/**
+ * @brief Sets a uniform list of vec3
+ * @param shader The shader program to set the uniform for
+ * @param name The name of the uniform
+ * @param vectors The list of vectors to set the uniform to
+ * @param count The number of elements in the list
+ */
+EOGLL_DECL_FUNC void eogllSetUniform3fl(EogllShaderProgram* shader, const char* name, vec3* vectors, GLsizei count);
+
+/**
+ * @brief Sets a uniform list of vec4
+ * @param shader The shader program to set the uniform for
+ * @param name The name of the uniform
+ * @param vectors The list of vectors to set the uniform to
+ * @param count The number of elements in the list
+ */
+EOGLL_DECL_FUNC void eogllSetUniform4fl(EogllShaderProgram* shader, const char* name, vec4* vectors, GLsizei count);
 
 #ifdef __cplusplus
 }

@@ -135,3 +135,15 @@ void eogllSetUniformMatrix2fv(EogllShaderProgram* shader, const char* name, mat2
 void eogllSetUniformMatrix3fv(EogllShaderProgram* shader, const char* name, mat3 value) {
     glUniformMatrix3fv(glGetUniformLocation(shader->id, name), 1, GL_FALSE, (float*)value);
 }
+
+void eogllSetUniform2fl(EogllShaderProgram* shader, const char* name, vec2* vectors, GLsizei count) {
+    glUniform2fv(glGetUniformLocation(shader->id, name), count, (float*)vectors);
+}
+
+void eogllSetUniform3fl(EogllShaderProgram* shader, const char* name, vec3* vectors, GLsizei count) {
+    glUniform3fv(glGetUniformLocation(shader->id, name), count, (float*)vectors);
+}
+
+void eogllSetUniform4fl(EogllShaderProgram* shader, const char* name, vec4* vectors, GLsizei count) {
+    glUniform4fv(glGetUniformLocation(shader->id, name), count, (float*)vectors);
+}

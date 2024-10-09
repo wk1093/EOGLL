@@ -132,8 +132,10 @@ int main() {
         eogllUpdateCameraMatrix(&camera, shaderProgram, "view");
         eogllUpdateProjectionMatrix(&projection, shaderProgram, "projection", window->width, window->height);
         eogllUpdateModelMatrix(&model, shaderProgram, "model");
-        glUniform3fv(glGetUniformLocation(shaderProgram->id, "lights"), 2, lights[0]);
-        glUniform3fv(glGetUniformLocation(shaderProgram->id, "lightColors"), 2, lightColors[0]);
+        // glUniform3fv(glGetUniformLocation(shaderProgram->id, "lights"), 2, lights[0]);
+        // glUniform3fv(glGetUniformLocation(shaderProgram->id, "lightColors"), 2, lightColors[0]);
+        eogllSetUniform3fl(shaderProgram, "lights", lights, 2);
+        eogllSetUniform3fl(shaderProgram, "lightColors", lightColors, 2);
         eogllBindTextureUniform(albedo, shaderProgram, "albedo", 0);
         eogllBindTextureUniform(normal, shaderProgram, "normal", 1);
         eogllBindTextureUniform(metallic, shaderProgram, "metallic", 2);
