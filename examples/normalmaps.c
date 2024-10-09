@@ -113,8 +113,6 @@ int main() {
             }
         }
         
-
-
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // clear color buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer
 
