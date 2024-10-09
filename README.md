@@ -8,3 +8,11 @@ Documentation will be available soon.
 - [glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) support
 - More features
 - Higher level abstractions (optional)
+- [Fustum Culling](https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling)
+- Better uniform sending functions (lists of vectors, lists of matrices, etc.)
+- [Skeletal Animation](https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation)
+- Examples of Different types of [Lights](https://learnopengl.com/Lighting/Light-casters)
+- Examples of [Area Lights](https://learnopengl.com/Guest-Articles/2022/Area-Lights)
+- Support for compute shaders
+- Support for [DirectX Raytracing](https://learnopengl.com/Guest-Articles/2021/Raytracing/Ray-Tracing-with-DXR)
+- Examples of Ambient Occlusion: [SSAO](https://learnopengl.com/Advanced-Lighting/SSAO)
