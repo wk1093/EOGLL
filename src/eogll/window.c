@@ -165,11 +165,11 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
         return NULL;
     }
     glfwGetCursorPos(window->window, &window->mousex, &window->mousey);
-    EOGLL_LOG_INFO(stdout, "%s %s\n", glGetString(GL_VENDOR), glGetString(GL_VERSION));
-    EOGLL_LOG_INFO(stdout, "%s\n", glGetString(GL_RENDERER));
+    EOGLL_LOG_DEBUG(stdout, "%s %s\n", glGetString(GL_VENDOR), glGetString(GL_VERSION));
+    EOGLL_LOG_DEBUG(stdout, "%s\n", glGetString(GL_RENDERER));
     int max;
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &max);
-    EOGLL_LOG_INFO(stdout, "%d vertex attributes max\n", max);
+    EOGLL_LOG_DEBUG(stdout, "%d vertex attributes max\n", max);
 
     window->dt = 0.001;
     window->lastTime = eogllGetTime();

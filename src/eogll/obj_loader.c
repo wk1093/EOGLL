@@ -330,10 +330,10 @@ EogllResult eogllLoadObjectFile(const char* path, EogllObjectAttrs attrs, float*
 
     eogllDeleteObjectFileData(&data);
 
-    EOGLL_LOG_INFO(stdout, "Object Loaded.\n");
-    EOGLL_LOG_INFO(stdout, "Num vertices: %d\n", *numVertices);
-    EOGLL_LOG_INFO(stdout, "Parsed in %f seconds\n", middle - start);
-    EOGLL_LOG_INFO(stdout, "Converted in %f seconds\n", end - middle);
+    EOGLL_LOG_DEBUG(stdout, "Object Loaded.\n");
+    EOGLL_LOG_DEBUG(stdout, "Num vertices: %d\n", *numVertices);
+    EOGLL_LOG_DEBUG(stdout, "Parsed in %f seconds\n", middle - start);
+    EOGLL_LOG_DEBUG(stdout, "Converted in %f seconds\n", end - middle);
 
     return EOGLL_SUCCESS;
 
