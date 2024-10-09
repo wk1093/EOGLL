@@ -40,6 +40,7 @@ if (BUILD_EOGLL)
     add_subdirectory(thirdparty/hedley)
     add_subdirectory(thirdparty/stb)
     add_subdirectory(thirdparty/cglm)
+    add_subdirectory(thirdparty/assimp)
 
     add_library(eogll STATIC include/eogll.h
             include/eogll/input.h
@@ -88,7 +89,7 @@ if (BUILD_EOGLL)
             include/hogll/window.hpp
             src/hogll/window.cpp)
     target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
-    target_link_libraries(hogll eogll)
+    target_link_libraries(hogll eogll assimp)
     if (CMAKE_BUILD_TYPE MATCHES Debug)
         target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
     endif()

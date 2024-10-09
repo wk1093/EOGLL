@@ -5,7 +5,7 @@ int main() {
         return 1;
     }
 
-    EogllWindow* window = eogllCreateWindow(800, 600, "LearnEOGLL", eogllDefaultWindowHints());
+    EogllWindow* window = eogllCreateWindow(800, 600, "EOGLL: PBR", eogllDefaultWindowHints());
 
     eogllEnableDepth();
 
@@ -42,7 +42,7 @@ int main() {
     eogllAddObjectAttr(&objMode, GL_FLOAT, 2, EOGLL_ATTR_TEXTURE);
     // time to load the model
     EogllBufferObject bufferObject = eogllLoadBufferObject("resources/models/cube.obj", objMode, GL_STATIC_DRAW);
-    
+
     double speed = 1.0;
     double lastSpeed = 0.0;
 

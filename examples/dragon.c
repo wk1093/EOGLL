@@ -5,7 +5,7 @@ int main() {
         return 1;
     }
 
-    EogllWindow* window = eogllCreateWindow(800, 600, "LearnEOGLL", eogllDefaultWindowHints());
+    EogllWindow* window = eogllCreateWindow(800, 600, "EOGLL: Dragon", eogllDefaultWindowHints());
 
     eogllEnableDepth();
 

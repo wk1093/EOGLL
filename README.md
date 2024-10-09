@@ -8,7 +8,7 @@ Documentation will be available soon.
 - [glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) support
 - More features
 - Higher level abstractions (optional) (WIP HOGLL)
-- Example or utilities for [Fustum Culling](https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling)
+- Example or utilities for [Frustum Culling](https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling)
 - Example or utilities for [Skeletal Animation](https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation)
 - Examples of Different types of [Lights](https://learnopengl.com/Lighting/Light-casters)
 - Examples of [Area Lights](https://learnopengl.com/Guest-Articles/2022/Area-Lights)
