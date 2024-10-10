@@ -1,7 +1,7 @@
 /**
  * @file window.hpp
  * @brief HOGLL window header file
- * @date 2024-01-28
+ * @date 2024-10-9
  *
  * HOGLL window header file
  */
@@ -24,6 +24,10 @@ namespace ogl {
     };
 
     struct Window {
+    private:
+        EogllWindow* window;
+    public:
+
         Window(int width, int height, const char* title, WindowHints hints=WindowHints());
         ~Window();
 
@@ -51,13 +55,6 @@ namespace ogl {
         double& mouseDeltaY();
 
         bool shouldClose();
-
-
-
-
-
-    private:
-        EogllWindow* window;
     };
 }
 

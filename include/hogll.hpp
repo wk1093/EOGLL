@@ -4,5 +4,6 @@
 
 #include "hogll/pch.hpp"
 #include "hogll/window.hpp"
+#include "hogll/bufferobj.hpp"
 
 #endif
