@@ -34,6 +34,10 @@ namespace ogl {
         return *(glm::vec3*)&model.scale;
     }
 
+    void Model::rotate(float amount, glm::vec3 axis) {
+        eogllRotateModel(&model, amount, (vec3) {axis.x, axis.y, axis.z});
+    }
+
     void Model::update(EogllShaderProgram* shader, const char* name) {
         eogllUpdateModelMatrix(&model, shader, name);
     }

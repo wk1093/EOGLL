@@ -32,9 +32,11 @@ namespace ogl {
         glm::vec3* scaleptr();
         glm::vec3& scale();
 
-        void update(EogllShaderProgram* shader, const char* name);
+        void update(EogllShaderProgram* shader, const char* name="model");
 
         EogllModel* getModel();
+
+        void rotate(float amount, glm::vec3 axis);
     };
 
     struct Camera {
@@ -53,7 +55,7 @@ namespace ogl {
 
         void move(EogllCameraDirection dir, float amount);
 
-        void update(EogllShaderProgram* shader, const char* name);
+        void update(EogllShaderProgram* shader, const char* name="view");
     };
 
     struct Projection {
