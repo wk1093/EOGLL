@@ -1,5 +1,6 @@
 var structogl_1_1Model =
 [
+    [ "Model", "structogl_1_1Model.html#a5525485761d7423f505d08f53c055292", null ],
     [ "Model", "structogl_1_1Model.html#a04199af75fa88b17c5943baba6220e1b", null ],
     [ "Model", "structogl_1_1Model.html#aea14d1a5b471d00631d795d82cd27c04", null ],
     [ "getModel", "structogl_1_1Model.html#ab0c5f8244ef2ef80bba2c8954ceec289", null ],

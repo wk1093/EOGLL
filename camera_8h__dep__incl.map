@@ -1,10 +1,11 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/camera.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/camera.h">
-<area shape="rect" id="node1" title="EOGLL camera header file." alt="" coords="206,5,426,47"/>
-<area shape="rect" id="node2" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="221,95,411,136"/>
-<area shape="rect" id="node3" href="$pch_8hpp_source.html" title=" " alt="" coords="211,184,421,225"/>
-<area shape="rect" id="node4" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="33,363,279,404"/>
-<area shape="rect" id="node5" href="$hogll_8hpp_source.html" title=" " alt="" coords="221,452,411,493"/>
-<area shape="rect" id="node6" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="187,273,445,315"/>
-<area shape="rect" id="node7" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="353,363,612,404"/>
-<area shape="rect" id="node8" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="519,273,755,315"/>
+<area shape="rect" id="node1" title="EOGLL camera header file." alt="" coords="295,5,515,47"/>
+<area shape="rect" id="node2" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="309,95,500,136"/>
+<area shape="rect" id="node3" href="$pch_8hpp_source.html" title=" " alt="" coords="299,184,510,225"/>
+<area shape="rect" id="node4" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="37,363,282,404"/>
+<area shape="rect" id="node5" href="$hogll_8hpp_source.html" title=" " alt="" coords="307,452,497,493"/>
+<area shape="rect" id="node6" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="193,273,451,315"/>
+<area shape="rect" id="node7" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="357,363,612,404"/>
+<area shape="rect" id="node8" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="637,363,895,404"/>
+<area shape="rect" id="node9" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="648,273,884,315"/>
 </map>
