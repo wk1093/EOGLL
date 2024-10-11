@@ -37,6 +37,7 @@ namespace ogl {
 
         int getWidth() const;
         int getHeight() const;
+        double dt() const;
 
         EogllWindow* getWindow();
 

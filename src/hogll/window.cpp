@@ -49,6 +49,10 @@ namespace ogl {
         return window->height;
     }
 
+    double Window::dt() const {
+        return window->dt;
+    }
+
 
     EogllWindow* Window::getWindow() {
         return window;
