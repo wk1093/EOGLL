@@ -7,8 +7,9 @@ var structogl_1_1Model =
     [ "pos", "structogl_1_1Model.html#a29c3730feea1c9dd18efe4178ed63722", null ],
     [ "posptr", "structogl_1_1Model.html#ac26f1fa8a489a07807780dff890ae359", null ],
     [ "rot", "structogl_1_1Model.html#addc9895c6460af3a31a24b990533c02d", null ],
+    [ "rotate", "structogl_1_1Model.html#aeeb53c3b3b64c0c3e354fcbce65391c4", null ],
     [ "rotptr", "structogl_1_1Model.html#ac7ac967859d481bc5d49001e3c79e3dc", null ],
     [ "scale", "structogl_1_1Model.html#a45930cf5d418fb694e2f855ea550c3c3", null ],
     [ "scaleptr", "structogl_1_1Model.html#ab4a9f797cb7493061a78113b9611fd7f", null ],
-    [ "update", "structogl_1_1Model.html#ac2e19b990ff1d83cc190a6e0f2a8e56b", null ]
+    [ "update", "structogl_1_1Model.html#a89a317a97d877080ea610f3f9cb6c793", null ]
 ];
