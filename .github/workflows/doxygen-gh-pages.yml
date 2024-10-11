@@ -29,7 +29,7 @@ jobs:
       - name: Build Docs
         run: |
           cmake -DBUILD_EOGLL=OFF -B build .
-          cmake --build build --target docs
+          cmake --build build --target eogll_docs
       - name: Create .nojekyll
         run: |
           touch build/docs/html/.nojekyll

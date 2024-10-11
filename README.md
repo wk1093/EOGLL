@@ -2,8 +2,6 @@
 
 An easy to use OpenGL library that includes many other libraries. Makes setting up an OpenGL development environment easy, and aids development by simplifying OpenGL features.
 
-Documentation will be available soon.
-
 ### TODO
 - [glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) support
 - More features
@@ -14,3 +12,4 @@ Documentation will be available soon.
 - Examples of [Area Lights](https://learnopengl.com/Guest-Articles/2022/Area-Lights)
 - Support for compute shaders
 - Examples of Ambient Occlusion: [SSAO](https://learnopengl.com/Advanced-Lighting/SSAO)
+- Make Object loader less unpredictable and make sure input is good before attempting to load (stop making segfaults)

@@ -20,5 +20,5 @@ IF(DOXYGEN_FOUND)
             VERBATIM)
     # Create CMake Target for generating doc.
     message(STATUS "Doxygen target: ${DOXYGEN_INDEX_FILE}")
-    ADD_CUSTOM_TARGET(docs ALL DEPENDS ${DOXYGEN_INDEX_FILE})
+    ADD_CUSTOM_TARGET(eogll_docs ALL DEPENDS ${DOXYGEN_INDEX_FILE})
 ENDIF()
