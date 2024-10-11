@@ -109,4 +109,8 @@ namespace ogl {
     bool Window::shouldClose() {
         return eogllWindowShouldClose(window);
     }
+
+    void Window::setCursorMode(int mode) {
+        eogllSetCursorMode(window, mode);
+    }
 }

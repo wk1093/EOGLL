@@ -57,6 +57,8 @@ namespace ogl {
         double& mouseDeltaY();
 
         bool shouldClose();
+
+        void setCursorMode(int mode);
     };
 }
 
