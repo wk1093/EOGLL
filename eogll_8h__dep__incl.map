@@ -1,8 +1,9 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll.h">
-<area shape="rect" id="node1" title="EOGLL header file." alt="" coords="159,5,350,47"/>
-<area shape="rect" id="node2" href="$pch_8hpp_source.html" title=" " alt="" coords="149,95,360,136"/>
-<area shape="rect" id="node3" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="5,273,251,315"/>
-<area shape="rect" id="node4" href="$hogll_8hpp_source.html" title=" " alt="" coords="218,363,409,404"/>
-<area shape="rect" id="node5" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="43,184,301,225"/>
-<area shape="rect" id="node6" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="375,273,611,315"/>
+<area shape="rect" id="node1" title="EOGLL header file." alt="" coords="221,5,411,47"/>
+<area shape="rect" id="node2" href="$pch_8hpp_source.html" title=" " alt="" coords="211,95,421,136"/>
+<area shape="rect" id="node3" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="33,273,279,315"/>
+<area shape="rect" id="node4" href="$hogll_8hpp_source.html" title=" " alt="" coords="221,363,411,404"/>
+<area shape="rect" id="node5" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="187,184,445,225"/>
+<area shape="rect" id="node6" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="353,273,612,315"/>
+<area shape="rect" id="node7" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="525,184,761,225"/>
 </map>
