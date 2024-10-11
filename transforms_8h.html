@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.5.5</span>
+   &#160;<span id="projectnumber">0.5.6</span>
    </div>
   </td>
  </tr>
@@ -168,9 +168,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a86792d8eb0dd329b5ad80e6fc5665807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllProjection.html">EogllProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transforms_8h.html#a86792d8eb0dd329b5ad80e6fc5665807">eogllPerspectiveProjection</a> (float fov, float near, float far)</td></tr>
 <tr class="memdesc:a86792d8eb0dd329b5ad80e6fc5665807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a projection matrix.  <a href="transforms_8h.html#a86792d8eb0dd329b5ad80e6fc5665807">More...</a><br /></td></tr>
 <tr class="separator:a86792d8eb0dd329b5ad80e6fc5665807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbc6f29fe59d97ad4fac43d9f5bd515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllProjection.html">EogllProjection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transforms_8h.html#aabbc6f29fe59d97ad4fac43d9f5bd515">eogllOrthographicProjection</a> (float near, float far)</td></tr>
+<tr class="memdesc:aabbc6f29fe59d97ad4fac43d9f5bd515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a orthographic projection matrix.  <a href="transforms_8h.html#aabbc6f29fe59d97ad4fac43d9f5bd515">More...</a><br /></td></tr>
+<tr class="separator:aabbc6f29fe59d97ad4fac43d9f5bd515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a949e213b9209d6bd32aa7fbd65eb603a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transforms_8h.html#a949e213b9209d6bd32aa7fbd65eb603a">eogllUpdateProjectionMatrix</a> (<a class="el" href="structEogllProjection.html">EogllProjection</a> *projection, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, uint32_t width, uint32_t height)</td></tr>
 <tr class="memdesc:a949e213b9209d6bd32aa7fbd65eb603a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a projection matrix.  <a href="transforms_8h.html#a949e213b9209d6bd32aa7fbd65eb603a">More...</a><br /></td></tr>
 <tr class="separator:a949e213b9209d6bd32aa7fbd65eb603a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef2094890af6592b4d6d0d7731379d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transforms_8h.html#afef2094890af6592b4d6d0d7731379d0">eogllUpdateProjectionMatrixOrtho</a> (<a class="el" href="structEogllProjection.html">EogllProjection</a> *projection, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, float top, float bottom, float left, float right)</td></tr>
+<tr class="memdesc:afef2094890af6592b4d6d0d7731379d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a projection matrix with top, bottom, left, right.  <a href="transforms_8h.html#afef2094890af6592b4d6d0d7731379d0">More...</a><br /></td></tr>
+<tr class="separator:afef2094890af6592b4d6d0d7731379d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f0e6793e4dc0f0184c3a6f786dcef5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllModel.html">EogllModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transforms_8h.html#a8f0e6793e4dc0f0184c3a6f786dcef5c">eogllCreateModel</a> ()</td></tr>
 <tr class="memdesc:a8f0e6793e4dc0f0184c3a6f786dcef5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a model matrix.  <a href="transforms_8h.html#a8f0e6793e4dc0f0184c3a6f786dcef5c">More...</a><br /></td></tr>
 <tr class="separator:a8f0e6793e4dc0f0184c3a6f786dcef5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,6 +226,50 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The created model matrix </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structEogllModel.html" title="A struct that represents a model matrix.">EogllModel</a></dd></dl>
 <p>This function creates a model matrix. </p>
+
+</div>
+</div>
+<a id="aabbc6f29fe59d97ad4fac43d9f5bd515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbc6f29fe59d97ad4fac43d9f5bd515">&#9670;&nbsp;</a></span>eogllOrthographicProjection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> <a class="el" href="structEogllProjection.html">EogllProjection</a> eogllOrthographicProjection </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a orthographic projection matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">top</td><td>The top of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">bottom</td><td>The bottom of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">left</td><td>The left of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">right</td><td>The right of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">near</td><td>The near of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">far</td><td>The far of the orthographic projection matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The created orthographic projection matrix </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structEogllProjection.html" title="A struct that represents a projection matrix.">EogllProjection</a></dd></dl>
+<p>This function creates a orthographic projection matrix. </p>
 
 </div>
 </div>
@@ -651,6 +701,79 @@ Functions</h2></td></tr>
     <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
     <tr><td class="paramname">width</td><td>The width of the window </td></tr>
     <tr><td class="paramname">height</td><td>The height of the window</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function updates the given projection matrix. This function should be called before drawing. </p>
+
+</div>
+</div>
+<a id="afef2094890af6592b4d6d0d7731379d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef2094890af6592b4d6d0d7731379d0">&#9670;&nbsp;</a></span>eogllUpdateProjectionMatrixOrtho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllUpdateProjectionMatrixOrtho </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structEogllProjection.html">EogllProjection</a> *&#160;</td>
+          <td class="paramname"><em>projection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates a projection matrix with top, bottom, left, right. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projection</td><td>The projection matrix to update </td></tr>
+    <tr><td class="paramname">shader</td><td>The shader program to use </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
+    <tr><td class="paramname">top</td><td>The top of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">bottom</td><td>The bottom of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">left</td><td>The left of the orthographic projection matrix </td></tr>
+    <tr><td class="paramname">right</td><td>The right of the orthographic projection matrix</td></tr>
   </table>
   </dd>
 </dl>
