@@ -1,22 +1,73 @@
 #include "eogll/transforms.h"
 
+#include "eogll/logging.h"
+
 EogllProjection eogllPerspectiveProjection(float fov, float near, float far) {
     EogllProjection projection;
     projection.fov = glm_rad(fov);
     projection.near = near;
     projection.far = far;
+    projection.isOrtho = false;
+    projection.lastWidth = -1;
+    projection.lastHeight = -1;
+    return projection;
+}
+
+EogllProjection eogllOrthographicProjection(float near, float far) {
+    EogllProjection projection;
+    projection.lastTop = -1.0f;
+    projection.lastBottom = 1.0f;
+    projection.lastLeft = -1.0f;
+    projection.lastRight = 1.0f;
+
+    projection.near = near;
+    projection.far = far;
+    projection.isOrtho = true;
     return projection;
 }
 
 void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height) {
-    if (width == projection->lastWidth && height == projection->lastHeight) {
-        eogllSetUniformMatrix4fv(shader, name, projection->projection);
+    if (!projection->isOrtho) {
+        if (width != projection->lastWidth || height != projection->lastHeight) {
+            glm_perspective(projection->fov, (float)width / (float)height, projection->near, projection->far, projection->projection);
+            projection->lastWidth = width;
+            projection->lastHeight = height;
+        }
     } else {
-        glm_perspective(projection->fov, (float)width / (float)height, projection->near, projection->far, projection->projection);
-        eogllSetUniformMatrix4fv(shader, name, projection->projection);
-        projection->lastWidth = width;
-        projection->lastHeight = height;
+        if (width != projection->lastRight || height != projection->lastBottom || 0 != projection->lastTop || 0 != projection->lastLeft) {
+            glm_ortho(0.0f, (float)width, (float)height, 0.0f, projection->near, projection->far, projection->projection);
+            projection->lastTop = 0.0f;
+            projection->lastBottom = height;
+            projection->lastLeft = 0.0f;
+            projection->lastRight = width;
+        }
+        EOGLL_LOG_WARN(stderr, "Orthographic projection calling perspective projection update function");
     }
+    eogllSetUniformMatrix4fv(shader, name, projection->projection);
+}
+
+void eogllUpdateProjectionMatrixOrtho(EogllProjection* projection, EogllShaderProgram* shader, const char* name, float top, float bottom, float left, float right) {
+    if (!projection->isOrtho) {
+        float width = right - left;
+        float height = top - bottom;
+        width = fabs(width);
+        height = fabs(height);
+        if (width != projection->lastWidth || height != projection->lastHeight) {
+            glm_perspective(projection->fov, width / height, projection->near, projection->far, projection->projection);
+            projection->lastWidth = width;
+            projection->lastHeight = height;
+        }
+        EOGLL_LOG_WARN(stderr, "Perspective projection calling orthographic projection update function");
+    } else {
+        if (top != projection->lastTop || bottom != projection->lastBottom || left != projection->lastLeft || right != projection->lastRight) {
+            glm_ortho(left, right, bottom, top, projection->near, projection->far, projection->projection);
+            projection->lastTop = top;
+            projection->lastBottom = bottom;
+            projection->lastLeft = left;
+            projection->lastRight = right;
+        }
+    }
+    eogllSetUniformMatrix4fv(shader, name, projection->projection);
 }
 
 EogllModel eogllCreateModel() {

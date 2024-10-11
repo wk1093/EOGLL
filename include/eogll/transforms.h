@@ -19,34 +19,46 @@ extern "C" {
 
 /**
  * @brief A struct that represents a projection matrix
- * @see eogllCreateProjection
+ * @see eogllPerspectiveProjection
  *
  * This struct is used to handle all projection matrix related things.
  *
  * Sample usage:
  * @code{.c}
  * // init code
- * EogllProjection* projection = eogllCreateProjection(45.0f, 0.1f, 100.0f);
+ * EogllProjection* projection = eogllPerspectiveProjection(45.0f, 0.1f, 100.0f);
  *
  * // before drawing
  * eogllUpdateProjectionMatrix(projection, shader, "projection", width, height); // mat4 projection in the shader
  * @endcode
  */
 typedef EOGLL_DECL_STRUCT struct EogllProjection {
-    /// The fov of the projection matrix
+    /// The fov of the perspective projection matrix
     float fov;
+    /// The last width used to update the perspective projection matrix
+    uint32_t lastWidth;
+    /// The last height used to update the perspective projection matrix
+    uint32_t lastHeight;
+
+    /// The last top used to update the orthographic projection matrix
+    float lastTop;
+    /// The last bottom used to update the orthographic projection matrix
+    float lastBottom;
+    /// The last left used to update the orthographic projection matrix
+    float lastLeft;
+    /// The last right used to update the orthographic projection matrix
+    float lastRight;
+
     /// The near of the projection matrix
     float near;
     /// The far of the projection matrix
     float far;
 
+    /// How to identify ortho or perspective
+    bool isOrtho;
+
     /// The projection matrix
     mat4 projection;
-
-    /// The last width used to update the projection matrix
-    uint32_t lastWidth;
-    /// The last height used to update the projection matrix
-    uint32_t lastHeight;
 } EogllProjection;
 
 /**
@@ -62,6 +74,21 @@ typedef EOGLL_DECL_STRUCT struct EogllProjection {
 EOGLL_DECL_FUNC_ND EogllProjection eogllPerspectiveProjection(float fov, float near, float far);
 
 /**
+ * @brief Creates a orthographic projection matrix
+ * @param top The top of the orthographic projection matrix
+ * @param bottom The bottom of the orthographic projection matrix
+ * @param left The left of the orthographic projection matrix
+ * @param right The right of the orthographic projection matrix
+ * @param near The near of the orthographic projection matrix
+ * @param far The far of the orthographic projection matrix
+ * @return The created orthographic projection matrix
+ * @see EogllProjection
+ * 
+ * This function creates a orthographic projection matrix.
+ */
+EOGLL_DECL_FUNC_ND EogllProjection eogllOrthographicProjection(float near, float far);
+
+/**
  * @brief Updates a projection matrix
  * @param projection The projection matrix to update
  * @param shader The shader program to use
@@ -73,6 +100,21 @@ EOGLL_DECL_FUNC_ND EogllProjection eogllPerspectiveProjection(float fov, float n
  * This function should be called before drawing.
  */
 EOGLL_DECL_FUNC void eogllUpdateProjectionMatrix(EogllProjection* projection, EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
+
+/**
+ * @brief Updates a projection matrix with top, bottom, left, right
+ * @param projection The projection matrix to update
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ * @param top The top of the orthographic projection matrix
+ * @param bottom The bottom of the orthographic projection matrix
+ * @param left The left of the orthographic projection matrix
+ * @param right The right of the orthographic projection matrix
+ * 
+ * This function updates the given projection matrix.
+ * This function should be called before drawing.
+ */
+EOGLL_DECL_FUNC void eogllUpdateProjectionMatrixOrtho(EogllProjection* projection, EogllShaderProgram* shader, const char* name, float top, float bottom, float left, float right);
 
 /**
  * @brief A struct that represents a model matrix
