@@ -11,6 +11,7 @@
 #define _HOGLL_BUFFER_OBJ_HPP_
 
 #include "pch.hpp"
+#include "objectattrs.hpp"
 
 namespace ogl {
     struct BufferObject {
@@ -19,6 +20,7 @@ namespace ogl {
     public:
 
         BufferObject(const char* name, EogllObjectAttrs attrs);
+        BufferObject(const char* name, ogl::ObjectAttrs attrs);
         BufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);
         BufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices);
         ~BufferObject();

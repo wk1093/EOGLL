@@ -89,8 +89,10 @@ if (BUILD_EOGLL)
             include/hogll/pch.hpp
             include/hogll/window.hpp
             include/hogll/bufferobj.hpp
+            include/hogll/objectattrs.hpp
             src/hogll/window.cpp
-            src/hogll/bufferobj.cpp)
+            src/hogll/bufferobj.cpp
+            src/hogll/objectattrs.cpp)
     target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
     target_link_libraries(hogll eogll assimp)
     if (CMAKE_BUILD_TYPE MATCHES Debug)

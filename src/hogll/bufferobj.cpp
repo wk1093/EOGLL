@@ -4,6 +4,9 @@ namespace ogl {
     BufferObject::BufferObject(const char* name, EogllObjectAttrs attrs) {
         buffer = eogllLoadBufferObject(name, attrs, GL_STATIC_DRAW);
     }
+    BufferObject::BufferObject(const char* name, ObjectAttrs attrs) {
+        buffer = eogllLoadBufferObject(name, *attrs.getBuffer(), GL_STATIC_DRAW);
+    }
     BufferObject::BufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType) {
         buffer = eogllCreateBufferObject(vao, vbo, ebo, indicesSize, indicesType);
     }

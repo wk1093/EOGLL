@@ -4,11 +4,19 @@ int main() {
     ogl::Window window(800, 600, "EOGLL: HOGLL Window");
 
     eogllEnableDepth();
-    // eogllEnableFaceCulling();
+    eogllEnableFaceCulling();
 
-    EogllObjectAttrs attrs = eogllCreateObjectAttrs();
-    eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
-    eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
+    // EogllObjectAttrs attrs = eogllCreateObjectAttrs();
+    // eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
+    // eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
+    // ogl::ObjectAttrs attrs;
+    // attrs.add(GL_FLOAT, 3, EOGLL_ATTR_POSITION);
+    // attrs.add(GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
+    ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
+        {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
+        {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
+};
+
     ogl::BufferObject cube("resources/models/cube.obj", attrs);
 
     EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/dragon_vertex.glsl", "resources/shaders/dragon_fragment.glsl");
