@@ -1,6 +1,7 @@
 var structogl_1_1BufferObject =
 [
     [ "BufferObject", "structogl_1_1BufferObject.html#a97a66c82fbb81e3564e3b0602f179d4d", null ],
+    [ "BufferObject", "structogl_1_1BufferObject.html#aa791b3c98b6686fcdb24dc7c2c5fb180", null ],
     [ "BufferObject", "structogl_1_1BufferObject.html#a45514185a8ea70d5dc926131b059003c", null ],
     [ "BufferObject", "structogl_1_1BufferObject.html#ac25d1533be387f6e928085bd5adc5cce", null ],
     [ "~BufferObject", "structogl_1_1BufferObject.html#a0855e7cd96a97d39eb26ccbf5cd97ab0", null ],

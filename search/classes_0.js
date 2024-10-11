@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bufferobject_263',['BufferObject',['../structogl_1_1BufferObject.html',1,'ogl']]]
+  ['attrinput_266',['AttrInput',['../structogl_1_1ObjectAttrs_1_1AttrInput.html',1,'ogl::ObjectAttrs']]]
 ];
