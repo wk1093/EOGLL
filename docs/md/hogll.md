@@ -20,7 +20,7 @@ target_link_libraries(YOUR_TARGET_HERE hogll)
 ```
 
 ### Example
-```c++
+```cpp
 #include "hogll.hpp"
 int main() {
     ogl::Window window(800, 600, "EOGLL: HOGLL Window");
