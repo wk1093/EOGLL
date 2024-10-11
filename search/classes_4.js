@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objectattrs_292',['ObjectAttrs',['../structogl_1_1ObjectAttrs.html',1,'ogl']]]
+  ['model_293',['Model',['../structogl_1_1Model.html',1,'ogl']]]
 ];

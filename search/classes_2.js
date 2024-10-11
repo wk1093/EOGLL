@@ -1,23 +1,4 @@
 var searchData=
 [
-  ['eogllattribbuilder_271',['EogllAttribBuilder',['../structEogllAttribBuilder.html',1,'']]],
-  ['eogllbufferobject_272',['EogllBufferObject',['../structEogllBufferObject.html',1,'']]],
-  ['eogllcamera_273',['EogllCamera',['../structEogllCamera.html',1,'']]],
-  ['eogllcameramatrix_274',['EogllCameraMatrix',['../structEogllCameraMatrix.html',1,'']]],
-  ['eogllframebuffer_275',['EogllFramebuffer',['../structEogllFramebuffer.html',1,'']]],
-  ['eogllmodel_276',['EogllModel',['../structEogllModel.html',1,'']]],
-  ['eogllobjectattr_277',['EogllObjectAttr',['../structEogllObjectAttr.html',1,'']]],
-  ['eogllobjectattrs_278',['EogllObjectAttrs',['../structEogllObjectAttrs.html',1,'']]],
-  ['eogllobjectfiledata_279',['EogllObjectFileData',['../structEogllObjectFileData.html',1,'']]],
-  ['eogllobjectfileface_280',['EogllObjectFileFace',['../structEogllObjectFileFace.html',1,'']]],
-  ['eogllobjectindex_281',['EogllObjectIndex',['../structEogllObjectIndex.html',1,'']]],
-  ['eogllobjectnormal_282',['EogllObjectNormal',['../structEogllObjectNormal.html',1,'']]],
-  ['eogllobjectposition_283',['EogllObjectPosition',['../structEogllObjectPosition.html',1,'']]],
-  ['eogllobjecttexcoord_284',['EogllObjectTexCoord',['../structEogllObjectTexCoord.html',1,'']]],
-  ['eogllprojection_285',['EogllProjection',['../structEogllProjection.html',1,'']]],
-  ['eogllshaderprogram_286',['EogllShaderProgram',['../structEogllShaderProgram.html',1,'']]],
-  ['eoglltexture_287',['EogllTexture',['../structEogllTexture.html',1,'']]],
-  ['eogllvertattribdata_288',['EogllVertAttribData',['../structEogllVertAttribData.html',1,'']]],
-  ['eogllwindow_289',['EogllWindow',['../structEogllWindow.html',1,'']]],
-  ['eogllwindowhints_290',['EogllWindowHints',['../structEogllWindowHints.html',1,'']]]
+  ['camera_272',['Camera',['../structogl_1_1Camera.html',1,'ogl']]]
 ];
