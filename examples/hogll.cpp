@@ -6,41 +6,36 @@ int main() {
     eogllEnableDepth();
     eogllEnableFaceCulling();
 
-    // EogllObjectAttrs attrs = eogllCreateObjectAttrs();
-    // eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_POSITION);
-    // eogllAddObjectAttr(&attrs, GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
-    // ogl::ObjectAttrs attrs;
-    // attrs.add(GL_FLOAT, 3, EOGLL_ATTR_POSITION);
-    // attrs.add(GL_FLOAT, 3, EOGLL_ATTR_NORMAL);
     ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
         {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
         {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
     };
 
-    ogl::BufferObject cube("resources/models/cube.obj", attrs);
+    ogl::BufferObject cube("resources/models/dragon.obj", attrs);
 
     EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/dragon_vertex.glsl", "resources/shaders/dragon_fragment.glsl");
 
-    // EogllModel model = eogllCreateModel();
     ogl::Model model;
-    EogllCamera camera = eogllCreateCamera();
+    // EogllCamera camera = eogllCreateCamera();
+    ogl::Camera camera;
     EogllProjection projection = eogllPerspectiveProjection(45.0f, 0.1f, 100.0f);
 
-    glm_vec3_copy((vec3){0.0f, 0.0f, 5.0f}, camera.pos);
+    camera.pos() = glm::vec3(0.0f, 0.0f, 5.0f);
 
     while (!window.shouldClose()) {
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        *(model.pos()) = glm::vec3(0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f);
-        *(model.rot()) = glm::vec3(glfwGetTime()*8, glfwGetTime()*10, 0.0f);
+        model.pos() = glm::vec3(0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f);
+        model.rot() = glm::vec3(glfwGetTime()*8, glfwGetTime()*10, 0.0f);
 
 
 
         eogllUseProgram(shader);
-        eogllUpdateCameraMatrix(&camera, shader, "view");
+
         eogllUpdateProjectionMatrix(&projection, shader, "projection", window.getWidth(), window.getHeight());
-        // eogllUpdateModelMatrix(&model, shader, "model");
+
+        camera.update(shader, "view");
         model.update(shader, "model");
         cube.draw(GL_TRIANGLES);
 

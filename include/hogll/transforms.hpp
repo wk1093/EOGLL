@@ -17,32 +17,39 @@ namespace ogl {
     private:
         EogllModel model;
     public:
-        inline Model() {
-            model = eogllCreateModel();
-        }
+        Model();
+        Model(glm::vec3 pos);
 
-        inline glm::vec3* pos() {
-            // make vec3 a pointer to the cglm vec3
-            return (glm::vec3*)&model.pos;
-        }
+        glm::vec3* posptr();
+        glm::vec3& pos();
 
-        inline glm::vec3* rot() {
-            // make vec3 a pointer to the cglm vec3
-            return (glm::vec3*)&model.rot;
-        }
+        glm::vec3* rotptr();
+        glm::vec3& rot();
 
-        inline glm::vec3* scale() {
-            // make vec3 a pointer to the cglm vec3
-            return (glm::vec3*)&model.scale;
-        }
+        glm::vec3* scaleptr();
+        glm::vec3& scale();
 
-        inline void update(EogllShaderProgram* shader, const char* name) {
-            eogllUpdateModelMatrix(&model, shader, name);
-        }
+        void update(EogllShaderProgram* shader, const char* name);
 
-        inline EogllModel* getModel() {
-            return &model;
-        }
+        EogllModel* getModel();
+    };
+
+    struct Camera {
+    private:
+        EogllCamera camera;
+    public:
+        Camera();
+        Camera(glm::vec3 pos);
+
+        glm::vec3* posptr();
+        glm::vec3& pos();
+
+        void yaw(float amount);
+        void pitch(float amount);
+
+        void move(EogllCameraDirection dir, float amount);
+
+        void update(EogllShaderProgram* shader, const char* name);
     };
 }
 
