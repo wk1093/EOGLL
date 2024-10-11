@@ -2,8 +2,8 @@ var structogl_1_1Window =
 [
     [ "Window", "structogl_1_1Window.html#af55457cf31fd4b48f7d722da675c9ec9", null ],
     [ "~Window", "structogl_1_1Window.html#a12a5a22c0b458c8e941aedc331a5f017", null ],
-    [ "getHeight", "structogl_1_1Window.html#ab00a3a87afd2560c0a0785dcf836106b", null ],
-    [ "getWidth", "structogl_1_1Window.html#ab52a5b1630dc0ec6a82d2fe7326d863e", null ],
+    [ "getHeight", "structogl_1_1Window.html#acdf6950380a4b6313ca214af1289d9c3", null ],
+    [ "getWidth", "structogl_1_1Window.html#ae7e1c8a0c456e639020cec423cb21650", null ],
     [ "getWindow", "structogl_1_1Window.html#a7de47089565005885920106c6fc534e6", null ],
     [ "keyDown", "structogl_1_1Window.html#ac7b29bab2645ab6a4f912176b6ed818b", null ],
     [ "keyPressed", "structogl_1_1Window.html#a111377cd2dd47234ff4b559fe7fca69c", null ],

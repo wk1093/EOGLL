@@ -5,6 +5,7 @@ var annotated_dup =
       [ "ObjectAttrs", "structogl_1_1ObjectAttrs.html", "structogl_1_1ObjectAttrs" ],
       [ "Model", "structogl_1_1Model.html", "structogl_1_1Model" ],
       [ "Camera", "structogl_1_1Camera.html", "structogl_1_1Camera" ],
+      [ "Projection", "structogl_1_1Projection.html", "structogl_1_1Projection" ],
       [ "WindowHints", "structogl_1_1WindowHints.html", "structogl_1_1WindowHints" ],
       [ "Window", "structogl_1_1Window.html", "structogl_1_1Window" ]
     ] ],
