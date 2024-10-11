@@ -19,6 +19,7 @@ namespace ogl {
     private:
         EogllModel model;
     public:
+        inline Model(EogllModel ebo) : model(ebo) {}
         Model();
         Model(glm::vec3 pos);
 
@@ -40,6 +41,7 @@ namespace ogl {
     private:
         EogllCamera camera;
     public:
+        inline Camera(EogllCamera ebo) : camera(ebo) {}
         Camera();
         Camera(glm::vec3 pos);
 
@@ -58,10 +60,13 @@ namespace ogl {
     private:
         EogllProjection proj;
     public:
-
+        inline Projection(EogllProjection ebo) : proj(ebo) {}
         Projection(float fov, float near, float far);
+        Projection(float near, float far);
 
         void update(EogllShaderProgram* shader, const char* name, const ogl::Window& window);
+        void update(EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
+        void update(EogllShaderProgram* shader, const char* name, float top, float bottom, float left, float right);
     };
 }
 

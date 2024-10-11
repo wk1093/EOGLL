@@ -18,7 +18,7 @@ namespace ogl {
     private:
         EogllBufferObject buffer;
     public:
-
+        inline BufferObject(EogllBufferObject ebo) : buffer(ebo) {}
         BufferObject(const char* name, EogllObjectAttrs attrs);
         BufferObject(const char* name, ogl::ObjectAttrs attrs);
         BufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);

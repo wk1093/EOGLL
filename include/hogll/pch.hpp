@@ -15,6 +15,7 @@
 #include <eogll.h>
 #include <vector>
 #include <initializer_list>
+#include <string>
 
 #include <glm/vec3.hpp>
 

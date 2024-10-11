@@ -78,7 +78,21 @@ namespace ogl {
         proj = eogllPerspectiveProjection(fov, near, far);
     }
 
+    Projection::Projection(float near, float far) {
+        proj = eogllOrthographicProjection(near, far);
+    }
+
     void Projection::update(EogllShaderProgram* shader, const char* name, const ogl::Window& window) {
         eogllUpdateProjectionMatrix(&proj, shader, name, window.getWidth(), window.getHeight());
     }
+
+    void Projection::update(EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height) {
+        eogllUpdateProjectionMatrix(&proj, shader, name, width, height);
+    }
+
+    void Projection::update(EogllShaderProgram* shader, const char* name, float top, float bottom, float left, float right) {
+        eogllUpdateProjectionMatrixOrtho(&proj, shader, name, top, bottom, left, right);
+    }
+
+
 }

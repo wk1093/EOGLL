@@ -1,6 +1,14 @@
 #include "hogll/window.hpp"
 
 namespace ogl {
+    WindowHints::WindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent) {
+        hints = eogllCreateWindowHints(resizable, decorated, floating, maximized, visible, focused, transparent);
+    }
+
+    WindowHints::WindowHints() {
+        hints = eogllDefaultWindowHints();
+    }
+
     Window::Window(int width, int height, const char* title, WindowHints hints) {
         if (eogllInit() != EOGLL_SUCCESS) {
             EOGLL_LOG_FATAL(stderr, "Failed to initialize EOGLL");

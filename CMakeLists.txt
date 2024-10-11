@@ -10,8 +10,8 @@ option(BUILD_EXAMPLES "Build Examples" ON)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
-set(EOGLL_VERSION_MINOR 5)
-set(EOGLL_VERSION_PATCH 7)
+set(EOGLL_VERSION_MINOR 6)
+set(EOGLL_VERSION_PATCH 0)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -92,10 +92,12 @@ if (BUILD_EOGLL)
             include/hogll/bufferobj.hpp
             include/hogll/objectattrs.hpp
             include/hogll/transforms.hpp
+            include/hogll/shadergen.hpp
             src/hogll/window.cpp
             src/hogll/bufferobj.cpp
             src/hogll/objectattrs.cpp
-            src/hogll/transforms.cpp)
+            src/hogll/transforms.cpp
+            src/hogll/shadergen.cpp)
     target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include thirdparty/glm)
     target_link_libraries(hogll eogll assimp glm)
     if (CMAKE_BUILD_TYPE MATCHES Debug)

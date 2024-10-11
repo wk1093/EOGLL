@@ -13,11 +13,18 @@ int main() {
 
     ogl::BufferObject cube("resources/models/dragon.obj", attrs);
 
-    EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/dragon_vertex.glsl", "resources/shaders/dragon_fragment.glsl");
+    // really cool system that allows us to have default shaders that work for most attribute cases
+    // these shader are generated at runtime and are not saved to disk
+    // if you just give it position, it will be a flat single color shader, 
+    // but if you give it the normal, it will add very simple shading (static directional lighting)
+
+    EogllShaderProgram* shader = ogl::basicShaderGenerator(attrs, true);
+
 
     ogl::Model model;
     ogl::Camera camera;
-    ogl::Projection projection(45.0f, 0.1f, 100.0f);
+    // ogl::Projection projection(45.0f, 0.1f, 100.0f);
+    ogl::Projection projection(0.1f, 100.0f);
 
     camera.pos() = glm::vec3(0.0f, 0.0f, 5.0f);
 
@@ -30,8 +37,8 @@ int main() {
 
         eogllUseProgram(shader);
 
-        projection.update(shader, "projection", window);
-
+        // projection.update(shader, "projection", window);
+        projection.update(shader, "projection", 1.0f, -1.0f, -1.0f, 1.0f);
         camera.update(shader, "view");
         model.update(shader, "model");
         cube.draw(GL_TRIANGLES);

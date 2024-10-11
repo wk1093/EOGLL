@@ -15,12 +15,8 @@
 namespace ogl {
     struct WindowHints {
         EogllWindowHints hints;
-        WindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent) {
-            hints = eogllCreateWindowHints(resizable, decorated, floating, maximized, visible, focused, transparent);
-        }
-        WindowHints() {
-            hints = eogllDefaultWindowHints();
-        }
+        WindowHints(bool resizable, bool decorated, bool floating, bool maximized, bool visible, bool focused, bool transparent);
+        WindowHints();
     };
 
     struct Window {
@@ -28,7 +24,7 @@ namespace ogl {
         EogllWindow* window;
         EogllShaderProgram* defaultShader3f_p;
     public:
-
+        inline Window(EogllWindow* ebo) : window(ebo) {}
         Window(int width, int height, const char* title, WindowHints hints=WindowHints());
         ~Window();
 
@@ -59,6 +55,8 @@ namespace ogl {
         bool shouldClose();
 
         void setCursorMode(int mode);
+
+        inline operator EogllWindow*() { return window; }
     };
 }
 

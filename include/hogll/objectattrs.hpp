@@ -17,6 +17,7 @@ namespace ogl {
     private:
         EogllObjectAttrs buffer;
     public:
+        inline ObjectAttrs(EogllObjectAttrs ebo) : buffer(ebo) {}
         ObjectAttrs();
 
         struct AttrInput {

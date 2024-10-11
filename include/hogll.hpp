@@ -7,5 +7,6 @@
 #include "hogll/bufferobj.hpp"
 #include "hogll/objectattrs.hpp"
 #include "hogll/transforms.hpp"
+#include "hogll/shadergen.hpp"
 
 #endif
