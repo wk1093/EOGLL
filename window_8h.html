@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.5.3</span>
+   &#160;<span id="projectnumber">0.5.5</span>
    </div>
   </td>
  </tr>
@@ -178,6 +178,18 @@ Macros</h2></td></tr>
 <tr class="memitem:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memItemLeft" align="right" valign="top"><a id="ac1e8a42306d8e67cb94ca31c3956ee78"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPRECATED</b>&#160;&#160;&#160;HEDLEY_DEPRECATED_FOR(0.2.6, window-&gt;mouseIsDown[key])</td></tr>
 <tr class="separator:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memItemLeft" align="right" valign="top"><a id="ac1e8a42306d8e67cb94ca31c3956ee78"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPRECATED</b>&#160;&#160;&#160;HEDLEY_DEPRECATED_FOR(0.5.4, window-&gt;mousex and window-&gt;mousey)</td></tr>
+<tr class="separator:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memItemLeft" align="right" valign="top"><a id="ac1e8a42306d8e67cb94ca31c3956ee78"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPRECATED</b>&#160;&#160;&#160;HEDLEY_DEPRECATED_FOR(0.5.4, window-&gt;mousedx and window-&gt;mousedy)</td></tr>
+<tr class="separator:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memItemLeft" align="right" valign="top"><a id="ac1e8a42306d8e67cb94ca31c3956ee78"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPRECATED</b>&#160;&#160;&#160;HEDLEY_DEPRECATED_FOR(0.5.4, window-&gt;mouseScrollx and window-&gt;mouseScrolly)</td></tr>
+<tr class="separator:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memItemLeft" align="right" valign="top"><a id="ac1e8a42306d8e67cb94ca31c3956ee78"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPRECATED</b>&#160;&#160;&#160;HEDLEY_DEPRECATED_FOR(0.5.4, window-&gt;width and window-&gt;height)</td></tr>
+<tr class="separator:ac1e8a42306d8e67cb94ca31c3956ee78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -232,21 +244,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a47e13884651b2090d0262a06105a69bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#ab292762855c67e24b0380967c244b7a5">EOGLL_DECL_FUNC_ND</a> DEPRECATED bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a47e13884651b2090d0262a06105a69bb">eogllGetMouseIsDown</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, int button)</td></tr>
 <tr class="memdesc:a47e13884651b2090d0262a06105a69bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets if a mouse button is down.  <a href="window_8h.html#a47e13884651b2090d0262a06105a69bb">More...</a><br /></td></tr>
 <tr class="separator:a47e13884651b2090d0262a06105a69bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f68932dcbe6d8523880d3b15d26632"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a56f68932dcbe6d8523880d3b15d26632">eogllGetMousePos</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *xpos, double *ypos)</td></tr>
-<tr class="memdesc:a56f68932dcbe6d8523880d3b15d26632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the mouse.  <a href="window_8h.html#a56f68932dcbe6d8523880d3b15d26632">More...</a><br /></td></tr>
-<tr class="separator:a56f68932dcbe6d8523880d3b15d26632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcdc3a6a6408c0ae39e4aef74589a69a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#abcdc3a6a6408c0ae39e4aef74589a69a">eogllGetMousePos</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *xpos, double *ypos)</td></tr>
+<tr class="memdesc:abcdc3a6a6408c0ae39e4aef74589a69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of the mouse.  <a href="window_8h.html#abcdc3a6a6408c0ae39e4aef74589a69a">More...</a><br /></td></tr>
+<tr class="separator:abcdc3a6a6408c0ae39e4aef74589a69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa9854d26c4fff62870de57548caa00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#acaa9854d26c4fff62870de57548caa00">eogllSetMousePos</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double xpos, double ypos)</td></tr>
 <tr class="memdesc:acaa9854d26c4fff62870de57548caa00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the mouse.  <a href="window_8h.html#acaa9854d26c4fff62870de57548caa00">More...</a><br /></td></tr>
 <tr class="separator:acaa9854d26c4fff62870de57548caa00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611b6d2e36c0d321bdcebd14420e7585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a611b6d2e36c0d321bdcebd14420e7585">eogllGetMouseDelta</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *dxpos, double *dypos)</td></tr>
-<tr class="memdesc:a611b6d2e36c0d321bdcebd14420e7585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the delta of the mouse.  <a href="window_8h.html#a611b6d2e36c0d321bdcebd14420e7585">More...</a><br /></td></tr>
-<tr class="separator:a611b6d2e36c0d321bdcebd14420e7585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25a7f67a4ee5063e914558298db2da0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#ad25a7f67a4ee5063e914558298db2da0">eogllGetMouseScroll</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *xscroll, double *yscroll)</td></tr>
-<tr class="memdesc:ad25a7f67a4ee5063e914558298db2da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scroll of the mouse.  <a href="window_8h.html#ad25a7f67a4ee5063e914558298db2da0">More...</a><br /></td></tr>
-<tr class="separator:ad25a7f67a4ee5063e914558298db2da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c5665f8dd1ce5a53c623e65d53c5d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a55c5665f8dd1ce5a53c623e65d53c5d1">eogllGetWindowSize</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, uint32_t *width, uint32_t *height)</td></tr>
-<tr class="memdesc:a55c5665f8dd1ce5a53c623e65d53c5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the window.  <a href="window_8h.html#a55c5665f8dd1ce5a53c623e65d53c5d1">More...</a><br /></td></tr>
-<tr class="separator:a55c5665f8dd1ce5a53c623e65d53c5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe5bd075c7f2f8d7e32081e426968768"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#abe5bd075c7f2f8d7e32081e426968768">eogllGetMouseDelta</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *dxpos, double *dypos)</td></tr>
+<tr class="memdesc:abe5bd075c7f2f8d7e32081e426968768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the delta of the mouse.  <a href="window_8h.html#abe5bd075c7f2f8d7e32081e426968768">More...</a><br /></td></tr>
+<tr class="separator:abe5bd075c7f2f8d7e32081e426968768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1467e5c227b4aba33a4a2fd680a05aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#af1467e5c227b4aba33a4a2fd680a05aa">eogllGetMouseScroll</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, double *xscroll, double *yscroll)</td></tr>
+<tr class="memdesc:af1467e5c227b4aba33a4a2fd680a05aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the scroll of the mouse.  <a href="window_8h.html#af1467e5c227b4aba33a4a2fd680a05aa">More...</a><br /></td></tr>
+<tr class="separator:af1467e5c227b4aba33a4a2fd680a05aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60695cceb5c433b68b6043f54500bbdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#a60695cceb5c433b68b6043f54500bbdb">eogllGetWindowSize</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, uint32_t *width, uint32_t *height)</td></tr>
+<tr class="memdesc:a60695cceb5c433b68b6043f54500bbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the window.  <a href="window_8h.html#a60695cceb5c433b68b6043f54500bbdb">More...</a><br /></td></tr>
+<tr class="separator:a60695cceb5c433b68b6043f54500bbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2f0cfe148de00dead9e417ed3bb8973"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="window_8h.html#af2f0cfe148de00dead9e417ed3bb8973">eogllSetWindowSize</a> (<a class="el" href="structEogllWindow.html">EogllWindow</a> *window, uint32_t width, uint32_t height)</td></tr>
 <tr class="memdesc:af2f0cfe148de00dead9e417ed3bb8973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the window.  <a href="window_8h.html#af2f0cfe148de00dead9e417ed3bb8973">More...</a><br /></td></tr>
 <tr class="separator:af2f0cfe148de00dead9e417ed3bb8973"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -666,14 +678,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a611b6d2e36c0d321bdcebd14420e7585"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a611b6d2e36c0d321bdcebd14420e7585">&#9670;&nbsp;</a></span>eogllGetMouseDelta()</h2>
+<a id="abe5bd075c7f2f8d7e32081e426968768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe5bd075c7f2f8d7e32081e426968768">&#9670;&nbsp;</a></span>eogllGetMouseDelta()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllGetMouseDelta </td>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void eogllGetMouseDelta </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structEogllWindow.html">EogllWindow</a> *&#160;</td>
           <td class="paramname"><em>window</em>, </td>
@@ -708,6 +720,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This function is deprecated (since 0.5.4), use window-&gt;mousedx and window-&gt;mousedy instead</dd></dl>
 <p>This function gets the delta of the mouse. This function is effectively the same as using window-&gt;mousedx and window-&gt;mousedy. </p>
 
 </div>
@@ -755,14 +768,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a56f68932dcbe6d8523880d3b15d26632"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56f68932dcbe6d8523880d3b15d26632">&#9670;&nbsp;</a></span>eogllGetMousePos()</h2>
+<a id="abcdc3a6a6408c0ae39e4aef74589a69a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcdc3a6a6408c0ae39e4aef74589a69a">&#9670;&nbsp;</a></span>eogllGetMousePos()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllGetMousePos </td>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void eogllGetMousePos </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structEogllWindow.html">EogllWindow</a> *&#160;</td>
           <td class="paramname"><em>window</em>, </td>
@@ -799,6 +812,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#acaa9854d26c4fff62870de57548caa00" title="Sets the position of the mouse.">eogllSetMousePos</a> </dd>
 <dd>
 <a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This function is deprecated (since 0.5.4), use window-&gt;mousex and window-&gt;mousey instead</dd></dl>
 <p>This function gets the position of the mouse. This function is effectively the same as using window-&gt;mousex and window-&gt;mousey. </p>
 
 </div>
@@ -889,14 +903,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad25a7f67a4ee5063e914558298db2da0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad25a7f67a4ee5063e914558298db2da0">&#9670;&nbsp;</a></span>eogllGetMouseScroll()</h2>
+<a id="af1467e5c227b4aba33a4a2fd680a05aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1467e5c227b4aba33a4a2fd680a05aa">&#9670;&nbsp;</a></span>eogllGetMouseScroll()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllGetMouseScroll </td>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void eogllGetMouseScroll </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structEogllWindow.html">EogllWindow</a> *&#160;</td>
           <td class="paramname"><em>window</em>, </td>
@@ -931,6 +945,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This function is deprecated (since 0.5.4), use window-&gt;mouseScrollx and window-&gt;mouseScrolly instead</dd></dl>
 <p>This function gets the scroll of the mouse. This function is effectively the same as using window-&gt;mouseScrollx and window-&gt;mouseScrolly. </p>
 
 </div>
@@ -983,14 +998,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a55c5665f8dd1ce5a53c623e65d53c5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55c5665f8dd1ce5a53c623e65d53c5d1">&#9670;&nbsp;</a></span>eogllGetWindowSize()</h2>
+<a id="a60695cceb5c433b68b6043f54500bbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60695cceb5c433b68b6043f54500bbdb">&#9670;&nbsp;</a></span>eogllGetWindowSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllGetWindowSize </td>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> DEPRECATED void eogllGetWindowSize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structEogllWindow.html">EogllWindow</a> *&#160;</td>
           <td class="paramname"><em>window</em>, </td>
@@ -1027,6 +1042,7 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#af2f0cfe148de00dead9e417ed3bb8973" title="Sets the size of the window.">eogllSetWindowSize</a> </dd>
 <dd>
 <a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This function is deprecated (since 0.5.4), use window-&gt;width and window-&gt;height instead</dd></dl>
 <p>This function gets the size of the window. This function is effectively the same as using window-&gt;width and window-&gt;height. </p>
 
 </div>
@@ -1196,7 +1212,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#a56f68932dcbe6d8523880d3b15d26632" title="Gets the position of the mouse.">eogllGetMousePos</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#abcdc3a6a6408c0ae39e4aef74589a69a" title="Gets the position of the mouse.">eogllGetMousePos</a> </dd>
 <dd>
 <a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
 <p>This function sets the position of the mouse. </p>
@@ -1352,7 +1368,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#a55c5665f8dd1ce5a53c623e65d53c5d1" title="Gets the size of the window.">eogllGetWindowSize</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="window_8h.html#a60695cceb5c433b68b6043f54500bbdb" title="Gets the size of the window.">eogllGetWindowSize</a> </dd>
 <dd>
 <a class="el" href="structEogllWindow.html" title="A struct that represents a window.">EogllWindow</a></dd></dl>
 <p>This function sets the size of the window. </p>

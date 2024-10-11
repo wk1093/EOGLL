@@ -2,6 +2,7 @@ var structogl_1_1Window =
 [
     [ "Window", "structogl_1_1Window.html#af55457cf31fd4b48f7d722da675c9ec9", null ],
     [ "~Window", "structogl_1_1Window.html#a12a5a22c0b458c8e941aedc331a5f017", null ],
+    [ "dt", "structogl_1_1Window.html#ad90078091b21445ee061bcda93abd430", null ],
     [ "getHeight", "structogl_1_1Window.html#acdf6950380a4b6313ca214af1289d9c3", null ],
     [ "getWidth", "structogl_1_1Window.html#ae7e1c8a0c456e639020cec423cb21650", null ],
     [ "getWindow", "structogl_1_1Window.html#a7de47089565005885920106c6fc534e6", null ],
