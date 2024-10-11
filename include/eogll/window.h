@@ -344,6 +344,7 @@ EOGLL_DECL_FUNC_ND DEPRECATED bool eogllGetMouseRelease(EogllWindow* window, int
 EOGLL_DECL_FUNC_ND DEPRECATED bool eogllGetMouseIsDown(EogllWindow* window, int button);
 #undef DEPRECATED
 
+#define DEPRECATED HEDLEY_DEPRECATED_FOR(0.5.4, window->mousex and window->mousey)
 /**
  * @brief Gets the position of the mouse
  * @param window The window to get the mouse position for
@@ -351,11 +352,14 @@ EOGLL_DECL_FUNC_ND DEPRECATED bool eogllGetMouseIsDown(EogllWindow* window, int 
  * @param ypos A pointer to the destination of the y position
  * @see eogllSetMousePos
  * @see EogllWindow
+ * 
+ * @deprecated This function is deprecated (since 0.5.4), use window->mousex and window->mousey instead
  *
  * This function gets the position of the mouse.
  * This function is effectively the same as using window->mousex and window->mousey.
  */
-EOGLL_DECL_FUNC void eogllGetMousePos(EogllWindow* window, double* xpos, double* ypos);
+EOGLL_DECL_FUNC DEPRECATED void eogllGetMousePos(EogllWindow* window, double* xpos, double* ypos);
+#undef DEPRECATED
 
 /**
  * @brief Sets the position of the mouse
@@ -369,30 +373,39 @@ EOGLL_DECL_FUNC void eogllGetMousePos(EogllWindow* window, double* xpos, double*
  */
 EOGLL_DECL_FUNC void eogllSetMousePos(EogllWindow* window, double xpos, double ypos);
 
+#define DEPRECATED HEDLEY_DEPRECATED_FOR(0.5.4, window->mousedx and window->mousedy)
 /**
  * @brief Gets the delta of the mouse
  * @param window The window to get the mouse delta for
  * @param dxpos A pointer to the destination of the x delta
  * @param dypos A pointer to the destination of the y delta
  * @see EogllWindow
+ * 
+ * @deprecated This function is deprecated (since 0.5.4), use window->mousedx and window->mousedy instead
  *
  * This function gets the delta of the mouse.
  * This function is effectively the same as using window->mousedx and window->mousedy.
  */
-EOGLL_DECL_FUNC void eogllGetMouseDelta(EogllWindow* window, double* dxpos, double* dypos);
+EOGLL_DECL_FUNC DEPRECATED void eogllGetMouseDelta(EogllWindow* window, double* dxpos, double* dypos);
+#undef DEPRECATED
 
+#define DEPRECATED HEDLEY_DEPRECATED_FOR(0.5.4, window->mouseScrollx and window->mouseScrolly)
 /**
  * @brief Gets the scroll of the mouse
  * @param window The window to get the mouse scroll for
  * @param xscroll A pointer to the destination of the x scroll
  * @param yscroll A pointer to the destination of the y scroll
  * @see EogllWindow
+ * 
+ * @deprecated This function is deprecated (since 0.5.4), use window->mouseScrollx and window->mouseScrolly instead
  *
  * This function gets the scroll of the mouse.
  * This function is effectively the same as using window->mouseScrollx and window->mouseScrolly.
  */
-EOGLL_DECL_FUNC void eogllGetMouseScroll(EogllWindow* window, double* xscroll, double* yscroll);
+EOGLL_DECL_FUNC DEPRECATED void eogllGetMouseScroll(EogllWindow* window, double* xscroll, double* yscroll);
+#undef DEPRECATED
 
+#define DEPRECATED HEDLEY_DEPRECATED_FOR(0.5.4, window->width and window->height)
 /**
  * @brief Gets the size of the window
  * @param window The window to get the size for
@@ -400,11 +413,14 @@ EOGLL_DECL_FUNC void eogllGetMouseScroll(EogllWindow* window, double* xscroll, d
  * @param height A pointer to the destination of the height
  * @see eogllSetWindowSize
  * @see EogllWindow
+ * 
+ * @deprecated This function is deprecated (since 0.5.4), use window->width and window->height instead
  *
  * This function gets the size of the window.
  * This function is effectively the same as using window->width and window->height.
  */
-EOGLL_DECL_FUNC void eogllGetWindowSize(EogllWindow* window, uint32_t* width, uint32_t* height);
+EOGLL_DECL_FUNC DEPRECATED void eogllGetWindowSize(EogllWindow* window, uint32_t* width, uint32_t* height);
+#undef DEPRECATED
 
 /**
  * @brief Sets the size of the window
