@@ -8,7 +8,6 @@ HOGLL is a part of a CMake project (EOGLL), so you can use it as a subdirectory 
 
 This can be done by adding the following to your CMakeLists.txt:
 ```cmake
-```cmake
 include(FetchContent)
 FetchContent_Declare(
         eogll
