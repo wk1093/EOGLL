@@ -96,7 +96,7 @@ if (BUILD_EOGLL)
             src/hogll/bufferobj.cpp
             src/hogll/objectattrs.cpp
             src/hogll/transforms.cpp)
-    target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
+    target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include thirdparty/glm)
     target_link_libraries(hogll eogll assimp glm)
     if (CMAKE_BUILD_TYPE MATCHES Debug)
         target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
