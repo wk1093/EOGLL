@@ -16,9 +16,8 @@ int main() {
     EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/dragon_vertex.glsl", "resources/shaders/dragon_fragment.glsl");
 
     ogl::Model model;
-    // EogllCamera camera = eogllCreateCamera();
     ogl::Camera camera;
-    EogllProjection projection = eogllPerspectiveProjection(45.0f, 0.1f, 100.0f);
+    ogl::Projection projection(45.0f, 0.1f, 100.0f);
 
     camera.pos() = glm::vec3(0.0f, 0.0f, 5.0f);
 
@@ -29,11 +28,9 @@ int main() {
         model.pos() = glm::vec3(0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f);
         model.rot() = glm::vec3(glfwGetTime()*8, glfwGetTime()*10, 0.0f);
 
-
-
         eogllUseProgram(shader);
 
-        eogllUpdateProjectionMatrix(&projection, shader, "projection", window.getWidth(), window.getHeight());
+        projection.update(shader, "projection", window);
 
         camera.update(shader, "view");
         model.update(shader, "model");

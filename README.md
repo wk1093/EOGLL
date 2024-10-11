@@ -13,3 +13,4 @@ An easy to use OpenGL library that includes many other libraries. Makes setting 
 - Support for compute shaders
 - Examples of Ambient Occlusion: [SSAO](https://learnopengl.com/Advanced-Lighting/SSAO)
 - Make Object loader less unpredictable and make sure input is good before attempting to load (stop making segfaults)
+- Orthographic projection

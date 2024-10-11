@@ -35,8 +35,8 @@ namespace ogl {
         void swapBuffers();
         void pollEvents();
 
-        int getWidth();
-        int getHeight();
+        int getWidth() const;
+        int getHeight() const;
 
         EogllWindow* getWindow();
 

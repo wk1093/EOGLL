@@ -12,6 +12,8 @@
 
 #include "pch.hpp"
 
+#include "window.hpp"
+
 namespace ogl {
     struct Model {
     private:
@@ -50,6 +52,16 @@ namespace ogl {
         void move(EogllCameraDirection dir, float amount);
 
         void update(EogllShaderProgram* shader, const char* name);
+    };
+
+    struct Projection {
+    private:
+        EogllProjection proj;
+    public:
+
+        Projection(float fov, float near, float far);
+
+        void update(EogllShaderProgram* shader, const char* name, const ogl::Window& window);
     };
 }
 

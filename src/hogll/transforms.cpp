@@ -73,4 +73,12 @@ namespace ogl {
     void Camera::update(EogllShaderProgram* shader, const char* name) {
         eogllUpdateCameraMatrix(&camera, shader, name);
     }
+
+    Projection::Projection(float fov, float near, float far) {
+        proj = eogllPerspectiveProjection(fov, near, far);
+    }
+
+    void Projection::update(EogllShaderProgram* shader, const char* name, const ogl::Window& window) {
+        eogllUpdateProjectionMatrix(&proj, shader, name, window.getWidth(), window.getHeight());
+    }
 }

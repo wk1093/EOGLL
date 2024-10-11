@@ -41,11 +41,11 @@ namespace ogl {
         eogllPollEvents(window);
     }
 
-    int Window::getWidth() {
+    int Window::getWidth() const {
         return window->width;
     }
 
-    int Window::getHeight() {
+    int Window::getHeight() const {
         return window->height;
     }
 
