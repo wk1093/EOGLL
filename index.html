@@ -97,13 +97,21 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="mainpage"></a> EOGLL is a C library that wraps OpenGL, GLFW, GLAD, CGLM, and more to make it easier to use OpenGL. EOGLL has many useful tools like object loading, camera, and more. </p>
-<h1><a class="anchor" id="autotoc_md0"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Usage</h1>
-<h2><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Installation</h2>
 <p>EOGLL is a CMake project, so you can use it as a subdirectory in your project. Using FetchContent is recommended.</p>
-<p>This can be done by adding the following to your CMakeLists.txt: </p><div class="fragment"><div class="line">TODO</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md2"></a>
+<p>This can be done by adding the following to your CMakeLists.txt: </p><div class="fragment"><div class="line">include(FetchContent)</div>
+<div class="line">FetchContent_Declare(</div>
+<div class="line">        eogll</div>
+<div class="line">        GIT_REPOSITORY https://github.com/wk1093/EOGLL.git</div>
+<div class="line">        GIT_TAG master</div>
+<div class="line">)</div>
+<div class="line">FetchContent_MakeAvailable(eogll)</div>
+<div class="line"> </div>
+<div class="line">target_link_libraries(YOUR_TARGET_HERE eogll)</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md7"></a>
 Example</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eogll_8h.html">eogll.h</a>&quot;</span></div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
@@ -175,10 +183,10 @@ Example</h2>
 <div class="ttc" id="awindow_8h_html_ac39445361d59e2029396c2d04eeb7964"><div class="ttname"><a href="window_8h.html#ac39445361d59e2029396c2d04eeb7964">eogllSetWindowShouldClose</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllSetWindowShouldClose(EogllWindow *window, bool shouldClose)</div><div class="ttdoc">Sets whether or not the window should close.</div></div>
 <div class="ttc" id="awindow_8h_html_ac86c098fb2bb8f8b9e300a124bccc5d9"><div class="ttname"><a href="window_8h.html#ac86c098fb2bb8f8b9e300a124bccc5d9">eogllSwapBuffers</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllSwapBuffers(EogllWindow *window)</div><div class="ttdoc">Swaps the buffers.</div></div>
 <div class="ttc" id="awindow_8h_html_afb5d65630c22e8ec16730911ba42d7a5"><div class="ttname"><a href="window_8h.html#afb5d65630c22e8ec16730911ba42d7a5">eogllDestroyWindow</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllDestroyWindow(EogllWindow *window)</div><div class="ttdoc">Destroys a window.</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Deprecation</h1>
 <p>Any function that is deprecated before the 1.0.0 release will be removed in, or before, 1.0.0.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 License</h1>
 <p>EOGLL is licensed under the MIT license. See LICENSE for more information. </p>
 </div></div><!-- PageDoc -->

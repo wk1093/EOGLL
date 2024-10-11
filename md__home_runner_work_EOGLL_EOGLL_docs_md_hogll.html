@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>eogll: Related Pages</title>
+<title>eogll: HOGLL (High-level OpenGL Library)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -91,19 +91,58 @@ $(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Related Pages</div>  </div>
+<div class="title">HOGLL (High-level OpenGL Library) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html" target="_self">HOGLL (High-level OpenGL Library)</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="todo.html" target="_self">Todo List</a></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="deprecated.html" target="_self">Deprecated List</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p>HOGLL is a high(ish)-level OpenGL library in <em><b>C++</b></em> (unlike EOGLL which is <em><b>C</b></em>), that is a wrapper around EOGLL. It is designed to be easier to use than EOGLL, and to make it easier to use OpenGL in C++.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Usage</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Installation</h2>
+<p>HOGLL is a part of a CMake project (EOGLL), so you can use it as a subdirectory in your project. Using FetchContent is recommended.</p>
+<p>This can be done by adding the following to your CMakeLists.txt: </p><div class="fragment"><div class="line">```cmake</div>
+<div class="line">include(FetchContent)</div>
+<div class="line">FetchContent_Declare(</div>
+<div class="line">        eogll</div>
+<div class="line">        GIT_REPOSITORY https://github.com/wk1093/EOGLL.git</div>
+<div class="line">        GIT_TAG master</div>
+<div class="line">)</div>
+<div class="line">FetchContent_MakeAvailable(eogll)</div>
+<div class="line"> </div>
+<div class="line">target_link_libraries(YOUR_TARGET_HERE hogll)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
+Example</h2>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line">#include &quot;hogll.hpp&quot;</div>
+<div class="line">int main() {</div>
+<div class="line">    ogl::Window window(800, 600, &quot;EOGLL: HOGLL Window&quot;);</div>
+<div class="line">    </div>
+<div class="line">    // normally you would need to create a shader program, but HOGLL will create a basic default one</div>
+<div class="line">    // the default will ONLY work if you just have a single 3f position attribute, otherwise you will need to create your own shader</div>
+<div class="line">    // the default shader also doesn&#39;t work with uniforms like model, view, or projection</div>
+<div class="line">    // it is mostly for testing purposes</div>
+<div class="line">    ogl::ObjectAttrs attrs = ogl::ObjectAttrs{{GL_FLOAT, 3, EOGLL_ATTR_POSITION}};</div>
+<div class="line">    ogl::BufferObject cube(&quot;resources/models/cube.obj&quot;, attrs);</div>
+<div class="line"> </div>
+<div class="line">    while (!window.shouldClose()) {</div>
+<div class="line">        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);</div>
+<div class="line">        glClear(GL_COLOR_BUFFER_BIT);</div>
+<div class="line"> </div>
+<div class="line">        cube.draw(GL_TRIANGLES);</div>
+<div class="line"> </div>
+<div class="line">        window.swapBuffers();</div>
+<div class="line">        window.pollEvents();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Documentation</h1>
+<p>Documentation is WIP. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

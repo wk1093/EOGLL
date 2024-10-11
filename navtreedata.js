@@ -25,12 +25,19 @@
 var NAVTREE =
 [
   [ "eogll", "index.html", [
-    [ "Usage", "index.html#autotoc_md0", [
-      [ "Installation", "index.html#autotoc_md1", null ],
-      [ "Example", "index.html#autotoc_md2", null ]
+    [ "Usage", "index.html#autotoc_md5", [
+      [ "Installation", "index.html#autotoc_md6", null ],
+      [ "Example", "index.html#autotoc_md7", null ]
     ] ],
-    [ "Deprecation", "index.html#autotoc_md3", null ],
-    [ "License", "index.html#autotoc_md4", null ],
+    [ "Deprecation", "index.html#autotoc_md8", null ],
+    [ "License", "index.html#autotoc_md9", null ],
+    [ "HOGLL (High-level OpenGL Library)", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html", [
+      [ "Usage", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md1", [
+        [ "Installation", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md2", null ],
+        [ "Example", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md3", null ]
+      ] ],
+      [ "Documentation", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md4", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Classes", "annotated.html", [
@@ -59,7 +66,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "logging_8h.html#a609ac9735ca222b485216281072e4e75a72ede81430a8c1a7cdf37f5bec93e08d",
-"transforms_8h.html"
+"texture_8h.html#ae1a15aa99bef40eb6488c8abe80090bd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
