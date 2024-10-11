@@ -26,6 +26,7 @@ namespace ogl {
     struct Window {
     private:
         EogllWindow* window;
+        EogllShaderProgram* defaultShader3f_p;
     public:
 
         Window(int width, int height, const char* title, WindowHints hints=WindowHints());

@@ -8,7 +8,15 @@ EOGLL is a CMake project, so you can use it as a subdirectory in your project. U
 
 This can be done by adding the following to your CMakeLists.txt:
 ```cmake
-TODO
+include(FetchContent)
+FetchContent_Declare(
+        eogll
+        GIT_REPOSITORY https://github.com/wk1093/EOGLL.git
+        GIT_TAG master
+)
+FetchContent_MakeAvailable(eogll)
+
+target_link_libraries(YOUR_TARGET_HERE eogll)
 ```
 ### Example
 ```c

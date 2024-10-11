@@ -11,6 +11,22 @@ namespace ogl {
             EOGLL_LOG_FATAL(stderr, "Failed to create window");
             exit(1);
         }
+
+        defaultShader3f_p = eogllLinkProgram(
+            "#version 330 core\n"
+            "layout(location = 0) in vec3 position;\n"
+            
+            "void main() {\n"
+            "    gl_Position = vec4(position, 1.0);\n"
+            "}\n",
+            "#version 330 core\n"
+            "out vec4 fragColor;\n"
+            "void main() {\n"
+            "    fragColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
+            "}\n"
+        );
+        eogllUseProgram(defaultShader3f_p);
+
     }
     Window::~Window() {
         eogllDestroyWindow(window);
