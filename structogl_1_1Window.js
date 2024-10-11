@@ -19,6 +19,7 @@ var structogl_1_1Window =
     [ "mouseX", "structogl_1_1Window.html#af8119fc7b62a1e2d2b0eaba546b63b7d", null ],
     [ "mouseY", "structogl_1_1Window.html#a08273ede297478812ce4c7b88b117ad0", null ],
     [ "pollEvents", "structogl_1_1Window.html#a1a900ce9fb97a40531d6f4f2837ec3f1", null ],
+    [ "setCursorMode", "structogl_1_1Window.html#a832ca9c25dad5f431319eec39f3e0987", null ],
     [ "shouldClose", "structogl_1_1Window.html#af103b8e9e67aa5e24ab20f1db93ca09b", null ],
     [ "swapBuffers", "structogl_1_1Window.html#a93742e1921ee8bcbe0e33a8e2b1e9a4a", null ]
 ];
