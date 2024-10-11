@@ -12,8 +12,6 @@
 
 #include "pch.hpp"
 
-#include <initializer_list>
-
 namespace ogl {
     struct ObjectAttrs {
     private:

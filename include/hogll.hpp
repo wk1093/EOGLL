@@ -6,5 +6,6 @@
 #include "hogll/window.hpp"
 #include "hogll/bufferobj.hpp"
 #include "hogll/objectattrs.hpp"
+#include "hogll/transforms.hpp"
 
 #endif

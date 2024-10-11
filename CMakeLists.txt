@@ -42,6 +42,7 @@ if (BUILD_EOGLL)
     add_subdirectory(thirdparty/cglm)
     add_subdirectory(thirdparty/assimp)
     target_compile_options(assimp PRIVATE -Wno-error=pedantic -Wno-error=unknown-pragmas)
+    add_subdirectory(thirdparty/glm)
 
     add_library(eogll STATIC include/eogll.h
             include/eogll/input.h
@@ -90,11 +91,12 @@ if (BUILD_EOGLL)
             include/hogll/window.hpp
             include/hogll/bufferobj.hpp
             include/hogll/objectattrs.hpp
+            include/hogll/transforms.hpp
             src/hogll/window.cpp
             src/hogll/bufferobj.cpp
             src/hogll/objectattrs.cpp)
     target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
-    target_link_libraries(hogll eogll assimp)
+    target_link_libraries(hogll eogll assimp glm)
     if (CMAKE_BUILD_TYPE MATCHES Debug)
         target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
     endif()

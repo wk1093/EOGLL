@@ -13,5 +13,9 @@
 #define INCLUDE_HOGLL_PCH_HPP
 
 #include <eogll.h>
+#include <vector>
+#include <initializer_list>
+
+#include <glm/vec3.hpp>
 
 #endif

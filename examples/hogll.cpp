@@ -15,13 +15,14 @@ int main() {
     ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
         {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
         {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
-};
+    };
 
     ogl::BufferObject cube("resources/models/cube.obj", attrs);
 
     EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/dragon_vertex.glsl", "resources/shaders/dragon_fragment.glsl");
 
-    EogllModel model = eogllCreateModel();
+    // EogllModel model = eogllCreateModel();
+    ogl::Model model;
     EogllCamera camera = eogllCreateCamera();
     EogllProjection projection = eogllPerspectiveProjection(45.0f, 0.1f, 100.0f);
 
@@ -31,11 +32,16 @@ int main() {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        *(model.pos()) = glm::vec3(0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f);
+        *(model.rot()) = glm::vec3(glfwGetTime()*8, glfwGetTime()*10, 0.0f);
+
+
 
         eogllUseProgram(shader);
         eogllUpdateCameraMatrix(&camera, shader, "view");
         eogllUpdateProjectionMatrix(&projection, shader, "projection", window.getWidth(), window.getHeight());
-        eogllUpdateModelMatrix(&model, shader, "model");
+        // eogllUpdateModelMatrix(&model, shader, "model");
+        model.update(shader, "model");
         cube.draw(GL_TRIANGLES);
 
         window.swapBuffers();
