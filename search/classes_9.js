@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['window_312',['Window',['../structogl_1_1Window.html',1,'ogl']]],
-  ['windowhints_313',['WindowHints',['../structogl_1_1WindowHints.html',1,'ogl']]]
+  ['texture_314',['Texture',['../structogl_1_1internal_1_1Texture.html',1,'ogl::internal']]]
 ];

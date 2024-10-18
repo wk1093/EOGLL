@@ -104,53 +104,84 @@ $(document).ready(function(){initNavTree('model_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;pch.hpp&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="objectattrs_8hpp.html">objectattrs.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bufferobj_8hpp.html">bufferobj.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>ogl {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">namespace </span>internal {</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1Vertex.html">   19</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1Vertex.html">Vertex</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            glm::vec3 pos;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            glm::vec3 norm;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            glm::vec2 tex;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1Mesh.html">   25</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1Mesh.html">Mesh</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            std::vector&lt;Vertex&gt; vert;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            std::vector&lt;unsigned int&gt; indices;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1GlMesh.html">   30</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1GlMesh.html">GlMesh</a> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::vector&lt;float&gt; vert;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            std::vector&lt;unsigned int&gt; indices;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="structogl_1_1internal_1_1GlMesh.html">GlMesh</a> packMesh(<a class="code" href="structogl_1_1internal_1_1Mesh.html">Mesh</a> mesh, <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classogl_1_1Model.html">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classogl_1_1Model.html">Model</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classogl_1_1Model.html">Model</a>(std::string path, <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ~<a class="code" href="classogl_1_1Model.html">Model</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transforms_8hpp.html">transforms.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>ogl {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">namespace </span>internal {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1Vertex.html">   20</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1Vertex.html">Vertex</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            glm::vec3 pos;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            glm::vec3 norm;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            glm::vec2 tex;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1Texture.html">   26</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1Texture.html">Texture</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="structEogllTexture.html">EogllTexture</a>* texture;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            std::string type; <span class="comment">// diffuse, specular (this can be whatever you want, it will be in the shader)</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="comment">// for example, if you have 2 textures with the type &quot;abc&quot; and 1 texture with the type &quot;def&quot; (in that order)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="comment">// the uniform names will be &quot;sampler_abc1&quot;, &quot;sampler_abc2&quot;, &quot;sampler_def1&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::string path;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1Mesh.html">   34</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1Mesh.html">Mesh</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::vector&lt;Vertex&gt; vert;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            std::vector&lt;unsigned int&gt; indices;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            std::vector&lt;Texture&gt; textures;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <a class="code" href="structogl_1_1BufferObject.html">BufferObject</a>* render;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="structogl_1_1internal_1_1Mesh.html">Mesh</a>() {}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> draw();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::string path;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structogl_1_1BufferObject.html">BufferObject</a> render;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::vector&lt;internal::Mesh&gt; meshes;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structogl_1_1internal_1_1GlMesh.html">   43</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structogl_1_1internal_1_1GlMesh.html">GlMesh</a> {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            std::vector&lt;float&gt; vert;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            std::vector&lt;unsigned int&gt; indices;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        };</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="structogl_1_1internal_1_1GlMesh.html">GlMesh</a> packMesh(<a class="code" href="structogl_1_1internal_1_1Mesh.html">Mesh</a> mesh, <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classogl_1_1RenderModel.html">   51</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classogl_1_1RenderModel.html">RenderModel</a> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classogl_1_1RenderModel.html">RenderModel</a>(std::string path, <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ~<a class="code" href="classogl_1_1RenderModel.html">RenderModel</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> draw(<a class="code" href="structogl_1_1Window.html">Window</a>* window, <a class="code" href="structEogllShaderProgram.html">EogllShaderProgram</a>* shader);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> draw(<a class="code" href="structogl_1_1Window.html">Window</a>* window, <a class="code" href="structEogllShaderProgram.html">EogllShaderProgram</a>* shader, <a class="code" href="structogl_1_1Camera.html">Camera</a> camera, <a class="code" href="structogl_1_1Projection.html">Projection</a> projection, <a class="code" href="structogl_1_1Model.html">Model</a> model);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> loadModel();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> processNode(aiNode* node, <span class="keyword">const</span> aiScene* scene);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="structogl_1_1internal_1_1Mesh.html">internal::Mesh</a> processMesh(aiMesh* mesh, <span class="keyword">const</span> aiScene* scene);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::vector&lt;internal::Texture&gt; loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::string path;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        std::vector&lt;internal::Mesh&gt; meshes;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::vector&lt;internal::Texture&gt; textures_loaded;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="abufferobj_8hpp_html"><div class="ttname"><a href="bufferobj_8hpp.html">bufferobj.hpp</a></div><div class="ttdoc">HOGLL buffer object header file.</div></div>
-<div class="ttc" id="aclassogl_1_1Model_html"><div class="ttname"><a href="classogl_1_1Model.html">ogl::Model</a></div><div class="ttdef"><b>Definition:</b> model.hpp:38</div></div>
+<div class="ttc" id="aclassogl_1_1RenderModel_html"><div class="ttname"><a href="classogl_1_1RenderModel.html">ogl::RenderModel</a></div><div class="ttdef"><b>Definition:</b> model.hpp:51</div></div>
 <div class="ttc" id="aobjectattrs_8hpp_html"><div class="ttname"><a href="objectattrs_8hpp.html">objectattrs.hpp</a></div><div class="ttdoc">HOGLL object attributes header file.</div></div>
+<div class="ttc" id="astructEogllShaderProgram_html"><div class="ttname"><a href="structEogllShaderProgram.html">EogllShaderProgram</a></div><div class="ttdoc">A struct that represents a shader program.</div><div class="ttdef"><b>Definition:</b> shader.h:29</div></div>
+<div class="ttc" id="astructEogllTexture_html"><div class="ttname"><a href="structEogllTexture.html">EogllTexture</a></div><div class="ttdoc">This struct represents a texture.</div><div class="ttdef"><b>Definition:</b> texture.h:41</div></div>
 <div class="ttc" id="astructogl_1_1BufferObject_html"><div class="ttname"><a href="structogl_1_1BufferObject.html">ogl::BufferObject</a></div><div class="ttdef"><b>Definition:</b> bufferobj.hpp:17</div></div>
+<div class="ttc" id="astructogl_1_1Camera_html"><div class="ttname"><a href="structogl_1_1Camera.html">ogl::Camera</a></div><div class="ttdef"><b>Definition:</b> transforms.hpp:42</div></div>
+<div class="ttc" id="astructogl_1_1Model_html"><div class="ttname"><a href="structogl_1_1Model.html">ogl::Model</a></div><div class="ttdef"><b>Definition:</b> transforms.hpp:18</div></div>
 <div class="ttc" id="astructogl_1_1ObjectAttrs_html"><div class="ttname"><a href="structogl_1_1ObjectAttrs.html">ogl::ObjectAttrs</a></div><div class="ttdef"><b>Definition:</b> objectattrs.hpp:16</div></div>
-<div class="ttc" id="astructogl_1_1internal_1_1GlMesh_html"><div class="ttname"><a href="structogl_1_1internal_1_1GlMesh.html">ogl::internal::GlMesh</a></div><div class="ttdef"><b>Definition:</b> model.hpp:30</div></div>
-<div class="ttc" id="astructogl_1_1internal_1_1Mesh_html"><div class="ttname"><a href="structogl_1_1internal_1_1Mesh.html">ogl::internal::Mesh</a></div><div class="ttdef"><b>Definition:</b> model.hpp:25</div></div>
-<div class="ttc" id="astructogl_1_1internal_1_1Vertex_html"><div class="ttname"><a href="structogl_1_1internal_1_1Vertex.html">ogl::internal::Vertex</a></div><div class="ttdef"><b>Definition:</b> model.hpp:19</div></div>
+<div class="ttc" id="astructogl_1_1Projection_html"><div class="ttname"><a href="structogl_1_1Projection.html">ogl::Projection</a></div><div class="ttdef"><b>Definition:</b> transforms.hpp:61</div></div>
+<div class="ttc" id="astructogl_1_1Window_html"><div class="ttname"><a href="structogl_1_1Window.html">ogl::Window</a></div><div class="ttdef"><b>Definition:</b> window.hpp:22</div></div>
+<div class="ttc" id="astructogl_1_1internal_1_1GlMesh_html"><div class="ttname"><a href="structogl_1_1internal_1_1GlMesh.html">ogl::internal::GlMesh</a></div><div class="ttdef"><b>Definition:</b> model.hpp:43</div></div>
+<div class="ttc" id="astructogl_1_1internal_1_1Mesh_html"><div class="ttname"><a href="structogl_1_1internal_1_1Mesh.html">ogl::internal::Mesh</a></div><div class="ttdef"><b>Definition:</b> model.hpp:34</div></div>
+<div class="ttc" id="astructogl_1_1internal_1_1Texture_html"><div class="ttname"><a href="structogl_1_1internal_1_1Texture.html">ogl::internal::Texture</a></div><div class="ttdef"><b>Definition:</b> model.hpp:26</div></div>
+<div class="ttc" id="astructogl_1_1internal_1_1Vertex_html"><div class="ttname"><a href="structogl_1_1internal_1_1Vertex.html">ogl::internal::Vertex</a></div><div class="ttdef"><b>Definition:</b> model.hpp:20</div></div>
+<div class="ttc" id="atransforms_8hpp_html"><div class="ttname"><a href="transforms_8hpp.html">transforms.hpp</a></div><div class="ttdoc">HOGLL transforms header file.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

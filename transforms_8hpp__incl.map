@@ -1,13 +1,18 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/hogll/transforms.hpp" name="/home/runner/work/EOGLL/EOGLL/include/hogll/transforms.hpp">
-<area shape="rect" id="node1" title="HOGLL transforms header file." alt="" coords="837,5,1095,47"/>
-<area shape="rect" id="node2" href="$pch_8hpp_source.html" title=" " alt="" coords="929,169,1003,196"/>
-<area shape="rect" id="node35" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="961,95,1059,121"/>
+<area shape="rect" id="node1" title="HOGLL transforms header file." alt="" coords="1134,5,1393,47"/>
+<area shape="rect" id="node2" href="$pch_8hpp_source.html" title=" " alt="" coords="1227,169,1300,196"/>
+<area shape="rect" id="node40" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="1258,95,1357,121"/>
 <area shape="rect" id="node3" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="678,244,745,271"/>
 <area shape="rect" id="node30" title=" " alt="" coords="769,244,832,271"/>
 <area shape="rect" id="node31" title=" " alt="" coords="856,244,967,271"/>
 <area shape="rect" id="node32" title=" " alt="" coords="991,244,1050,271"/>
-<area shape="rect" id="node33" title=" " alt="" coords="1075,244,1185,271"/>
-<area shape="rect" id="node34" title=" " alt="" coords="1209,244,1320,271"/>
+<area shape="rect" id="node33" title=" " alt="" coords="1075,244,1199,271"/>
+<area shape="rect" id="node34" title=" " alt="" coords="1223,244,1303,271"/>
+<area shape="rect" id="node35" title=" " alt="" coords="1328,244,1439,271"/>
+<area shape="rect" id="node36" title=" " alt="" coords="1463,244,1573,271"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1597,244,1753,271"/>
+<area shape="rect" id="node38" title=" " alt="" coords="1778,244,1901,271"/>
+<area shape="rect" id="node39" title=" " alt="" coords="1925,244,2087,271"/>
 <area shape="rect" id="node4" href="$pch_8h.html" title="EOGLL precompiled header file." alt="" coords="591,543,685,569"/>
 <area shape="rect" id="node5" href="$defines_8h.html" title="EOGLL definitions header file." alt="" coords="1037,617,1119,644"/>
 <area shape="rect" id="node16" title=" " alt="" coords="1289,319,1408,345"/>

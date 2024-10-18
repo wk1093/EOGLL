@@ -3,7 +3,7 @@ var searchData=
   ['maximized_209',['maximized',['../structEogllWindowHints.html#a10f7a4d05c5bf7c6839077e1bb268fa3',1,'EogllWindowHints']]],
   ['maxtextureunits_210',['maxTextureUnits',['../structEogllTexture.html#acedd7e416e8465b513d008cf5dd0abc4',1,'EogllTexture']]],
   ['mesh_211',['Mesh',['../structogl_1_1internal_1_1Mesh.html',1,'ogl::internal']]],
-  ['model_212',['Model',['../classogl_1_1Model.html',1,'ogl']]],
+  ['model_212',['Model',['../structogl_1_1Model.html',1,'ogl']]],
   ['model_2ehpp_213',['model.hpp',['../model_8hpp.html',1,'']]],
   ['mousedx_214',['mousedx',['../structEogllWindow.html#a07d23dc66ece8c64af9e603d77d6b33c',1,'EogllWindow']]],
   ['mousedy_215',['mousedy',['../structEogllWindow.html#acc582f7e8b86e487d14445f4d9b6c312',1,'EogllWindow']]],
