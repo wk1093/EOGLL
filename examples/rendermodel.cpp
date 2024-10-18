@@ -5,7 +5,6 @@ int main() {
 
     eogllEnableDepth();
     eogllEnableFaceCulling();
-    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
         {GL_FLOAT, 3, EOGLL_ATTR_POSITION},

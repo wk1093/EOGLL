@@ -3,8 +3,8 @@
 An easy to use OpenGL library that includes many other libraries. Makes setting up an OpenGL development environment easy, and aids development by simplifying OpenGL features.
 
 ### TODO
-- More features
-- Higher level abstractions (optional) (WIP HOGLL)
+- Documentation for HOGLL
+- More HOGLL features
 - Example or utilities for [Frustum Culling](https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling)
 - Example or utilities for [Skeletal Animation](https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation)
 - Examples of Different types of [Lights](https://learnopengl.com/Lighting/Light-casters)

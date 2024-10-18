@@ -19,8 +19,8 @@ namespace ogl {
         EogllBufferObject buffer;
     public:
         inline BufferObject(EogllBufferObject ebo) : buffer(ebo) {}
-        BufferObject(const char* name, EogllObjectAttrs attrs);
-        BufferObject(const char* name, ogl::ObjectAttrs attrs);
+        HEDLEY_DEPRECATED_FOR(0.7.1, RenderModel) BufferObject(const char* name, EogllObjectAttrs attrs);
+        HEDLEY_DEPRECATED_FOR(0.7.1, RenderModel) BufferObject(const char* name, ogl::ObjectAttrs attrs);
         BufferObject(unsigned int vao, unsigned int vbo, unsigned int ebo, GLsizeiptr indicesSize, GLenum indicesType);
         BufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices);
         ~BufferObject();
