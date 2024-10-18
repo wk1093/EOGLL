@@ -1,0 +1,8 @@
+<map id="ogl::BufferObject" name="ogl::BufferObject">
+<area shape="rect" id="node1" title=" " alt="" coords="164,273,295,300"/>
+<area shape="rect" id="node2" href="$structEogllObjectAttrs.html" title="A struct that represents object attributes." alt="" coords="91,184,218,211"/>
+<area shape="rect" id="node3" href="$structEogllAttribBuilder.html" title="This struct represents an attribute builder." alt="" coords="11,95,147,121"/>
+<area shape="rect" id="node4" href="$structEogllVertAttribData.html" title="Internal" alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node5" href="$structEogllObjectAttr.html" title="Internal" alt="" coords="171,95,291,121"/>
+<area shape="rect" id="node6" href="$structogl_1_1ObjectAttrs.html" title=" " alt="" coords="243,184,365,211"/>
+</map>
