@@ -10,7 +10,7 @@ namespace ogl {
             return nullptr;
         }
         std::string positionAttr;
-        bool hasNormal;
+        bool hasNormal = false;
         std::string normalAttr;
         for (int i = 0; i < attrs.getBuffer()->numTypes; i++) {
             EogllObjectAttr type = attrs.getBuffer()->types[i];

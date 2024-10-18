@@ -1,19 +1,18 @@
 #include <hogll.hpp>
 
 int main() {
-    ogl::Window window(800, 600, "EOGLL: HOGLL Window");
+    ogl::Window window(800, 600, "HOGLL: Model Loading");
 
     eogllEnableDepth();
-    // eogllEnableFaceCulling();
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    eogllEnableFaceCulling();
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
         {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
         {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
     };
 
-    // ogl::BufferObject cube("resources/models/dragon.obj", attrs);
-    ogl::RenderModel cube("resources/models/teapot.obj", attrs);
+    ogl::RenderModel cube("resources/models/cube.fbx", attrs);
 
 
     // really cool system that allows us to have default shaders that work for most attribute cases

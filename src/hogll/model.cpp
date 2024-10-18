@@ -53,19 +53,14 @@ namespace ogl {
         // *speed intensifies*
         for (internal::Mesh& mesh : meshes) {
             internal::GlMesh glMesh = internal::packMesh(mesh, attrs);
-            std::cout << "Mesh: " << mesh.vert.size() << " vertices, " << mesh.indices.size() << " indices" << std::endl;
-            std::cout << "Mesh: " << glMesh.vert.size() << " vertices, " << glMesh.indices.size() << " indices" << std::endl;
-            // print all the indices
-            for (unsigned int i : glMesh.indices) {
-                std::cout << i << ", ";
-            }
-            std::cout << std::endl;
+
             int vao, vbo, ebo;
             vao = eogllGenVertexArray();
             vbo = eogllGenBuffer(vao, GL_ARRAY_BUFFER, glMesh.vert.size() * sizeof(float), glMesh.vert.data(), GL_STATIC_DRAW);
             ebo = eogllGenBuffer(vao, GL_ELEMENT_ARRAY_BUFFER, glMesh.indices.size() * sizeof(unsigned int), glMesh.indices.data(), GL_STATIC_DRAW);
             attrs.build(vao);
-            mesh.render = new BufferObject(vao, vbo, ebo, glMesh.indices.size(), GL_UNSIGNED_INT);
+            mesh.render = new BufferObject(vao, vbo, ebo, glMesh.indices.size()*sizeof(unsigned int), GL_UNSIGNED_INT);
+            // we are going to use malloc instead
         }
     }
 
@@ -115,7 +110,7 @@ namespace ogl {
 
     void RenderModel::loadModel() {
         Assimp::Importer importer;
-        const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals | aiProcess_GenUVCoords);
+        const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals | aiProcess_GenUVCoords | aiProcess_OptimizeGraph | aiProcess_OptimizeMeshes | aiProcess_JoinIdenticalVertices);
         if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
             EOGLL_LOG_ERROR(stderr, "Failed to load model '%s': %s", path.c_str(), importer.GetErrorString());
             return;
@@ -142,7 +137,11 @@ namespace ogl {
         for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
             internal::Vertex vertex;
             vertex.pos = glm::vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
-            vertex.norm = glm::vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z);
+            if (mesh->HasNormals()) {
+                vertex.norm = glm::vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z);
+            } else {
+                vertex.norm = glm::vec3(0.0f, 0.0f, 0.0f);
+            }
             if (mesh->mTextureCoords[0]) {
                 vertex.tex = glm::vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y);
             } else {
@@ -150,7 +149,6 @@ namespace ogl {
             }
             
             vertices.push_back(vertex);
-            // std::cout << "Vertex: " << vertex.pos.x << ", " << vertex.pos.y << ", " << vertex.pos.z << std::endl;
         }
         indices.reserve(3 * mesh->mNumFaces);
         for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
@@ -161,7 +159,6 @@ namespace ogl {
             }
             for (unsigned int j = 0; j < face.mNumIndices; j++) {
                 indices.push_back(face.mIndices[j]);
-                // std::cout << "Index: " << face.mIndices[j] << std::endl;
             }
         }
 
