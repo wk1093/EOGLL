@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['obj_5floader_2eh_317',['obj_loader.h',['../obj__loader_8h.html',1,'']]],
-  ['objectattrs_2ehpp_318',['objectattrs.hpp',['../objectattrs_8hpp.html',1,'']]]
+  ['model_2ehpp_324',['model.hpp',['../model_8hpp.html',1,'']]]
 ];
