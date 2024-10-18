@@ -8,5 +8,6 @@
 #include "hogll/objectattrs.hpp"
 #include "hogll/transforms.hpp"
 #include "hogll/shadergen.hpp"
+#include "hogll/model.hpp"
 
 #endif

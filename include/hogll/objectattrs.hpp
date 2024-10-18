@@ -30,6 +30,10 @@ namespace ogl {
         void add(GLenum type, GLint size, EogllObjectAttrType attr);
 
         EogllObjectAttrs* getBuffer();
+
+        int size();
+
+        std::vector<EogllObjectAttr> attrs();
     };
 }
 

@@ -21,4 +21,16 @@ namespace ogl {
         return &buffer;
     }
 
+    int ObjectAttrs::size() {
+        return buffer.numTypes;
+    }
+
+    std::vector<EogllObjectAttr> ObjectAttrs::attrs() {
+        std::vector<EogllObjectAttr> types;
+        for (int i = 0; i < buffer.numTypes; i++) {
+            types.push_back(buffer.types[i]);
+        }
+        return types;
+    }
+
 }

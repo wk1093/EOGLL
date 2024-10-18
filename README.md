@@ -3,7 +3,6 @@
 An easy to use OpenGL library that includes many other libraries. Makes setting up an OpenGL development environment easy, and aids development by simplifying OpenGL features.
 
 ### TODO
-- [glTF](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html) support
 - More features
 - Higher level abstractions (optional) (WIP HOGLL)
 - Example or utilities for [Frustum Culling](https://learnopengl.com/Guest-Articles/2021/Scene/Frustum-Culling)

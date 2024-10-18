@@ -26,14 +26,14 @@ int main() {
     // ogl::Projection projection(45.0f, 0.1f, 100.0f);
     ogl::Projection projection(0.1f, 100.0f);
 
-    camera.pos() = glm::vec3(0.0f, 0.0f, 5.0f);
+    camera.pos() = {0.0f, 0.0f, 5.0f};
 
     while (!window.shouldClose()) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        model.pos() = glm::vec3(0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f);
-        model.rot() = glm::vec3(glfwGetTime()*8, glfwGetTime()*10, 0.0f);
+        model.pos() = {0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f};
+        model.rot() = {glfwGetTime()*8, glfwGetTime()*10, 0.0f};
 
         eogllUseProgram(shader);
 

@@ -8,7 +8,7 @@ int main() {
     EogllShaderProgram* shaderProgram = eogllLinkProgramFromFile("resources/shaders/pbr_vert.glsl", "resources/shaders/pbr_frag.glsl");
 
     ogl::Model model;
-    model.rotate(45.0f, glm::vec3(0.0f, 1.0f, 0.0f)); // rotate 45 degrees on y axis
+    model.rotate(45.0f, {0.0f, 1.0f, 0.0f}); // rotate 45 degrees on y axis
 
     vec3 lights[2] = {
         {0.0f, 2.0f, 0.0f},
@@ -27,7 +27,7 @@ int main() {
 
     ogl::Camera camera;
 
-    camera.pos() = glm::vec3(0.0f, 0.0f, 5.0f);
+    camera.pos() = {0.0f, 0.0f, 5.0f};
 
     ogl::Projection projection(45.0f, 0.01f, 100000.0f);
 
@@ -46,7 +46,7 @@ int main() {
     bool mouseDisabled = false;
 
     while (!window->shouldClose()) {
-        model.rotate(50.0f, glm::vec3(5.2f*window->dt()*speed, 10.0f*window->dt()*speed, 1.23f*window->dt()*speed));
+        model.rotate(50.0f, {5.2f*window->dt()*speed, 10.0f*window->dt()*speed, 1.23f*window->dt()*speed});
 
         if (window->keyDown(EOGLL_KEY_LEFT)) {
             speed -= window->dt()*5;

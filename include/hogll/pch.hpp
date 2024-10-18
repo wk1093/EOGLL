@@ -18,5 +18,6 @@
 #include <string>
 
 #include <glm/vec3.hpp>
+#include <glm/vec2.hpp>
 
 #endif
