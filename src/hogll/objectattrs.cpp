@@ -33,4 +33,8 @@ namespace ogl {
         return types;
     }
 
+    void ObjectAttrs::build(int vao) {
+        eogllBuildAttributes(&buffer.builder, vao);
+    }
+
 }

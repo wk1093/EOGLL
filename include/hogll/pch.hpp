@@ -13,11 +13,18 @@
 #define INCLUDE_HOGLL_PCH_HPP
 
 #include <eogll.h>
+
 #include <vector>
 #include <initializer_list>
 #include <string>
+#include <unordered_map>
+#include <iostream>
 
 #include <glm/vec3.hpp>
 #include <glm/vec2.hpp>
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #endif

@@ -34,6 +34,8 @@ namespace ogl {
         int size();
 
         std::vector<EogllObjectAttr> attrs();
+
+        void build(int vao);
     };
 }
 

@@ -43,7 +43,7 @@ int main() {
     0.0f,  0.5f, 0.0f
     };
     unsigned int vao = eogllGenVertexArray();
-    unsigned int vbo = eogllGenBuffer(vao, GL_TRIANGLES, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    unsigned int vbo = eogllGenBuffer(vao, GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     EogllAttribBuilder builder = eogllCreateAttribBuilder();
     eogllAddAttribute(&builder, GL_FLOAT, 3);
     eogllBuildAttributes(&builder, vao);
