@@ -6,7 +6,7 @@ var structogl_1_1BufferObject =
     [ "~BufferObject", "structogl_1_1BufferObject.html#a0855e7cd96a97d39eb26ccbf5cd97ab0", null ],
     [ "bind", "structogl_1_1BufferObject.html#a2cf505baf1d33ffb5486d3edf7716352", null ],
     [ "draw", "structogl_1_1BufferObject.html#a61067256d2d7754be44c97bff44f69b3", null ],
-    [ "getBuffer", "structogl_1_1BufferObject.html#aefe7c644c85157167eb4cf62389d5ffa", null ],
+    [ "getBuffer", "structogl_1_1BufferObject.html#a7dc3e1d5f062f27437e0689041102a6b", null ],
     [ "HEDLEY_DEPRECATED_FOR", "structogl_1_1BufferObject.html#a7e407191b858a40df8a528234fad9d1f", null ],
     [ "HEDLEY_DEPRECATED_FOR", "structogl_1_1BufferObject.html#a7e407191b858a40df8a528234fad9d1f", null ],
     [ "attrs", "structogl_1_1BufferObject.html#a1114002def207fe74fe8658bd13ec95f", null ],
