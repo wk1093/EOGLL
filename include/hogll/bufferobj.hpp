@@ -28,7 +28,7 @@ namespace ogl {
         void draw(GLenum mode);
         void bind();
 
-        EogllBufferObject* getBuffer();
+        EOGLL_NO_DISCARD EogllBufferObject* getBuffer();
     };
 }
 

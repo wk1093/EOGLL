@@ -8,21 +8,18 @@ int main() {
 
     ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
         {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
-        {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
+        {GL_FLOAT, 3, EOGLL_ATTR_NORMAL},
+        {GL_FLOAT, 2, EOGLL_ATTR_TEXTURE}
     };
 
-    ogl::RenderModel cube("resources/models/cube.fbx", attrs);
+    ogl::RenderModel cube("resources/models/Soldier_Rig.fbx", attrs, "../textures/");
 
 
-    // really cool system that allows us to have default shaders that work for most attribute cases
-    // these shader are generated at runtime and are not saved to disk
-    // if you just give it position, it will be a flat single color shader, 
-    // but if you give it the normal, it will add very simple shading (static directional lighting)
-
-    EogllShaderProgram* shader = ogl::basicShaderGenerator(attrs, true);
+    EogllShaderProgram* shader = eogllLinkProgramFromFile("resources/shaders/model.vert", "resources/shaders/model.frag");
 
 
     ogl::Model model;
+    model.scale() = {0.3f, 0.3f, 0.3f};
     ogl::Camera camera;
     ogl::Projection projection(45.0f, 0.1f, 100.0f);
     // ogl::Projection projection(0.1f, 100.0f);

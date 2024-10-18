@@ -33,26 +33,26 @@ namespace ogl {
 
         int getWidth() const;
         int getHeight() const;
-        double dt() const;
+        EOGLL_NO_DISCARD double dt() const;
 
         EogllWindow* getWindow();
 
-        bool& keyDown(int key);
-        bool& keyPressed(int key);
-        bool& keyReleased(int key);
+        EOGLL_NO_DISCARD bool& keyDown(int key);
+        EOGLL_NO_DISCARD bool& keyPressed(int key);
+        EOGLL_NO_DISCARD bool& keyReleased(int key);
 
-        bool& mouseDown(int button);
-        bool& mousePressed(int button);
-        bool& mouseReleased(int button);
+        EOGLL_NO_DISCARD bool& mouseDown(int button);
+        EOGLL_NO_DISCARD bool& mousePressed(int button);
+        EOGLL_NO_DISCARD bool& mouseReleased(int button);
 
-        double& mouseX();
-        double& mouseY();
-        double& mouseScrollX();
-        double& mouseScrollY();
-        double& mouseDeltaX();
-        double& mouseDeltaY();
+        EOGLL_NO_DISCARD double& mouseX();
+        EOGLL_NO_DISCARD double& mouseY();
+        EOGLL_NO_DISCARD double& mouseScrollX();
+        EOGLL_NO_DISCARD double& mouseScrollY();
+        EOGLL_NO_DISCARD double& mouseDeltaX();
+        EOGLL_NO_DISCARD double& mouseDeltaY();
 
-        bool shouldClose();
+        EOGLL_NO_DISCARD bool shouldClose();
 
         void setCursorMode(int mode);
 

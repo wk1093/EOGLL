@@ -23,18 +23,18 @@ namespace ogl {
         Model();
         Model(glm::vec3 pos);
 
-        glm::vec3* posptr();
-        glm::vec3& pos();
+        EOGLL_NO_DISCARD glm::vec3* posptr();
+        EOGLL_NO_DISCARD glm::vec3& pos();
 
-        glm::vec3* rotptr();
-        glm::vec3& rot();
+        EOGLL_NO_DISCARD glm::vec3* rotptr();
+        EOGLL_NO_DISCARD glm::vec3& rot();
 
-        glm::vec3* scaleptr();
-        glm::vec3& scale();
+        EOGLL_NO_DISCARD glm::vec3* scaleptr();
+        EOGLL_NO_DISCARD glm::vec3& scale();
 
         void update(EogllShaderProgram* shader, const char* name="model");
 
-        EogllModel* getModel();
+        EOGLL_NO_DISCARD EogllModel* getModel();
 
         void rotate(float amount, glm::vec3 axis);
     };
@@ -47,8 +47,8 @@ namespace ogl {
         Camera();
         Camera(glm::vec3 pos);
 
-        glm::vec3* posptr();
-        glm::vec3& pos();
+        EOGLL_NO_DISCARD glm::vec3* posptr();
+        EOGLL_NO_DISCARD glm::vec3& pos();
 
         void yaw(float amount);
         void pitch(float amount);

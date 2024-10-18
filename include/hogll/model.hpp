@@ -45,12 +45,15 @@ namespace ogl {
             std::vector<unsigned int> indices;
         };
 
-        GlMesh packMesh(Mesh mesh, ObjectAttrs attrs);
+        EOGLL_NO_DISCARD GlMesh packMesh(Mesh mesh, ObjectAttrs attrs);
     }
 
     class RenderModel {
     public:
-        RenderModel(std::string path, ObjectAttrs attrs);
+        // we will look for texture in same directory as the model by default
+        // but if we change relpath to tex, it will look for textures in the folder tex, relative to the model
+        // but if we disabled relative to obj, it will not be relative to the object, but to our working directory
+        RenderModel(std::string path, ObjectAttrs attrs, std::string relpath = ".", bool relative_to_obj=true);
         ~RenderModel();
 
         void draw(Window* window, EogllShaderProgram* shader);
@@ -58,13 +61,13 @@ namespace ogl {
 
     private:
 
-        void loadModel();
+        void loadModel(const std::string& p);
 
         void processNode(aiNode* node, const aiScene* scene);
 
-        internal::Mesh processMesh(aiMesh* mesh, const aiScene* scene);
+        EOGLL_NO_DISCARD internal::Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 
-        std::vector<internal::Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);
+        EOGLL_NO_DISCARD std::vector<internal::Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName);
     public:
         std::string path;
         ObjectAttrs attrs;

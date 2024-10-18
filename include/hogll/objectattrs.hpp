@@ -29,11 +29,11 @@ namespace ogl {
 
         void add(GLenum type, GLint size, EogllObjectAttrType attr);
 
-        EogllObjectAttrs* getBuffer();
+        EOGLL_NO_DISCARD EogllObjectAttrs* getBuffer();
 
-        int size();
+        EOGLL_NO_DISCARD int size();
 
-        std::vector<EogllObjectAttr> attrs();
+        EOGLL_NO_DISCARD std::vector<EogllObjectAttr> attrs();
 
         void build(int vao);
     };

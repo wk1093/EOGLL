@@ -15,7 +15,7 @@
 #include "objectattrs.hpp"
 
 namespace ogl {
-    EogllShaderProgram* basicShaderGenerator(ObjectAttrs attrs, bool defaultUniforms);
+    EOGLL_NO_DISCARD EogllShaderProgram* basicShaderGenerator(ObjectAttrs attrs, bool defaultUniforms);
 }
 
 #endif

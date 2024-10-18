@@ -19,20 +19,17 @@ namespace ogl {
                             if (a.num >= 1) glMesh.vert.push_back(vert.pos.x);
                             if (a.num >= 2) glMesh.vert.push_back(vert.pos.y);
                             if (a.num >= 3) glMesh.vert.push_back(vert.pos.z);
-                            // std::cout << "POS " << a.num << std::endl;
                             break;
                         }
                         case EOGLL_ATTR_NORMAL: {
                             if (a.num >= 1) glMesh.vert.push_back(vert.norm.x);
                             if (a.num >= 2) glMesh.vert.push_back(vert.norm.y);
                             if (a.num >= 3) glMesh.vert.push_back(vert.norm.z);
-                            // std::cout << "NORM " << a.num << std::endl;
                             break;
                         }
                         case EOGLL_ATTR_TEXTURE: {
                             if (a.num >= 1) glMesh.vert.push_back(vert.tex.x);
                             if (a.num >= 2) glMesh.vert.push_back(vert.tex.y);
-                            // std::cout << "TEX " << a.num << std::endl;
                             break;
                         }
                     }
@@ -43,10 +40,18 @@ namespace ogl {
         }
     }
 
-    RenderModel::RenderModel(std::string path, ObjectAttrs attrs) : path(path), attrs(attrs) {
-        this->path = path;
+    RenderModel::RenderModel(std::string path, ObjectAttrs attrs, std::string relpath, bool relative_to_obj) : attrs(attrs) {
         this->attrs = attrs;
-        loadModel();
+        if (relative_to_obj) {
+            std::string objpath = path.substr(0, path.find_last_of("/\\"));
+            this->path = objpath + "/" + relpath;
+        } else {
+            this->path = relpath;
+        }
+        if (this->path.back() != '/') {
+            this->path += "/";
+        }
+        loadModel(path);
 
         // the model is loaded into Meshes but we need to generate all the GlMeshes and then put them into the BufferObjects
         // we want to do all this ahead of time so that the model can just be drawn when needed and we don't have to do much processing
@@ -61,6 +66,11 @@ namespace ogl {
             attrs.build(vao);
             mesh.render = new BufferObject(vao, vbo, ebo, glMesh.indices.size()*sizeof(unsigned int), GL_UNSIGNED_INT);
             // we are going to use malloc instead
+            std::unordered_map<std::string, int> texturesLoaded;
+            for (internal::Texture tex : mesh.textures) {
+                // std::cout << "Uniform '" << (std::string("sampler_") + tex.type + std::to_string(texturesLoaded[tex.type]++)) << "' loaded" << std::endl;
+                EOGLL_LOG_DEBUG(stdout, "Uniform '%s' loaded\n", (std::string("sampler_") + tex.type + std::to_string(texturesLoaded[tex.type]++)).c_str());
+            }
         }
     }
 
@@ -95,7 +105,7 @@ namespace ogl {
     void RenderModel::draw(Window* window, EogllShaderProgram* shader) {
         for (internal::Mesh& mesh : meshes) {
             if (mesh.render == nullptr) {
-                std::cout << "Mesh render is null" << std::endl;
+                EOGLL_LOG_WARN(stderr, "Mesh has no render object, skipping");
                 continue;
             }
             std::unordered_map<std::string, int> texturesLoaded;
@@ -108,11 +118,12 @@ namespace ogl {
         }
     }
 
-    void RenderModel::loadModel() {
+
+    void RenderModel::loadModel(const std::string& p) {
         Assimp::Importer importer;
-        const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals | aiProcess_GenUVCoords | aiProcess_OptimizeGraph | aiProcess_OptimizeMeshes | aiProcess_JoinIdenticalVertices);
+        const aiScene* scene = importer.ReadFile(p, aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_GenUVCoords | aiProcess_OptimizeGraph | aiProcess_OptimizeMeshes | aiProcess_JoinIdenticalVertices);
         if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
-            EOGLL_LOG_ERROR(stderr, "Failed to load model '%s': %s", path.c_str(), importer.GetErrorString());
+            EOGLL_LOG_ERROR(stderr, "Failed to load model '%s': %s", p.c_str(), importer.GetErrorString());
             return;
         }
 
@@ -213,7 +224,8 @@ namespace ogl {
             }
             if (!skip) {
                 internal::Texture tex;
-                tex.texture = eogllCreateTexture(str.C_Str());
+                std::string path = this->path + str.C_Str();
+                tex.texture = eogllCreateTexture(path.c_str());
                 tex.type = typeName;
                 tex.path = str.C_Str();
                 textures.push_back(tex);
