@@ -11,5 +11,5 @@ An easy to use OpenGL library that includes many other libraries. Makes setting 
 - Examples of [Area Lights](https://learnopengl.com/Guest-Articles/2022/Area-Lights)
 - Support for compute shaders
 - Examples of Ambient Occlusion: [SSAO](https://learnopengl.com/Advanced-Lighting/SSAO)
-- Make Object loader less unpredictable and make sure input is good before attempting to load (stop making segfaults)
+- Make EOGLL Object loader less unpredictable and make sure input is good before attempting to load (stop making segfaults)
 - Orthographic projection

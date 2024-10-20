@@ -66,7 +66,7 @@ namespace ogl {
         Projection(float fov, float near, float far);
         Projection(float near, float far);
 
-        void update(EogllShaderProgram* shader, const char* name, const ogl::Window& window);
+        void update(EogllShaderProgram* shader, const ogl::Window& window, const char* name="projection");
         void update(EogllShaderProgram* shader, const char* name, uint32_t width, uint32_t height);
         void update(EogllShaderProgram* shader, const char* name, float top, float bottom, float left, float right);
     };

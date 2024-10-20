@@ -19,9 +19,14 @@
 #include <string>
 #include <unordered_map>
 #include <iostream>
+#include <map>
+#include <functional>
 
-#include <glm/vec3.hpp>
-#include <glm/vec2.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/quaternion.hpp>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>

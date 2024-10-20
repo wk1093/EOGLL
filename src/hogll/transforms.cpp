@@ -86,7 +86,7 @@ namespace ogl {
         proj = eogllOrthographicProjection(near, far);
     }
 
-    void Projection::update(EogllShaderProgram* shader, const char* name, const ogl::Window& window) {
+    void Projection::update(EogllShaderProgram* shader, const ogl::Window& window, const char* name) {
         eogllUpdateProjectionMatrix(&proj, shader, name, window.getWidth(), window.getHeight());
     }
 

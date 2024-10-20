@@ -118,7 +118,7 @@ int main() {
 
         eogllUseProgram(shaderProgram);
         camera.update(shaderProgram);
-        projection.update(shaderProgram, "projection", *window);
+        projection.update(shaderProgram, *window);
         model.update(shaderProgram);
         eogllSetUniform3fl(shaderProgram, "lights", lights, 2);
         eogllSetUniform3fl(shaderProgram, "lightColors", lightColors, 2);

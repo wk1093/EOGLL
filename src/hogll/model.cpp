@@ -1,37 +1,133 @@
 #include "hogll/model.hpp"
 
 namespace ogl {
+    inline glm::mat4 convertToGLM(aiMatrix4x4 mat) {
+        glm::mat4 result;
+        result[0][0] = mat.a1; result[0][1] = mat.a2; result[0][2] = mat.a3; result[0][3] = mat.a4;
+        result[1][0] = mat.b1; result[1][1] = mat.b2; result[1][2] = mat.b3; result[1][3] = mat.b4;
+        result[2][0] = mat.c1; result[2][1] = mat.c2; result[2][2] = mat.c3; result[2][3] = mat.c4;
+        result[3][0] = mat.d1; result[3][1] = mat.d2; result[3][2] = mat.d3; result[3][3] = mat.d4;
+        return result;
+    }
+
+    ModelAttr::ModelAttr() {}
+    ModelAttr::ModelAttr(GLenum type, GLint num, ModelAttrType attr) : type(type), size(num*eogllSizeOf(type)), attr(attr) {}
+
+    int ModelAttr::num() {
+        return size / eogllSizeOf(type);
+    }
+
+    ModelAttrs::ModelAttrs() {}
+
+    ModelAttrs::ModelAttrs(std::initializer_list<ModelAttr> args) : attrs(args) {}
+
+    ModelAttrs::ModelAttrs(ObjectAttrs obj_attrs) {
+        for (EogllObjectAttr a : obj_attrs.attrs()) {
+            add(a.type, a.num, getAttrType(a.type));
+        }
+    }
+
+    void ModelAttrs::add(GLenum type, GLint size, ModelAttrType attr) {
+        attrs.push_back({type, size*eogllSizeOf(type), attr});
+    }
+
+    std::vector<ModelAttr> ModelAttrs::getAttrs() {
+        return attrs;
+    }
+
+    int ModelAttrs::num() {
+        int s = 0;
+        for (ModelAttr a : attrs) {
+            s += a.size / eogllSizeOf(a.type);
+        }
+        return s;
+    }
+
+    int ModelAttrs::size() {
+        return attrs.size();
+    }
+
+    ModelAttr& ModelAttrs::operator[](int i) {
+        return attrs[i];
+    }
+
+
+
+    void ModelAttrs::build(int vao) {
+        GLsizei stride = 0;
+        for (ModelAttr a : attrs) {
+            stride += a.size;
+        }
+        glBindVertexArray(vao);
+        uint64_t offset = 0;
+        for (int i = 0; i < attrs.size(); i++) {
+            ModelAttr a = attrs[i];
+            glVertexAttribPointer(i, a.size / eogllSizeOf(a.type), a.type, GL_FALSE, stride, (void*)offset);
+            glEnableVertexAttribArray(i);
+            offset += a.size;
+        }
+    }
+
+    ModelAttrType ModelAttrs::getAttrType(EogllObjectAttrType type) {
+        switch (type) {
+            case EOGLL_ATTR_POSITION: return POSITION;
+            case EOGLL_ATTR_NORMAL: return NORMAL;
+            case EOGLL_ATTR_TEXTURE: return TEXTURE;
+            default:
+                EOGLL_LOG_ERROR(stderr, "Invalid attribute type");
+                return POSITION;
+        }
+        return POSITION;
+    }
+
+
+
     namespace internal {
-        GlMesh packMesh(Mesh mesh, ObjectAttrs attrs) {
+        GlMesh packMesh(Mesh mesh, ModelAttrs attrs) {
             GlMesh glMesh;
 
-            int num = 0;
-            for (EogllObjectAttr a : attrs.attrs()) {
-                num += a.num;
-            }
-            glMesh.vert.reserve(num);
+            glMesh.vert.reserve(attrs.num());
             
             for (const Vertex& vert : mesh.vert) {
                 for (int i = 0; i < attrs.size(); i++) {
-                    EogllObjectAttr a = attrs.attrs()[i];
-                    switch (a.type) {
-                        case EOGLL_ATTR_POSITION: {
-                            if (a.num >= 1) glMesh.vert.push_back(vert.pos.x);
-                            if (a.num >= 2) glMesh.vert.push_back(vert.pos.y);
-                            if (a.num >= 3) glMesh.vert.push_back(vert.pos.z);
+                    ModelAttr a = attrs[i];
+                    switch (a.attr) {
+                        case POSITION: {
+                            if (a.num() >= 1) glMesh.vert.push_back(vert.pos.x);
+                            if (a.num() >= 2) glMesh.vert.push_back(vert.pos.y);
+                            if (a.num() >= 3) glMesh.vert.push_back(vert.pos.z);
                             break;
                         }
-                        case EOGLL_ATTR_NORMAL: {
-                            if (a.num >= 1) glMesh.vert.push_back(vert.norm.x);
-                            if (a.num >= 2) glMesh.vert.push_back(vert.norm.y);
-                            if (a.num >= 3) glMesh.vert.push_back(vert.norm.z);
+                        case NORMAL: {
+                            if (a.num() >= 1) glMesh.vert.push_back(vert.norm.x);
+                            if (a.num() >= 2) glMesh.vert.push_back(vert.norm.y);
+                            if (a.num() >= 3) glMesh.vert.push_back(vert.norm.z);
                             break;
                         }
-                        case EOGLL_ATTR_TEXTURE: {
-                            if (a.num >= 1) glMesh.vert.push_back(vert.tex.x);
-                            if (a.num >= 2) glMesh.vert.push_back(vert.tex.y);
+                        case TEXTURE: {
+                            if (a.num() >= 1) glMesh.vert.push_back(vert.tex.x);
+                            if (a.num() >= 2) glMesh.vert.push_back(vert.tex.y);
                             break;
                         }
+                        case BONE_IDS: {
+                            // reinterpret cast ints to a float
+                            if (a.num() >= 1) glMesh.vert.push_back(reinterpret_cast<const float*>(&vert.bone_ids)[0]);
+                            if (a.num() >= 2) glMesh.vert.push_back(reinterpret_cast<const float*>(&vert.bone_ids)[1]);
+                            if (a.num() >= 3) glMesh.vert.push_back(reinterpret_cast<const float*>(&vert.bone_ids)[2]);
+                            if (a.num() >= 4) glMesh.vert.push_back(reinterpret_cast<const float*>(&vert.bone_ids)[3]);
+                            break;
+                        }
+                        case BONE_WEIGHTS: {
+                            if (a.num() >= 1) glMesh.vert.push_back(vert.bone_weights.x);
+                            if (a.num() >= 2) glMesh.vert.push_back(vert.bone_weights.y);
+                            if (a.num() >= 3) glMesh.vert.push_back(vert.bone_weights.z);
+                            if (a.num() >= 4) glMesh.vert.push_back(vert.bone_weights.w);
+                            break;
+                        }
+                        default:
+                            EOGLL_LOG_ERROR(stderr, "Invalid attribute type");
+                            break;
+
                     }
                 }
             }
@@ -40,7 +136,7 @@ namespace ogl {
         }
     }
 
-    RenderModel::RenderModel(std::string path, ObjectAttrs attrs, std::string relpath, bool relative_to_obj) : attrs(attrs) {
+    RenderModel::RenderModel(std::string path, ModelAttrs attrs, std::string relpath, bool relative_to_obj) : attrs(attrs) {
         this->attrs = attrs;
         if (relative_to_obj) {
             std::string objpath = path.substr(0, path.find_last_of("/\\"));
@@ -65,7 +161,6 @@ namespace ogl {
             ebo = eogllGenBuffer(vao, GL_ELEMENT_ARRAY_BUFFER, glMesh.indices.size() * sizeof(unsigned int), glMesh.indices.data(), GL_STATIC_DRAW);
             attrs.build(vao);
             mesh.render = new BufferObject(vao, vbo, ebo, glMesh.indices.size()*sizeof(unsigned int), GL_UNSIGNED_INT);
-            // we are going to use malloc instead
             std::unordered_map<std::string, int> texturesLoaded;
             for (internal::Texture tex : mesh.textures) {
                 // std::cout << "Uniform '" << (std::string("sampler_") + tex.type + std::to_string(texturesLoaded[tex.type]++)) << "' loaded" << std::endl;
@@ -84,25 +179,7 @@ namespace ogl {
         // TODO: delete whatever needs to be deleted
     }
 
-    void RenderModel::draw(Window* window, EogllShaderProgram* shader, Camera camera, Projection projection, Model model) {
-        for (internal::Mesh& mesh : meshes) {
-            if (mesh.render == nullptr) {
-                continue;
-            }
-            std::unordered_map<std::string, int> texturesLoaded;
-            int totalTextures = 0;
-            eogllUseProgram(shader);
-            camera.update(shader);
-            projection.update(shader, "projection", *window);
-            model.update(shader);
-            for (internal::Texture tex : mesh.textures) {
-                eogllBindTextureUniform(tex.texture, shader, (std::string("sampler_") + tex.type + std::to_string(texturesLoaded[tex.type]++)).c_str(), totalTextures++);
-            }
-            mesh.render->draw(GL_TRIANGLES);
-        }
-    }
-
-    void RenderModel::draw(Window* window, EogllShaderProgram* shader) {
+    void RenderModel::draw(EogllShaderProgram* shader, std::function<void(EogllShaderProgram*)> preDraw) {
         for (internal::Mesh& mesh : meshes) {
             if (mesh.render == nullptr) {
                 EOGLL_LOG_WARN(stderr, "Mesh has no render object, skipping");
@@ -111,6 +188,7 @@ namespace ogl {
             std::unordered_map<std::string, int> texturesLoaded;
             int totalTextures = 0;
             eogllUseProgram(shader);
+            preDraw(shader);
             for (internal::Texture tex : mesh.textures) {
                 eogllBindTextureUniform(tex.texture, shader, (std::string("sampler_") + tex.type + std::to_string(texturesLoaded[tex.type]++)).c_str(), totalTextures++);
             }
@@ -133,21 +211,21 @@ namespace ogl {
     void RenderModel::processNode(aiNode* node, const aiScene* scene) {
         for (unsigned int i = 0; i < node->mNumMeshes; i++) {
             aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-            meshes.push_back(processMesh(mesh, scene));
+            meshes.push_back(processMesh(mesh, scene, node->mTransformation));
         }
         for (unsigned int i = 0; i < node->mNumChildren; i++) {
             processNode(node->mChildren[i], scene);
         }
     }
 
-    internal::Mesh RenderModel::processMesh(aiMesh* mesh, const aiScene* scene) {
+    internal::Mesh RenderModel::processMesh(aiMesh* mesh, const aiScene* scene, aiMatrix4x4 transform) {
         std::vector<internal::Vertex> vertices;
         std::vector<unsigned int> indices;
         std::vector<internal::Texture> textures;
         vertices.reserve(mesh->mNumVertices);
         for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
             internal::Vertex vertex;
-            vertex.pos = glm::vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
+            vertex.pos = (glm::vec4(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z, 1.0f) * convertToGLM(transform));
             if (mesh->HasNormals()) {
                 vertex.norm = glm::vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z);
             } else {
@@ -158,9 +236,15 @@ namespace ogl {
             } else {
                 vertex.tex = glm::vec2(0.0f, 0.0f);
             }
+
+            vertex.bone_ids = glm::ivec4(-1, -1, -1, -1);
+            vertex.bone_weights = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
             
             vertices.push_back(vertex);
         }
+
+        extractBones(vertices, mesh, scene);
+        
         indices.reserve(3 * mesh->mNumFaces);
         for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
             aiFace face = mesh->mFaces[i];
@@ -233,5 +317,37 @@ namespace ogl {
             }
         }
         return textures;
+    }
+
+    void RenderModel::extractBones(std::vector<internal::Vertex>& vertices, aiMesh* mesh, const aiScene* scene) {
+        for (unsigned int i = 0; i < mesh->mNumBones; i++) {
+            int boneID = -1;
+            std::string boneName = mesh->mBones[i]->mName.C_Str();
+            if (boneInfoMap.find(boneName) == boneInfoMap.end()) {
+                BoneInfo newBoneInfo;
+                newBoneInfo.id = boneCounter;
+                newBoneInfo.offset = convertToGLM(mesh->mBones[i]->mOffsetMatrix);
+                boneInfoMap[boneName] = newBoneInfo;
+                boneID = boneCounter++;
+            } else {
+                boneID = boneInfoMap[boneName].id;
+            }
+            assert(boneID != -1);
+            auto weights = mesh->mBones[i]->mWeights;
+            int numWeights = mesh->mBones[i]->mNumWeights;
+
+            for (int j = 0; j < numWeights; j++) {
+                int vertexID = weights[j].mVertexId;
+                float weight = weights[j].mWeight;
+                assert(vertexID <= vertices.size());
+                for (int k = 0; k < 4; k++) {
+                    if (vertices[vertexID].bone_ids[k] == -1) {
+                        vertices[vertexID].bone_ids[k] = boneID;
+                        vertices[vertexID].bone_weights[k] = weight;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
