@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.7.2</span>
+   &#160;<span id="projectnumber">0.7.3</span>
    </div>
   </td>
  </tr>
@@ -106,36 +106,39 @@ Collaboration diagram for ogl::RenderModel:</div>
 <div class="center"><img src="classogl_1_1RenderModel__coll__graph.png" border="0" usemap="#aogl_1_1RenderModel_coll__map" alt="Collaboration graph"/></div>
 <map name="aogl_1_1RenderModel_coll__map" id="aogl_1_1RenderModel_coll__map">
 <area shape="rect" title=" " alt="" coords="5,95,141,121"/>
-<area shape="rect" href="structogl_1_1ObjectAttrs.html" title=" " alt="" coords="12,5,135,32"/>
+<area shape="rect" href="classogl_1_1ModelAttrs.html" title=" " alt="" coords="13,5,134,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a23bbdc16562f7d8ae68b4db89508c4d7"><td class="memItemLeft" align="right" valign="top"><a id="a23bbdc16562f7d8ae68b4db89508c4d7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RenderModel</b> (std::string path, <a class="el" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a> attrs, std::string relpath=&quot;.&quot;, bool relative_to_obj=true)</td></tr>
-<tr class="separator:a23bbdc16562f7d8ae68b4db89508c4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fdbee62b839c16cad0080957eee20d3"><td class="memItemLeft" align="right" valign="top"><a id="a6fdbee62b839c16cad0080957eee20d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="structogl_1_1Window.html">Window</a> *window, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader)</td></tr>
-<tr class="separator:a6fdbee62b839c16cad0080957eee20d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea21068ad89df30e58eddcf50025a12"><td class="memItemLeft" align="right" valign="top"><a id="a3ea21068ad89df30e58eddcf50025a12"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="structogl_1_1Window.html">Window</a> *window, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, <a class="el" href="structogl_1_1Camera.html">Camera</a> camera, <a class="el" href="structogl_1_1Projection.html">Projection</a> projection, <a class="el" href="structogl_1_1Model.html">Model</a> model)</td></tr>
-<tr class="separator:a3ea21068ad89df30e58eddcf50025a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56fb3b696ef0f288e0cf746ebb4a967e"><td class="memItemLeft" align="right" valign="top"><a id="a56fb3b696ef0f288e0cf746ebb4a967e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>RenderModel</b> (std::string path, <a class="el" href="classogl_1_1ModelAttrs.html">ModelAttrs</a> attrs, std::string relpath=&quot;.&quot;, bool relative_to_obj=true)</td></tr>
+<tr class="separator:a56fb3b696ef0f288e0cf746ebb4a967e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d158bac54bbb60ffdc26c4eceda0338"><td class="memItemLeft" align="right" valign="top"><a id="a2d158bac54bbb60ffdc26c4eceda0338"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, std::function&lt; void(<a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *)&gt; preDraw)</td></tr>
+<tr class="separator:a2d158bac54bbb60ffdc26c4eceda0338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ac4623a4e56fd5f9fb5445cd165d8f892"><td class="memItemLeft" align="right" valign="top"><a id="ac4623a4e56fd5f9fb5445cd165d8f892"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>path</b></td></tr>
 <tr class="separator:ac4623a4e56fd5f9fb5445cd165d8f892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9215c9f0a40d4cdec25fac7cd75f94f"><td class="memItemLeft" align="right" valign="top"><a id="ab9215c9f0a40d4cdec25fac7cd75f94f"></a>
-<a class="el" href="structogl_1_1ObjectAttrs.html">ObjectAttrs</a>&#160;</td><td class="memItemRight" valign="bottom"><b>attrs</b></td></tr>
-<tr class="separator:ab9215c9f0a40d4cdec25fac7cd75f94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b2e9c56ed7c584d8f456722114a3be"><td class="memItemLeft" align="right" valign="top"><a id="a13b2e9c56ed7c584d8f456722114a3be"></a>
+<a class="el" href="classogl_1_1ModelAttrs.html">ModelAttrs</a>&#160;</td><td class="memItemRight" valign="bottom"><b>attrs</b></td></tr>
+<tr class="separator:a13b2e9c56ed7c584d8f456722114a3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f5709292a8c3fa99147e62838720795"><td class="memItemLeft" align="right" valign="top"><a id="a0f5709292a8c3fa99147e62838720795"></a>
 std::vector&lt; <a class="el" href="structogl_1_1internal_1_1Mesh.html">internal::Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>meshes</b></td></tr>
 <tr class="separator:a0f5709292a8c3fa99147e62838720795"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0307bfdf8e5a2f472020908eed1a39bc"><td class="memItemLeft" align="right" valign="top"><a id="a0307bfdf8e5a2f472020908eed1a39bc"></a>
 std::vector&lt; <a class="el" href="structogl_1_1internal_1_1Texture.html">internal::Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>textures_loaded</b></td></tr>
 <tr class="separator:a0307bfdf8e5a2f472020908eed1a39bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dbfbb25aff253680eb99b1ed276b807"><td class="memItemLeft" align="right" valign="top"><a id="a0dbfbb25aff253680eb99b1ed276b807"></a>
+std::map&lt; std::string, <a class="el" href="structogl_1_1BoneInfo.html">BoneInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>boneInfoMap</b></td></tr>
+<tr class="separator:a0dbfbb25aff253680eb99b1ed276b807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bc39fdefafd051577c4f2af30ba407"><td class="memItemLeft" align="right" valign="top"><a id="aa2bc39fdefafd051577c4f2af30ba407"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>boneCounter</b> = 0</td></tr>
+<tr class="separator:aa2bc39fdefafd051577c4f2af30ba407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/EOGLL/EOGLL/include/hogll/<a class="el" href="model_8hpp_source.html">model.hpp</a></li>

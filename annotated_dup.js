@@ -8,6 +8,9 @@ var annotated_dup =
         [ "GlMesh", "structogl_1_1internal_1_1GlMesh.html", "structogl_1_1internal_1_1GlMesh" ]
       ] ],
       [ "BufferObject", "structogl_1_1BufferObject.html", "structogl_1_1BufferObject" ],
+      [ "BoneInfo", "structogl_1_1BoneInfo.html", "structogl_1_1BoneInfo" ],
+      [ "ModelAttr", "structogl_1_1ModelAttr.html", "structogl_1_1ModelAttr" ],
+      [ "ModelAttrs", "classogl_1_1ModelAttrs.html", "classogl_1_1ModelAttrs" ],
       [ "RenderModel", "classogl_1_1RenderModel.html", "classogl_1_1RenderModel" ],
       [ "ObjectAttrs", "structogl_1_1ObjectAttrs.html", "structogl_1_1ObjectAttrs" ],
       [ "Model", "structogl_1_1Model.html", "structogl_1_1Model" ],
