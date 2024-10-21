@@ -22,8 +22,10 @@ namespace ogl {
     ModelAttrs::ModelAttrs(std::initializer_list<ModelAttr> args) : attrs(args) {}
 
     ModelAttrs::ModelAttrs(ObjectAttrs obj_attrs) {
-        for (EogllObjectAttr a : obj_attrs.attrs()) {
-            add(a.type, a.num, getAttrType(a.type));
+        for (int i = 0; i < obj_attrs.size(); i++) {
+            EogllObjectAttr attr = obj_attrs.attrs()[i];
+            EogllVertAttribData vab = obj_attrs.getBuffer()->builder.attribs[i];
+            add(vab.type, vab.size, getAttrType(attr.type));
         }
     }
 
@@ -199,7 +201,7 @@ namespace ogl {
 
     void RenderModel::loadModel(const std::string& p) {
         Assimp::Importer importer;
-        const aiScene* scene = importer.ReadFile(p, aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_GenUVCoords | aiProcess_OptimizeGraph | aiProcess_OptimizeMeshes | aiProcess_JoinIdenticalVertices);
+        const aiScene* scene = importer.ReadFile(p, aiProcessPreset_TargetRealtime_MaxQuality);
         if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
             EOGLL_LOG_ERROR(stderr, "Failed to load model '%s': %s", p.c_str(), importer.GetErrorString());
             return;

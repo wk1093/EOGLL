@@ -16,6 +16,9 @@
 extern "C" {
 #endif
 
+// stop giving Doxygen warnings
+//! @cond Doxygen_Suppress
+
 #define EOGLL_KEY_UNKNOWN            -1
 
 /* Printable keys */
@@ -173,7 +176,7 @@ extern "C" {
 #define EOGLL_CURSOR_DISABLED        0x00034003
 
 
-
+//! @endcond
 
 #ifdef __cplusplus
 }

@@ -21,11 +21,25 @@ extern "C" {
  * @brief Result type for EOGLL functions
  */
 typedef uint8_t EogllResult;
+/**
+ * @brief Success constant for EOGLL functions
+ */
 #define EOGLL_SUCCESS 0
+/**
+ * @brief Failure constant for EOGLL functions
+ */
 #define EOGLL_FAILURE 1
 
+/**
+ * @brief No discard attribute for EOGLL functions
+ */
 #define EOGLL_NO_DISCARD HEDLEY_WARN_UNUSED_RESULT
 
+/**
+ * @brief Version number for comparing and testing EOGLL versions
+ * This version number is not in a format meant for displaying/reading
+ * This number is used for comparing or testing if a version is correct, newer, or older
+ */
 #define EOGLL_VERSION_NUMBER (EOGLL_VERSION_MAJOR * 10000 + EOGLL_VERSION_MINOR * 100 + EOGLL_VERSION_PATCH)
 
 
@@ -34,6 +48,7 @@ typedef uint8_t EogllResult;
 //#define EOGLL_DECL_FUNC_ND EOGLL_DECL_FUNC EOGLL_NO_DISCARD
 //#define EOGLL_DECL_VAR
 //#define EOGLL_DECL_ENUM
+
 #ifndef EOGLL_DECL_FUNC
 /**
  * @brief Declares a function

@@ -6,12 +6,13 @@ int main() {
     eogllEnableDepth();
     eogllEnableFaceCulling();
 
-    ogl::ObjectAttrs attrs = ogl::ObjectAttrs{
-        {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
-        {GL_FLOAT, 3, EOGLL_ATTR_NORMAL}
+    ogl::ModelAttrs attrs = ogl::ModelAttrs{
+        {GL_FLOAT, 3, ogl::POSITION},
+        {GL_FLOAT, 3, ogl::NORMAL}
     };
 
-    ogl::BufferObject cube("resources/models/dragon.obj", attrs);
+    // ogl::BufferObject cube("resources/models/dragon.obj", attrs);
+    ogl::RenderModel cube("resources/models/dragon.obj", ogl::ModelAttrs(attrs));
 
     // really cool system that allows us to have default shaders that work for most attribute cases
     // these shader are generated at runtime and are not saved to disk
@@ -23,8 +24,8 @@ int main() {
 
     ogl::Model model;
     ogl::Camera camera;
-    // ogl::Projection projection(45.0f, 0.1f, 100.0f);
-    ogl::Projection projection(0.1f, 100.0f);
+    ogl::Projection projection(45.0f, 0.1f, 100.0f);
+    // ogl::Projection projection(0.1f, 100.0f);
 
     camera.pos() = {0.0f, 0.0f, 5.0f};
 
@@ -35,13 +36,18 @@ int main() {
         model.pos() = {0.0f, 0.0f, 0.1f*sin(glfwGetTime()) * 5.0f};
         model.rot() = {glfwGetTime()*8, glfwGetTime()*10, 0.0f};
 
-        eogllUseProgram(shader);
+        cube.draw(shader, [&](EogllShaderProgram* s) {
+            projection.update(s, window);
+            camera.update(s);
+            model.update(s);
+        });
 
-        // projection.update(shader, "projection", window);
-        projection.update(shader, "projection", 1.0f, -1.0f, -1.0f, 1.0f);
-        camera.update(shader, "view");
-        model.update(shader, "model");
-        cube.draw(GL_TRIANGLES);
+
+        // eogllUseProgram(shader);
+        // projection.update(shader, window);
+        // camera.update(shader);
+        // model.update(shader);
+        // cube.draw(GL_TRIANGLES);
 
         window.swapBuffers();
         window.pollEvents();

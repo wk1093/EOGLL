@@ -16,11 +16,25 @@
 #include "transforms.hpp"
 
 namespace ogl {
+    /**
+     * @brief A struct that represents a bone's info
+     * 
+     * This struct is used to store data on bones. This will eventually be used for skeletal animation.
+     */
     struct BoneInfo {
+        /// @brief The id of the bone
         int id;
+
+        /// @brief The offset matrix of the bone
         glm::mat4 offset;
     };
 
+    /**
+     * @brief A struct that represents a model attribute
+     * @see ModelAttrs
+     * 
+     * This struct is used to store data on model attributes.
+     */
     enum ModelAttrType {
         POSITION,
         NORMAL,
@@ -29,38 +43,122 @@ namespace ogl {
         BONE_WEIGHTS
     };
 
+    /**
+     * @brief A struct that represents a model attribute
+     * @see ModelAttrs
+     * 
+     * This struct is used to store data on model attributes.
+     */
     struct ModelAttr {
+        /// @brief The GL type of the attribute
         GLenum type;
-        GLint size; // size of the attribute (for example, a vec3 has size 3 * eogllSizeOf(GL_FLOAT))
+
+        /// @brief The size of the attribute (for example, a vec3 has size 3 * eogllSizeOf(GL_FLOAT))
+        GLint size;
+
+        /// @brief The attribute type
         ModelAttrType attr;
 
+        /**
+         * @brief Construct a new Model Attr object
+         * @see ModelAttrs
+         */
         ModelAttr();
+
+        /**
+         * @brief Construct a new Model Attr object
+         * @param type The GL type of the attribute
+         * @param size The size of the attribute
+         * @param attr The attribute type
+         * @see ModelAttrs
+         */
         ModelAttr(GLenum type, GLint size, ModelAttrType attr);
 
+        /**
+         * @brief Get the size of the attribute
+         * @return The size of the attribute
+         */
         int num();
     };
 
+    /**
+     * @brief A struct that represents model attributes
+     * 
+     * This struct is used to store data on model attributes.
+     */
     class ModelAttrs {
     public:
+        /**
+         * @brief Construct an empty Model Attrs object
+         */
         ModelAttrs();
+
+        /**
+         * @brief Construct a new Model Attrs object from a list of model attributes
+         * @param args The model attributes
+         */
         ModelAttrs(std::initializer_list<ModelAttr> args);
+
+        /**
+         * @brief Construct a new Model Attrs object from a list of object attributes
+         * @param obj_attrs The object attributes
+         */
         ModelAttrs(ObjectAttrs obj_attrs);
 
+        /**
+         * @brief Add a model attribute
+         * @param type The GL type of the attribute
+         * @param size The size of the attribute
+         * @param attr The attribute type
+         * 
+         * This function adds a model attribute to the list of model attributes.
+         */
         void add(GLenum type, GLint size, ModelAttrType attr);
 
+        /**
+         * @brief Get the model attributes
+         * @return The model attributes
+         */
         EOGLL_NO_DISCARD std::vector<ModelAttr> getAttrs();
 
+        /**
+         * @brief Get the number of objects in the model attributes
+         * @return The number of objects in the model attributes
+         * 
+         * Sums up the number of objects in each attribute.
+         */
         EOGLL_NO_DISCARD int num();
 
+        /**
+         * @brief Get the amount of attributes
+         * @return Number of attributes
+         */
         EOGLL_NO_DISCARD int size();
 
+        /**
+         * @brief Build the model attributes
+         * @param vao The VAO to build the model attributes on
+         */
         void build(int vao);
 
+        /**
+         * @brief Get the model attribute at the specified index
+         * @param i The index
+         * @return The model attribute at the specified index
+         */
         ModelAttr& operator[](int i);
 
     private:
+        /**
+         * @brief Get the attribute type from the object attribute type
+         * @param type The object attribute type
+         * @return The attribute type
+         * 
+         * A helper function to convert object attribute types to model attribute types.
+         */
         ModelAttrType getAttrType(EogllObjectAttrType type);
 
+        /// @brief The model attributes
         std::vector<ModelAttr> attrs;
     };
 

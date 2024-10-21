@@ -75,10 +75,6 @@ EOGLL_DECL_FUNC_ND EogllProjection eogllPerspectiveProjection(float fov, float n
 
 /**
  * @brief Creates a orthographic projection matrix
- * @param top The top of the orthographic projection matrix
- * @param bottom The bottom of the orthographic projection matrix
- * @param left The left of the orthographic projection matrix
- * @param right The right of the orthographic projection matrix
  * @param near The near of the orthographic projection matrix
  * @param far The far of the orthographic projection matrix
  * @return The created orthographic projection matrix

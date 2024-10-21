@@ -31,10 +31,16 @@ int main() {
 
     ogl::Projection projection(45.0f, 0.01f, 100000.0f);
 
-    ogl::BufferObject bufferObject("resources/models/cube.obj", {
-        {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
-        {GL_FLOAT, 3, EOGLL_ATTR_NORMAL},
-        {GL_FLOAT, 2, EOGLL_ATTR_TEXTURE}
+    // ogl::BufferObject bufferObject("resources/models/cube.obj", {
+    //     {GL_FLOAT, 3, EOGLL_ATTR_POSITION},
+    //     {GL_FLOAT, 3, EOGLL_ATTR_NORMAL},
+    //     {GL_FLOAT, 2, EOGLL_ATTR_TEXTURE}
+    // });
+
+    ogl::RenderModel obj("resources/models/cube.obj", {
+        {GL_FLOAT, 3, ogl::POSITION},
+        {GL_FLOAT, 3, ogl::NORMAL},
+        {GL_FLOAT, 2, ogl::TEXTURE}
     });
 
     double speed = 1.0;
@@ -116,19 +122,33 @@ int main() {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // clear color buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear depth buffer
 
-        eogllUseProgram(shaderProgram);
-        camera.update(shaderProgram);
-        projection.update(shaderProgram, *window);
-        model.update(shaderProgram);
-        eogllSetUniform3fl(shaderProgram, "lights", lights, 2);
-        eogllSetUniform3fl(shaderProgram, "lightColors", lightColors, 2);
-        eogllBindTextureUniform(albedo, shaderProgram, "albedo", 0);
-        eogllBindTextureUniform(normal, shaderProgram, "normal", 1);
-        eogllBindTextureUniform(metallic, shaderProgram, "metallic", 2);
-        eogllBindTextureUniform(roughness, shaderProgram, "roughness", 3);
-        eogllBindTextureUniform(ao, shaderProgram, "ao", 4);
-        eogllSetUniform3fv(shaderProgram, "viewPos", *(vec3*)camera.posptr());
-        bufferObject.draw(GL_TRIANGLES);
+        // eogllUseProgram(shaderProgram);
+        // camera.update(shaderProgram);
+        // projection.update(shaderProgram, *window);
+        // model.update(shaderProgram);
+        // eogllSetUniform3fl(shaderProgram, "lights", lights, 2);
+        // eogllSetUniform3fl(shaderProgram, "lightColors", lightColors, 2);
+        // eogllBindTextureUniform(albedo, shaderProgram, "albedo", 0);
+        // eogllBindTextureUniform(normal, shaderProgram, "normal", 1);
+        // eogllBindTextureUniform(metallic, shaderProgram, "metallic", 2);
+        // eogllBindTextureUniform(roughness, shaderProgram, "roughness", 3);
+        // eogllBindTextureUniform(ao, shaderProgram, "ao", 4);
+        // eogllSetUniform3fv(shaderProgram, "viewPos", *(vec3*)camera.posptr());
+        // bufferObject.draw(GL_TRIANGLES);
+
+        obj.draw(shaderProgram, [&](EogllShaderProgram* s) {
+            camera.update(s);
+            projection.update(s, *window);
+            model.update(s);
+            eogllSetUniform3fl(s, "lights", lights, 2);
+            eogllSetUniform3fl(s, "lightColors", lightColors, 2);
+            eogllBindTextureUniform(albedo, s, "albedo", 0);
+            eogllBindTextureUniform(normal, s, "normal", 1);
+            eogllBindTextureUniform(metallic, s, "metallic", 2);
+            eogllBindTextureUniform(roughness, s, "roughness", 3);
+            eogllBindTextureUniform(ao, s, "ao", 4);
+            eogllSetUniform3fv(s, "viewPos", *(vec3*)camera.posptr());
+        });
 
         window->swapBuffers();
         window->pollEvents();

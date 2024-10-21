@@ -13,9 +13,10 @@
 #include "pch.hpp"
 
 #include "objectattrs.hpp"
+#include "model.hpp"
 
 namespace ogl {
-    EOGLL_NO_DISCARD EogllShaderProgram* basicShaderGenerator(ObjectAttrs attrs, bool defaultUniforms);
+    EOGLL_NO_DISCARD EogllShaderProgram* basicShaderGenerator(ModelAttrs attrs, bool defaultUniforms);
 }
 
 #endif
