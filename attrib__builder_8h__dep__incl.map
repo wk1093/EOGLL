@@ -1,13 +1,13 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/attrib_builder.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/attrib_builder.h">
-<area shape="rect" id="node1" title="EOGLL attribute builder header file." alt="" coords="386,5,581,61"/>
-<area shape="rect" id="node2" href="$obj__loader_8h.html" title="EOGLL object loading header file." alt="" coords="455,109,645,165"/>
-<area shape="rect" id="node3" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="388,213,579,255"/>
-<area shape="rect" id="node4" href="$pch_8hpp_source.html" title=" " alt="" coords="378,303,589,344"/>
-<area shape="rect" id="node5" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="34,481,279,523"/>
-<area shape="rect" id="node6" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="195,571,423,612"/>
-<area shape="rect" id="node7" href="$hogll_8hpp_source.html" title=" " alt="" coords="365,660,556,701"/>
-<area shape="rect" id="node8" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="355,392,612,433"/>
-<area shape="rect" id="node9" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="456,481,711,523"/>
-<area shape="rect" id="node10" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="735,481,994,523"/>
-<area shape="rect" id="node11" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="747,392,983,433"/>
+<area shape="rect" id="node1" title="EOGLL attribute builder header file." alt="" coords="380,5,575,61"/>
+<area shape="rect" id="node2" href="$obj__loader_8h.html" title="EOGLL object loading header file." alt="" coords="449,109,639,165"/>
+<area shape="rect" id="node3" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="382,213,573,255"/>
+<area shape="rect" id="node4" href="$pch_8hpp_source.html" title=" " alt="" coords="372,303,583,344"/>
+<area shape="rect" id="node5" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="43,481,288,523"/>
+<area shape="rect" id="node6" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="465,571,693,612"/>
+<area shape="rect" id="node7" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="363,660,618,701"/>
+<area shape="rect" id="node8" href="$hogll_8hpp_source.html" title=" " alt="" coords="395,749,586,791"/>
+<area shape="rect" id="node9" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="182,392,439,433"/>
+<area shape="rect" id="node10" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="565,481,824,523"/>
+<area shape="rect" id="node11" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="615,392,851,433"/>
 </map>

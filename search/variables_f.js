@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['texcoordindex_516',['texCoordIndex',['../structEogllObjectIndex.html#a6f30806c643241ad43857cb38f6efd17',1,'EogllObjectIndex']]],
-  ['texcoords_517',['texCoords',['../structEogllObjectFileData.html#ae16b5ec6b14150dbb7ab68b5146fc94d',1,'EogllObjectFileData']]],
-  ['transparent_518',['transparent',['../structEogllWindowHints.html#a95878ec5b38ed23e2e63617f66a4fbb2',1,'EogllWindowHints']]],
-  ['type_519',['type',['../structEogllVertAttribData.html#a124a36aff53ed6c56d465ca53887d356',1,'EogllVertAttribData::type()'],['../structEogllObjectAttr.html#a94f9583009e7d93b422dfbb178431f58',1,'EogllObjectAttr::type()']]],
-  ['types_520',['types',['../structEogllObjectAttrs.html#ac9efdbea5aa17839467e61c407ddd4ca',1,'EogllObjectAttrs']]]
+  ['scale_547',['scale',['../structEogllModel.html#a35d2be126240fc7f7b30f13bea187f33',1,'EogllModel']]],
+  ['size_548',['size',['../structEogllVertAttribData.html#a08d07b55e7cdcacf6ddba3b2627666c0',1,'EogllVertAttribData::size()'],['../structogl_1_1ModelAttr.html#a7877678c27d4ffe2cc8f0db32162b796',1,'ogl::ModelAttr::size()']]]
 ];

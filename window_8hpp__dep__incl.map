@@ -1,6 +1,7 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/hogll/window.hpp" name="/home/runner/work/EOGLL/EOGLL/include/hogll/window.hpp">
-<area shape="rect" id="node1" title="HOGLL window header file." alt="" coords="120,5,356,47"/>
-<area shape="rect" id="node2" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="26,95,285,136"/>
-<area shape="rect" id="node4" href="$hogll_8hpp_source.html" title=" " alt="" coords="176,273,367,315"/>
-<area shape="rect" id="node3" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="5,184,233,225"/>
+<area shape="rect" id="node1" title="HOGLL window header file." alt="" coords="197,5,433,47"/>
+<area shape="rect" id="node2" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="103,95,362,136"/>
+<area shape="rect" id="node5" href="$hogll_8hpp_source.html" title=" " alt="" coords="228,363,419,404"/>
+<area shape="rect" id="node3" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="83,184,311,225"/>
+<area shape="rect" id="node4" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="5,273,260,315"/>
 </map>

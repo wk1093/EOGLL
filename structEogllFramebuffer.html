@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.7.3</span>
+   &#160;<span id="projectnumber">0.7.4</span>
    </div>
   </td>
  </tr>
@@ -99,26 +99,42 @@ $(document).ready(function(){initNavTree('structEogllFramebuffer.html',''); init
 <div class="title">EogllFramebuffer Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct that represents a framebuffer.  
+ <a href="structEogllFramebuffer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="framebuffer_8h_source.html">framebuffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa4b5c1872a6d584461939673d397c733"><td class="memItemLeft" align="right" valign="top"><a id="aa4b5c1872a6d584461939673d397c733"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>fbo</b></td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEogllFramebuffer.html#aa4b5c1872a6d584461939673d397c733">fbo</a></td></tr>
+<tr class="memdesc:aa4b5c1872a6d584461939673d397c733"><td class="mdescLeft">&#160;</td><td class="mdescRight">The framebuffer object. <br /></td></tr>
 <tr class="separator:aa4b5c1872a6d584461939673d397c733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f89660f44f31bca9a7aa16dcf7215d2"><td class="memItemLeft" align="right" valign="top"><a id="a0f89660f44f31bca9a7aa16dcf7215d2"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>texture</b></td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEogllFramebuffer.html#a0f89660f44f31bca9a7aa16dcf7215d2">texture</a></td></tr>
+<tr class="memdesc:a0f89660f44f31bca9a7aa16dcf7215d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The texture object. <br /></td></tr>
 <tr class="separator:a0f89660f44f31bca9a7aa16dcf7215d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace807f4e757b4ae4737e336e4dd15187"><td class="memItemLeft" align="right" valign="top"><a id="ace807f4e757b4ae4737e336e4dd15187"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>rbo</b></td></tr>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEogllFramebuffer.html#ace807f4e757b4ae4737e336e4dd15187">rbo</a></td></tr>
+<tr class="memdesc:ace807f4e757b4ae4737e336e4dd15187"><td class="mdescLeft">&#160;</td><td class="mdescRight">The renderbuffer object. <br /></td></tr>
 <tr class="separator:ace807f4e757b4ae4737e336e4dd15187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acde7b71a3e55015a389cad4d998427ca"><td class="memItemLeft" align="right" valign="top"><a id="acde7b71a3e55015a389cad4d998427ca"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEogllFramebuffer.html#acde7b71a3e55015a389cad4d998427ca">width</a></td></tr>
+<tr class="memdesc:acde7b71a3e55015a389cad4d998427ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The width of the framebuffer. <br /></td></tr>
 <tr class="separator:acde7b71a3e55015a389cad4d998427ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2805d4c91d76edd1fad2068375699bd"><td class="memItemLeft" align="right" valign="top"><a id="aa2805d4c91d76edd1fad2068375699bd"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEogllFramebuffer.html#aa2805d4c91d76edd1fad2068375699bd">height</a></td></tr>
+<tr class="memdesc:aa2805d4c91d76edd1fad2068375699bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The height of the framebuffer. <br /></td></tr>
 <tr class="separator:aa2805d4c91d76edd1fad2068375699bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A struct that represents a framebuffer. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="framebuffer_8h.html#acac72c9e618e11297f2d56a13fda9df7" title="Creates a framebuffer.">eogllCreateFramebuffer</a> </dd>
+<dd>
+<a class="el" href="framebuffer_8h.html#a8e5b0f86c8efedc09f43ac91e5c7f25d" title="Destroys a framebuffer.">eogllDestroyFramebuffer</a></dd></dl>
+<p>Can be used to create and handle framebuffers. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/runner/work/EOGLL/EOGLL/include/eogll/<a class="el" href="framebuffer_8h_source.html">framebuffer.h</a></li>
 </ul>
 </div><!-- contents -->

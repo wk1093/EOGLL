@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.7.3</span>
+   &#160;<span id="projectnumber">0.7.4</span>
    </div>
   </td>
  </tr>
@@ -115,7 +115,7 @@ Installation</h2>
 Example</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="eogll_8h.html">eogll.h</a>&quot;</span></div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a>() != EOGLL_SUCCESS) {</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a>() != <a class="code" href="defines_8h.html#a9b144dc0ffbab30473bc398412c0d325">EOGLL_SUCCESS</a>) {</div>
 <div class="line">        <span class="keywordflow">return</span> 1;</div>
 <div class="line">    }</div>
 <div class="line">    <a class="code" href="structEogllWindow.html">EogllWindow</a>* window = <a class="code" href="window_8h.html#a19ccc6053cb2bcf7e3d5b1c520f85400">eogllCreateWindow</a>(800, 600, <span class="stringliteral">&quot;LearnEOGLL&quot;</span>, <a class="code" href="window_8h.html#a54d84f180d20db16873e23110e0e6b6b">eogllDefaultWindowHints</a>());</div>
@@ -163,6 +163,7 @@ Example</h2>
 <div class="ttc" id="abuffer__object_8h_html_a18ce77beaa1cf2b237271f8688ecc68d"><div class="ttname"><a href="buffer__object_8h.html#a18ce77beaa1cf2b237271f8688ecc68d">eogllDeleteBufferObject</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllDeleteBufferObject(EogllBufferObject *bufferObject)</div><div class="ttdoc">Deletes a buffer object.</div></div>
 <div class="ttc" id="abuffer__object_8h_html_a5bddf7734aa5120261e0249187a79ccc"><div class="ttname"><a href="buffer__object_8h.html#a5bddf7734aa5120261e0249187a79ccc">eogllDrawBufferObject</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllDrawBufferObject(EogllBufferObject *bufferObject, GLenum mode)</div><div class="ttdoc">Draws a buffer object.</div></div>
 <div class="ttc" id="abuffer__object_8h_html_ab7261c0270b4194e5eb50601a5c15957"><div class="ttname"><a href="buffer__object_8h.html#ab7261c0270b4194e5eb50601a5c15957">eogllCreateBasicBufferObject</a></div><div class="ttdeci">EOGLL_DECL_FUNC_ND EogllBufferObject eogllCreateBasicBufferObject(unsigned int vao, unsigned int vbo, GLsizeiptr numVertices)</div><div class="ttdoc">Creates a basic buffer object with the given data.</div></div>
+<div class="ttc" id="adefines_8h_html_a9b144dc0ffbab30473bc398412c0d325"><div class="ttname"><a href="defines_8h.html#a9b144dc0ffbab30473bc398412c0d325">EOGLL_SUCCESS</a></div><div class="ttdeci">#define EOGLL_SUCCESS</div><div class="ttdoc">Success constant for EOGLL functions.</div><div class="ttdef"><b>Definition:</b> defines.h:27</div></div>
 <div class="ttc" id="aeogll_8h_html"><div class="ttname"><a href="eogll_8h.html">eogll.h</a></div><div class="ttdoc">EOGLL header file.</div></div>
 <div class="ttc" id="aeogll_8h_html_a24c56625e687f4c0033bc3c78cd9da2b"><div class="ttname"><a href="eogll_8h.html#a24c56625e687f4c0033bc3c78cd9da2b">eogllInit</a></div><div class="ttdeci">EOGLL_DECL_FUNC_ND EogllResult eogllInit()</div><div class="ttdoc">Initializes EOGLL.</div></div>
 <div class="ttc" id="aeogll_8h_html_aa88b6823e9482a1fabffc8b7ddca59c6"><div class="ttname"><a href="eogll_8h.html#aa88b6823e9482a1fabffc8b7ddca59c6">eogllTerminate</a></div><div class="ttdeci">EOGLL_DECL_FUNC void eogllTerminate()</div><div class="ttdoc">Terminates EOGLL.</div></div>

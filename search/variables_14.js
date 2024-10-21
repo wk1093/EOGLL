@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['y_533',['y',['../structEogllObjectPosition.html#ab1ce935c4a621cc38a1320d490fc1c66',1,'EogllObjectPosition::y()'],['../structEogllObjectNormal.html#aa161ababaf7aa98f5cfc3fa21273f001',1,'EogllObjectNormal::y()']]],
-  ['yaw_534',['yaw',['../structEogllCamera.html#a2f66b98d687140fc05d02ceab2fe3ff0',1,'EogllCamera']]]
+  ['x_566',['x',['../structEogllObjectPosition.html#ae23816543a4289f84bc22fa9f4a1919b',1,'EogllObjectPosition::x()'],['../structEogllObjectNormal.html#ab70e78c6beb89e17996e648d9f61aaf0',1,'EogllObjectNormal::x()']]]
 ];
