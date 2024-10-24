@@ -31,18 +31,44 @@ set(CMAKE_C_STANDARD 11)
 # allow disabling of all libraries for docs
 
 if (BUILD_EOGLL)
+    include(FetchContent)
+
     set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
     set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
     set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
     set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
     add_subdirectory(thirdparty/glad)
-    add_subdirectory(thirdparty/glfw)
+
+    FetchContent_Declare(
+            glfw
+            GIT_REPOSITORY https://github.com/glfw/glfw.git
+            GIT_TAG 3.3.4
+    )
+    FetchContent_MakeAvailable(glfw)
+
     add_subdirectory(thirdparty/hedley)
     add_subdirectory(thirdparty/stb)
-    add_subdirectory(thirdparty/cglm)
-    add_subdirectory(thirdparty/assimp)
+    FetchContent_Declare(
+            cglm
+            GIT_REPOSITORY https://github.com/recp/cglm.git
+            GIT_TAG v0.9.4
+    )
+    FetchContent_MakeAvailable(cglm)
+
+    FetchContent_Declare(
+            assimp
+            GIT_REPOSITORY https://github.com/assimp/assimp.git
+            GIT_TAG v5.4.3
+    )
+    FetchContent_MakeAvailable(assimp)
     target_compile_options(assimp PRIVATE -Wno-error=pedantic -Wno-error=unknown-pragmas)
-    add_subdirectory(thirdparty/glm)
+
+    FetchContent_Declare(
+            glm
+            GIT_REPOSITORY https://github.com/g-truc/glm.git
+            GIT_TAG 1.0.1
+    )
+    FetchContent_MakeAvailable(glm)
 
     add_library(eogll STATIC include/eogll.h
             include/eogll/input.h
