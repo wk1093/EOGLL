@@ -53,9 +53,6 @@ typedef EOGLL_DECL_STRUCT struct EogllTexture {
 
     /// The format of the texture (GL_RGB, GL_RGBA)
     GLint format;
-
-    /// GL_MAX_TEXTURE_IMAGE_UNITS value, used to check if the texture unit is valid
-    int maxTextureUnits;
 } EogllTexture;
 
 /**
@@ -120,6 +117,22 @@ EOGLL_DECL_FUNC void eogllDeleteTexture(EogllTexture* texture);
 EOGLL_DECL_FUNC void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index);
 
 /**
+ * @brief Binds a texture to a specific texture unit and uniform
+ * @param texture The texture to bind
+ * @param shader The shader program to use
+ * @param name The name of the uniform
+ * @param index The index of the texture unit
+ * @see eogllCreateTexture
+ * @see eogllBindTexture
+ * @see eogllDeleteTexture
+ * @see EogllTexture
+ * 
+ * This function binds a texture to a specific texture unit and uniform.
+ * This function does not check if the texture unit is valid (below GL_MAX_TEXTURE_IMAGE_UNITS value).
+ */
+EOGLL_DECL_FUNC void eogllBindTextureUniformi(GLuint texture, EogllShaderProgram* shader, const char* name, unsigned int index);
+
+/**
  * @brief Starts creation of a texture
  * @return A partially initialized texture
  * @see eogllFinishTexture
@@ -139,7 +152,6 @@ EOGLL_DECL_FUNC EogllTexture *eogllStartTexture();
  * This allows you to set the texture parameters before finishing the creation.
  */
 EOGLL_DECL_FUNC void eogllFinishTexture(EogllTexture *texture, const char *path);
-
 
 #ifdef __cplusplus
 }

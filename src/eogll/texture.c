@@ -16,8 +16,6 @@ EogllTexture *eogllStartTexture() {
     }
     glGenTextures(1, &texture->id);
     glBindTexture(GL_TEXTURE_2D, texture->id);
-
-    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &texture->maxTextureUnits);
     return texture;
 }
 void eogllFinishTexture(EogllTexture *texture, const char *path) {
@@ -94,9 +92,6 @@ EogllTexture *eogllCreateTexture(const char *path) {
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
-    // texture->maxTextureUnits
-    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &texture->maxTextureUnits);
-
     stbi_image_free(data);
     return texture;
 }
@@ -140,9 +135,6 @@ EogllTexture* eogllCreateTextureFromBuffer(const uint8_t* buffer, size_t size) {
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
-    // texture->maxTextureUnits
-    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &texture->maxTextureUnits);
-
     stbi_image_free(data);
     return texture;
 }
@@ -157,11 +149,21 @@ void eogllDeleteTexture(EogllTexture *texture) {
 }
 
 void eogllBindTextureUniform(EogllTexture* texture, EogllShaderProgram* shader, const char* name, unsigned int index) {
-    if (index >= texture->maxTextureUnits) {
+    if (index >= __eogll_texture_max_texture_units) {
         EOGLL_LOG_ERROR(stderr, "Texture unit %d is not supported\n", index);
         return;
     }
     glActiveTexture(GL_TEXTURE0 + index);
     glBindTexture(GL_TEXTURE_2D, texture->id);
+    eogllSetUniform1i(shader, name, (int)index);
+}
+
+void eogllBindTextureUniformi(GLuint texture, EogllShaderProgram* shader, const char* name, unsigned int index) {
+    if (index >= __eogll_texture_max_texture_units) {
+        EOGLL_LOG_ERROR(stderr, "Texture unit %d is not supported\n", index);
+        return;
+    }
+    glActiveTexture(GL_TEXTURE0 + index);
+    glBindTexture(GL_TEXTURE_2D, texture);
     eogllSetUniform1i(shader, name, (int)index);
 }

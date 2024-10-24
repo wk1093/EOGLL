@@ -29,4 +29,6 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern int __eogll_texture_max_texture_units;
+
 #endif //INCLUDE_EOGLL_PCH_H

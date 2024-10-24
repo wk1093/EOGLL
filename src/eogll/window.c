@@ -4,6 +4,8 @@
 #include "eogll/input.h"
 #include "eogll/util.h"
 
+int __eogll_texture_max_texture_units = 0;
+
 void eogllFramebufferSizeCallback(GLFWwindow* window, int width, int height) {
     EOGLL_LOG_TRACE(stdout, "\n");
     EOGLL_LOG_DEBUG(stdout, "Framebuffer size changed to %dx%d\n", width, height);
@@ -170,6 +172,8 @@ EogllWindow* eogllCreateWindow(uint32_t width, uint32_t height, const char* titl
     int max;
     glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &max);
     EOGLL_LOG_DEBUG(stdout, "%d vertex attributes max\n", max);
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &__eogll_texture_max_texture_units);
+    EOGLL_LOG_DEBUG(stdout, "%d texture units max\n", __eogll_texture_max_texture_units);
 
     window->dt = 0.001;
     window->lastTime = eogllGetTime();

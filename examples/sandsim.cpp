@@ -35,6 +35,8 @@ int main() {
 
     glm::vec2 mouseClick;
 
+    int mouseState = 0; // 0 = none, 1 = erase, 2 = sand, 3 = water
+
     float radius = 1.0f;
 
     while (!window->shouldClose()) {
@@ -43,6 +45,16 @@ int main() {
             mouseClick = {window->mouseX(), window->mouseY()};
         } else {
             mouseClick = {-1, -1};
+        }
+
+        if (window->keyPressed(EOGLL_KEY_1)) {
+            mouseState = 1;
+        }
+        if (window->keyPressed(EOGLL_KEY_2)) {
+            mouseState = 2;
+        }
+        if (window->keyPressed(EOGLL_KEY_3)) {
+            mouseState = 3;
         }
 
         if (window->mouseScrollY() != 0) {
@@ -55,20 +67,17 @@ int main() {
         eogllUseProgram(sandProcessor);
         if (currentIs0) {
             eogllBindFramebuffer(fbo1);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, fbo0->texture);
-            eogllSetUniform1i(sandProcessor, "sandTexture", 0);
+            eogllBindTextureUniformi(fbo0->texture, sandProcessor, "sandTexture", 0);
         } else {
             eogllBindFramebuffer(fbo0);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, fbo1->texture);
-            eogllSetUniform1i(sandProcessor, "sandTexture", 0);
+            eogllBindTextureUniformi(fbo1->texture, sandProcessor, "sandTexture", 0);
 
         }
         currentIs0 = !currentIs0;
         eogllSetUniform2f(sandProcessor, "mouseClick", mouseClick.x, mouseClick.y);
         eogllSetUniform1f(sandProcessor, "time", eogllGetTime());
         eogllSetUniform1f(sandProcessor, "radius", radius);
+        eogllSetUniform1i(sandProcessor, "mouseNum", mouseState);
         obj.draw(GL_TRIANGLES);
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
