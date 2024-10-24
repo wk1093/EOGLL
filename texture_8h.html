@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">eogll
-   &#160;<span id="projectnumber">0.7.4</span>
+   &#160;<span id="projectnumber">0.7.5</span>
    </div>
   </td>
  </tr>
@@ -176,6 +176,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ace4eefd019c1a821665b0d9136507c55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="texture_8h.html#ace4eefd019c1a821665b0d9136507c55">eogllBindTextureUniform</a> (<a class="el" href="structEogllTexture.html">EogllTexture</a> *texture, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, unsigned int index)</td></tr>
 <tr class="memdesc:ace4eefd019c1a821665b0d9136507c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a texture to a specific texture unit and uniform.  <a href="texture_8h.html#ace4eefd019c1a821665b0d9136507c55">More...</a><br /></td></tr>
 <tr class="separator:ace4eefd019c1a821665b0d9136507c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43953c5ca7ea6df23e963956592925ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="texture_8h.html#a43953c5ca7ea6df23e963956592925ba">eogllBindTextureUniformi</a> (GLuint texture, <a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *shader, const char *name, unsigned int index)</td></tr>
+<tr class="memdesc:a43953c5ca7ea6df23e963956592925ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a texture to a specific texture unit and uniform.  <a href="texture_8h.html#a43953c5ca7ea6df23e963956592925ba">More...</a><br /></td></tr>
+<tr class="separator:a43953c5ca7ea6df23e963956592925ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a063a2acede998fbfe9f76d25c46b5090"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> <a class="el" href="structEogllTexture.html">EogllTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="texture_8h.html#a063a2acede998fbfe9f76d25c46b5090">eogllStartTexture</a> ()</td></tr>
 <tr class="memdesc:a063a2acede998fbfe9f76d25c46b5090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts creation of a texture.  <a href="texture_8h.html#a063a2acede998fbfe9f76d25c46b5090">More...</a><br /></td></tr>
 <tr class="separator:a063a2acede998fbfe9f76d25c46b5090"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,6 +279,65 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="structEogllTexture.html" title="This struct represents a texture.">EogllTexture</a></dd></dl>
 <p>This function binds a texture to a specific texture unit and uniform. This function does check if the texture unit is valid (below GL_MAX_TEXTURE_IMAGE_UNITS value). </p>
+
+</div>
+</div>
+<a id="a43953c5ca7ea6df23e963956592925ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43953c5ca7ea6df23e963956592925ba">&#9670;&nbsp;</a></span>eogllBindTextureUniformi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e">EOGLL_DECL_FUNC</a> void eogllBindTextureUniformi </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structEogllShaderProgram.html">EogllShaderProgram</a> *&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds a texture to a specific texture unit and uniform. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>The texture to bind </td></tr>
+    <tr><td class="paramname">shader</td><td>The shader program to use </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the uniform </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the texture unit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="texture_8h.html#ae1a15aa99bef40eb6488c8abe80090bd" title="Creates a texture.">eogllCreateTexture</a> </dd>
+<dd>
+<a class="el" href="texture_8h.html#af4075911696987eda2cabefdabe9c41b" title="Binds a texture.">eogllBindTexture</a> </dd>
+<dd>
+<a class="el" href="texture_8h.html#afd16c44dd22d60a2e996860012065662" title="Deletes a texture.">eogllDeleteTexture</a> </dd>
+<dd>
+<a class="el" href="structEogllTexture.html" title="This struct represents a texture.">EogllTexture</a></dd></dl>
+<p>This function binds a texture to a specific texture unit and uniform. This function does not check if the texture unit is valid (below GL_MAX_TEXTURE_IMAGE_UNITS value). </p>
 
 </div>
 </div>

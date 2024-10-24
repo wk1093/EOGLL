@@ -195,6 +195,7 @@ var NAVTREEINDEX0 =
 "objectattrs_8hpp_source.html":[7,0,0,1,2],
 "pages.html":[],
 "pch_8h.html":[7,0,0,0,9],
+"pch_8h.html#a35921880886d5bb1247e249b9bb106a8":[7,0,0,0,9,1],
 "pch_8h.html#a711614ae803c065ebdae68a60689e3e8":[7,0,0,0,9,0],
 "pch_8h_source.html":[7,0,0,0,9],
 "pch_8hpp_source.html":[7,0,0,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "structEogllCamera.html#a9c2f32c08c54d7b45e2aac0dfaf9dae1":[6,0,3,4],
 "structEogllCameraMatrix.html":[6,0,4],
 "structEogllCameraMatrix.html#a8d46b4167dd8d69d2c19abcb46bd5c51":[6,0,4,0],
-"structEogllFramebuffer.html":[6,0,5],
-"structEogllFramebuffer.html#a0f89660f44f31bca9a7aa16dcf7215d2":[6,0,5,3]
+"structEogllFramebuffer.html":[6,0,5]
 };

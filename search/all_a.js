@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['maximized_221',['maximized',['../structEogllWindowHints.html#a10f7a4d05c5bf7c6839077e1bb268fa3',1,'EogllWindowHints']]],
-  ['maxtextureunits_222',['maxTextureUnits',['../structEogllTexture.html#acedd7e416e8465b513d008cf5dd0abc4',1,'EogllTexture']]],
+  ['maximized_222',['maximized',['../structEogllWindowHints.html#a10f7a4d05c5bf7c6839077e1bb268fa3',1,'EogllWindowHints']]],
   ['mesh_223',['Mesh',['../structogl_1_1internal_1_1Mesh.html',1,'ogl::internal']]],
   ['model_224',['Model',['../structogl_1_1Model.html',1,'ogl']]],
   ['model_2ehpp_225',['model.hpp',['../model_8hpp.html',1,'']]],

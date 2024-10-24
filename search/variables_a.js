@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['maximized_513',['maximized',['../structEogllWindowHints.html#a10f7a4d05c5bf7c6839077e1bb268fa3',1,'EogllWindowHints']]],
-  ['maxtextureunits_514',['maxTextureUnits',['../structEogllTexture.html#acedd7e416e8465b513d008cf5dd0abc4',1,'EogllTexture']]],
+  ['maximized_514',['maximized',['../structEogllWindowHints.html#a10f7a4d05c5bf7c6839077e1bb268fa3',1,'EogllWindowHints']]],
   ['mousedx_515',['mousedx',['../structEogllWindow.html#a07d23dc66ece8c64af9e603d77d6b33c',1,'EogllWindow']]],
   ['mousedy_516',['mousedy',['../structEogllWindow.html#acc582f7e8b86e487d14445f4d9b6c312',1,'EogllWindow']]],
   ['mouseisdown_517',['mouseIsDown',['../structEogllWindow.html#aa885401fc99a8740590430de4365881c',1,'EogllWindow']]],
