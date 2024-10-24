@@ -10,8 +10,8 @@ option(BUILD_EXAMPLES "Build Examples" ON)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
-set(EOGLL_VERSION_MINOR 7)
-set(EOGLL_VERSION_PATCH 5)
+set(EOGLL_VERSION_MINOR 8)
+set(EOGLL_VERSION_PATCH 0)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -46,7 +46,15 @@ if (BUILD_EOGLL)
     )
     FetchContent_MakeAvailable(glfw)
 
-    add_subdirectory(thirdparty/hedley)
+    FetchContent_Declare(
+            hedley
+            GIT_REPOSITORY https://github.com/nemequ/hedley.git
+            GIT_TAG v15
+    )
+    FetchContent_MakeAvailable(hedley)
+    add_library(hedley INTERFACE IMPORTED)
+    target_include_directories(hedley INTERFACE ${hedley_SOURCE_DIR})
+
     add_subdirectory(thirdparty/stb)
     FetchContent_Declare(
             cglm
