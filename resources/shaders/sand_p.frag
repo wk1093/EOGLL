@@ -18,6 +18,9 @@ const vec4 WATER = vec4(0.0, 0.0, 1.0, 1.0);
 const vec4 WATER_D = vec4(1.0/255.0, 0.0, 1.0, 1.0);
 const vec4 WATER_LD = vec4(2.0/255.0, 0.0, 1.0, 1.0);
 const vec4 WATER_RD = vec4(3.0/255.0, 0.0, 1.0, 1.0);
+const vec4 SAND_D_WATER = vec4(1.0, 202.0 / 255.0, 13.0 / 255.0, 1.0);
+const vec4 SAND_LD_WATER = vec4(1.0, 202.0 / 255.0, 12.0 / 255.0, 1.0);
+const vec4 SAND_RD_WATER = vec4(1.0, 202.0 / 255.0, 11.0 / 255.0, 1.0);
 const int WIDTH = 800;
 const int HEIGHT = 600;
 
@@ -68,15 +71,31 @@ bool water_occupied(vec2 pos) {
     return false;
 }
 
-bool is_occupied(vec2 pos) {
-    vec4 pixel = getPixel(pos.x, pos.y);
-    if (pixel == SAND || pixel == WATER) {
+bool sand_w_occupied(vec2 pos) {
+    vec4 up = getPixel(pos.x, pos.y + 1);
+    if (up == SAND_D_WATER && pos.y + 1 < HEIGHT) {
         return true;
     }
+    vec4 lu = getPixel(pos.x - 1, pos.y + 1);
+    vec4 ru = getPixel(pos.x + 1, pos.y + 1);
+    if (lu == SAND_RD_WATER && pos.x - 1 >= 0 && pos.y + 1 < HEIGHT) {
+        return true;
+    }
+    if (ru == SAND_LD_WATER && pos.x + 1 < WIDTH && pos.y + 1 < HEIGHT) {
+        return true;
+    }
+    return false;
+}
+
+
+bool is_occupied(vec2 pos) {
     if (sand_occupied(pos)) {
         return true;
     }
     if (water_occupied(pos)) {
+        return true;
+    }
+    if (sand_w_occupied(pos)) {
         return true;
     }
     return false;
@@ -95,6 +114,11 @@ void main() {
             color = SAND;
             return;
         }
+    }
+
+    if (sand_w_occupied(gl_FragCoord.xy)) {
+        color = SAND;
+        return;
     }
     
     if (curColor == SAND_D) {
@@ -121,12 +145,28 @@ void main() {
         color = BLACK;
         return;
     }
+    if (curColor == SAND_D_WATER) {
+        color = WATER;
+        return;
+    }
+    if (curColor == SAND_LD_WATER) {
+        color = WATER;
+        return;
+    }
+    if (curColor == SAND_RD_WATER) {
+        color = WATER;
+        return;
+    }
 
 
     if (curColor == SAND) {
         vec4 down = getPixel(gl_FragCoord.x, gl_FragCoord.y - 1);
         if (down == BLACK && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x, gl_FragCoord.y - 1))) {
             color = SAND_D;
+            return;
+        }
+        if (down == WATER && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x, gl_FragCoord.y - 1))) {
+            color = SAND_D_WATER;
             return;
         }
         vec4 ld = getPixel(gl_FragCoord.x - 1, gl_FragCoord.y - 1);
@@ -139,6 +179,12 @@ void main() {
             } else if (rd == BLACK && gl_FragCoord.x + 1 < WIDTH && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x + 1, gl_FragCoord.y - 1))) {
                 color = SAND_RD;
                 return;
+            } else if (ld == WATER && gl_FragCoord.x - 1 >= 0 && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x - 1, gl_FragCoord.y - 1))) {
+                color = SAND_LD_WATER;
+                return;
+            } else if (rd == WATER && gl_FragCoord.x + 1 < WIDTH && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x + 1, gl_FragCoord.y - 1))) {
+                color = SAND_RD_WATER;
+                return;
             }
         } else {
             if (rd == BLACK && gl_FragCoord.x + 1 < WIDTH && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x + 1, gl_FragCoord.y - 1))) {
@@ -146,6 +192,12 @@ void main() {
                 return;
             } else if (ld == BLACK && gl_FragCoord.x - 1 >= 0 && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x - 1, gl_FragCoord.y - 1))) {
                 color = SAND_LD;
+                return;
+            } else if (rd == WATER && gl_FragCoord.x + 1 < WIDTH && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x + 1, gl_FragCoord.y - 1))) {
+                color = SAND_RD_WATER;
+                return;
+            } else if (ld == WATER && gl_FragCoord.x - 1 >= 0 && gl_FragCoord.y - 1 >= 0 && !is_occupied(vec2(gl_FragCoord.x - 1, gl_FragCoord.y - 1))) {
+                color = SAND_LD_WATER;
                 return;
             }
         }

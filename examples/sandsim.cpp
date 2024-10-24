@@ -89,14 +89,10 @@ int main() {
 
         eogllUseProgram(sandRenderer);
         if (currentIs0) {
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, fbo1->texture);
-            eogllSetUniform1i(sandRenderer, "sandTexture", 0);
+            eogllBindTextureUniformi(fbo1->texture, sandRenderer, "sandTexture", 0);
 
         } else {
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, fbo0->texture);
-            eogllSetUniform1i(sandRenderer, "sandTexture", 0);
+            eogllBindTextureUniformi(fbo0->texture, sandRenderer, "sandTexture", 0);
         }
         obj.draw(GL_TRIANGLES);
 
