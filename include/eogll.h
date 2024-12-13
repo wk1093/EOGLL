@@ -41,16 +41,6 @@
 #include "eogll/gl.h"
 #include "eogll/framebuffer.h"
 
-// TODO: Add more documentation
-// TODO: Add more examples and tutorials
-// TODO: Add trace logging everywhere
-// TODO: File logging
-// TODO: Search for memory leaks
-// TODO: Test on Linux
-// TODO: I think there might be a bug where it will crash sometimes when launching (might be fixed, only happened to me once)
-// Might have been because I had previous info in my build folder, because it happened when I laumched the first time, then I
-// relaunched, but for some reason it rebuilt, then it never happened again
-// TODO: Better debug logging
 
 #ifdef __cplusplus
 extern "C" {

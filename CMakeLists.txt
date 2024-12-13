@@ -11,7 +11,7 @@ option(BUILD_EXAMPLES "Build Examples" ON)
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 8)
-set(EOGLL_VERSION_PATCH 0)
+set(EOGLL_VERSION_PATCH 1)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -134,7 +134,7 @@ if (BUILD_EOGLL)
             src/hogll/transforms.cpp
             src/hogll/shadergen.cpp
             src/hogll/model.cpp)
-    target_include_directories(hogll PUBLIC include ${PROJECT_BINARY_DIR}/include thirdparty/glm)
+    target_include_directories(hogll PUBLIC ${PROJECT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include ${PROJECT_SOURCE_DIR}/thirdparty/glm)
     target_link_libraries(hogll eogll assimp glm)
     if (CMAKE_BUILD_TYPE MATCHES Debug)
         target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
