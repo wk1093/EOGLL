@@ -135,7 +135,7 @@ if (BUILD_EOGLL)
             src/hogll/shadergen.cpp
             src/hogll/model.cpp)
     target_include_directories(hogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
-    target_link_libraries(hogll eogll assimp glm)
+    target_link_libraries(hogll PUBLIC eogll assimp glm)
     # glm include dir
     target_include_directories(hogll PUBLIC ${glm_SOURCE_DIR})
     if (CMAKE_BUILD_TYPE MATCHES Debug)
