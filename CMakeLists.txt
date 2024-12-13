@@ -107,7 +107,7 @@ if (BUILD_EOGLL)
             src/eogll/obj_loader.c
             src/eogll/framebuffer.c
             src/eogll/eogll.c)
-    target_include_directories(eogll PUBLIC include ${PROJECT_BINARY_DIR}/include)
+    target_include_directories(eogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
 
     target_link_libraries(eogll glad glfw hedley stb cglm)
 
@@ -134,7 +134,7 @@ if (BUILD_EOGLL)
             src/hogll/transforms.cpp
             src/hogll/shadergen.cpp
             src/hogll/model.cpp)
-    target_include_directories(hogll PUBLIC ${PROJECT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include ${PROJECT_SOURCE_DIR}/thirdparty/glm)
+    target_include_directories(hogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glm)
     target_link_libraries(hogll eogll assimp glm)
     if (CMAKE_BUILD_TYPE MATCHES Debug)
         target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
