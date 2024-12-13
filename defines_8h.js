@@ -1,6 +1,5 @@
 var defines_8h =
 [
-    [ "_EOGLL_DEFINES_H_", "defines_8h.html#ab1f4ae85ac53a560f65fa21a73bcc811", null ],
     [ "EOGLL_DECL_ENUM", "defines_8h.html#ab274615232fcd87179bf1b01000459aa", null ],
     [ "EOGLL_DECL_FUNC", "defines_8h.html#a2bbbf446cc8cbd0abc5df4e939ef403e", null ],
     [ "EOGLL_DECL_FUNC_ND", "defines_8h.html#ab292762855c67e24b0380967c244b7a5", null ],

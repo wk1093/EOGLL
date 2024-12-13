@@ -1,5 +1,8 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/hogll/model.hpp" name="/home/runner/work/EOGLL/EOGLL/include/hogll/model.hpp">
-<area shape="rect" id="node1" title="HOGLL model header file." alt="" coords="101,5,329,47"/>
-<area shape="rect" id="node2" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="5,95,260,136"/>
-<area shape="rect" id="node3" href="$hogll_8hpp_source.html" title=" " alt="" coords="120,184,311,225"/>
+<area shape="rect" id="Node000001" title="HOGLL model header file." alt="" coords="5,5,233,45"/>
+<area shape="rect" id="Node000002" href="$hogll_8hpp_source.html" title=" " alt="" coords="24,181,215,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,57,75,75,64,94,60,113,64,132,79,158,98,179,94,183,75,161,60,134,55,113,60,92,70,72,84,54"/>
+<area shape="rect" id="Node000003" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="75,93,329,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,54,186,91,182,95,145,57"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="176,145,140,183,136,179,172,142"/>
 </map>

@@ -1,11 +1,9 @@
 var shader_8h =
 [
     [ "EogllShaderProgram", "structEogllShaderProgram.html", "structEogllShaderProgram" ],
-    [ "_EOGLL_SHADER_H_", "shader_8h.html#a52aef78f14e0ff8a4289b93bef593838", null ],
-    [ "EogllShaderProgram", "shader_8h.html#a70625a16173c3b04e82dbbf9f1097b54", null ],
     [ "eogllDeleteProgram", "shader_8h.html#acaf0671d5313d7ebe883fd968720e785", null ],
-    [ "eogllLinkProgram", "shader_8h.html#a2a789e90ecd1e49126852dcd39d17526", null ],
-    [ "eogllLinkProgramFromFile", "shader_8h.html#ae4bba692c87e60cdbfeac26fcd5a7bcc", null ],
+    [ "eogllLinkProgram", "shader_8h.html#a2886d04d36ce08c1a412173e4bde0fe0", null ],
+    [ "eogllLinkProgramFromFile", "shader_8h.html#a6b36882caa32d58eeba0d1cd8c3410b3", null ],
     [ "eogllSetUniform1f", "shader_8h.html#a53fa01297076d11cc7001174cd1e7eb9", null ],
     [ "eogllSetUniform1fv", "shader_8h.html#a272cb7e587c23752e1b919c95463e336", null ],
     [ "eogllSetUniform1i", "shader_8h.html#abd205b8ea0a0b4242ed41d1b82b779e9", null ],

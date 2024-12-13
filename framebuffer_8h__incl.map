@@ -1,17 +1,35 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/framebuffer.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/framebuffer.h">
-<area shape="rect" id="node1" title="EOGLL framebuffer header file." alt="" coords="363,5,609,47"/>
-<area shape="rect" id="node2" href="$pch_8h.html" title="EOGLL precompiled header file." alt="" coords="469,244,527,271"/>
-<area shape="rect" id="node14" href="$window_8h.html" title="EOGLL window header file." alt="" coords="485,95,567,121"/>
-<area shape="rect" id="node3" href="$defines_8h.html" title="EOGLL definitions header file." alt="" coords="52,319,133,345"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,393,81,420"/>
-<area shape="rect" id="node5" title=" " alt="" coords="120,393,191,420"/>
-<area shape="rect" id="node6" title=" " alt="" coords="209,319,288,345"/>
-<area shape="rect" id="node7" title=" " alt="" coords="312,319,423,345"/>
-<area shape="rect" id="node8" title=" " alt="" coords="447,319,549,345"/>
-<area shape="rect" id="node9" title=" " alt="" coords="573,319,628,345"/>
-<area shape="rect" id="node10" title=" " alt="" coords="653,319,735,345"/>
-<area shape="rect" id="node11" title=" " alt="" coords="759,319,826,345"/>
-<area shape="rect" id="node12" title=" " alt="" coords="851,319,921,345"/>
-<area shape="rect" id="node13" title=" " alt="" coords="945,319,1016,345"/>
-<area shape="rect" id="node15" href="$input_8h.html" title="EOGLL input header file." alt="" coords="535,169,602,196"/>
+<area shape="rect" id="Node000001" title="EOGLL framebuffer header file." alt="" coords="363,5,609,45"/>
+<area shape="rect" id="Node000002" href="$pch_8h.html" title="EOGLL precompiled header file." alt="" coords="469,240,527,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="484,46,475,94,475,130,479,166,493,226,487,227,474,167,469,130,470,93,479,45"/>
+<area shape="rect" id="Node000014" href="$window_8h.html" title="EOGLL window header file." alt="" coords="485,93,567,119"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="498,44,516,80,511,82,493,47"/>
+<area shape="rect" id="Node000003" href="$defines_8h.html" title="EOGLL definitions header file." alt="" coords="52,313,133,339"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="470,261,153,316,148,317,147,312,152,311,469,256"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,387,81,412"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="469,258,229,277,105,294,63,304,41,315,34,328,32,343,37,373,31,374,27,343,29,326,37,311,61,299,104,289,228,272,469,253"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="120,387,191,412"/>
+<area shape="poly" id="edge11_Node000002_Node000005" title=" " alt="" coords="469,259,324,277,249,294,219,304,198,315,186,328,176,343,163,374,158,372,171,340,182,325,195,311,217,299,247,289,323,272,469,254"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="209,313,288,339"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="470,265,302,312,301,307,468,260"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="312,313,423,339"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="478,268,402,309,399,304,476,263"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="447,313,549,339"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="501,266,501,300,495,300,495,266"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="573,313,628,339"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="516,263,574,303,571,307,513,268"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="653,313,735,339"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="528,262,651,306,649,311,526,267"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="759,313,826,339"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="527,258,746,310,745,316,526,263"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="851,313,921,339"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="527,256,657,277,838,311,837,316,657,282,526,261"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="945,313,1016,339"/>
+<area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="527,254,695,274,932,310,931,316,694,279,526,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,341,61,377,57,374,82,337"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="105,337,138,374,134,378,101,341"/>
+<area shape="poly" id="edge16_Node000014_Node000002" title=" " alt="" coords="526,120,505,227,500,226,521,119"/>
+<area shape="rect" id="Node000015" href="$input_8h.html" title="EOGLL input header file." alt="" coords="535,167,602,192"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="535,118,557,154,553,156,531,120"/>
+<area shape="poly" id="edge18_Node000015_Node000002" title=" " alt="" coords="559,194,521,232,517,228,555,190"/>
 </map>

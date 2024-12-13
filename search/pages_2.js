@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hogll_20_28high_2dlevel_20opengl_20library_29_610',['HOGLL (High-level OpenGL Library)',['../md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html',1,'']]]
+  ['high_20level_20opengl_20library_0',['HOGLL (High-level OpenGL Library)',['../md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html',1,'']]],
+  ['hogll_20high_20level_20opengl_20library_1',['HOGLL (High-level OpenGL Library)',['../md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html',1,'']]]
 ];

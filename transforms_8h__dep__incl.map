@@ -1,12 +1,34 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/eogll/transforms.h" name="/home/runner/work/EOGLL/EOGLL/include/eogll/transforms.h">
-<area shape="rect" id="node1" title="EOGLL shader header file." alt="" coords="356,5,599,47"/>
-<area shape="rect" id="node2" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="382,95,573,136"/>
-<area shape="rect" id="node3" href="$pch_8hpp_source.html" title=" " alt="" coords="372,184,583,225"/>
-<area shape="rect" id="node4" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="43,363,288,404"/>
-<area shape="rect" id="node5" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="465,452,693,493"/>
-<area shape="rect" id="node6" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="363,541,618,583"/>
-<area shape="rect" id="node7" href="$hogll_8hpp_source.html" title=" " alt="" coords="395,631,586,672"/>
-<area shape="rect" id="node8" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="182,273,439,315"/>
-<area shape="rect" id="node9" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="565,363,824,404"/>
-<area shape="rect" id="node10" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="615,273,851,315"/>
+<area shape="rect" id="Node000001" title="EOGLL shader header file." alt="" coords="356,5,599,45"/>
+<area shape="rect" id="Node000002" href="$eogll_8h.html" title="EOGLL header file." alt="" coords="382,93,573,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,59,480,93,475,93,475,59"/>
+<area shape="rect" id="Node000003" href="$pch_8hpp_source.html" title=" " alt="" coords="372,181,583,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="480,147,480,181,475,181,475,147"/>
+<area shape="rect" id="Node000004" href="$hogll_8hpp_source.html" title=" " alt="" coords="395,621,586,661"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="359,217,255,237,202,252,150,272,97,291,51,307,33,318,20,332,11,351,8,376,8,466,11,481,18,494,48,521,92,544,148,565,275,600,395,623,394,628,274,605,146,571,90,549,45,525,14,498,6,483,3,467,3,376,6,349,15,329,30,314,49,303,95,286,148,267,200,247,254,232,358,212"/>
+<area shape="rect" id="Node000005" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="43,357,288,397"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="359,216,301,225,246,237,201,252,173,271,162,291,158,314,163,357,157,357,153,313,157,289,169,268,199,247,245,232,300,220,358,211"/>
+<area shape="rect" id="Node000006" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="465,445,693,485"/>
+<area shape="poly" id="edge10_Node000003_Node000006" title=" " alt="" coords="492,233,574,444,569,446,487,235"/>
+<area shape="rect" id="Node000007" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="363,533,618,573"/>
+<area shape="poly" id="edge16_Node000003_Node000007" title=" " alt="" coords="475,235,457,367,452,436,456,485,466,510,479,532,474,535,461,512,451,486,447,436,452,366,469,235"/>
+<area shape="rect" id="Node000008" href="$objectattrs_8hpp.html" title="HOGLL object attributes header file." alt="" coords="182,269,439,309"/>
+<area shape="poly" id="edge11_Node000003_Node000008" title=" " alt="" coords="430,230,348,272,346,267,428,225"/>
+<area shape="rect" id="Node000009" href="$transforms_8hpp.html" title="HOGLL transforms header file." alt="" coords="565,357,824,397"/>
+<area shape="poly" id="edge17_Node000003_Node000009" title=" " alt="" coords="511,228,606,307,670,355,667,359,602,311,507,232"/>
+<area shape="rect" id="Node000010" href="$window_8hpp.html" title="HOGLL window header file." alt="" coords="615,269,851,309"/>
+<area shape="poly" id="edge20_Node000003_Node000010" title=" " alt="" coords="547,223,678,267,676,272,546,228"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="183,408,203,446,232,489,267,533,308,571,357,599,409,619,407,624,354,604,305,575,263,537,227,492,199,448,178,411"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="270,398,489,443,488,448,269,403"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="611,494,625,512,635,532,639,554,633,575,620,591,604,604,569,624,566,619,601,600,616,587,628,572,634,554,630,534,620,515,607,497"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="551,497,512,535,508,531,547,493"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="493,587,493,621,488,621,488,587"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="309,323,306,375,309,440,323,509,336,542,354,572,384,600,421,619,419,624,381,604,350,575,331,544,318,511,303,441,300,375,304,322"/>
+<area shape="poly" id="edge13_Node000008_Node000005" title=" " alt="" coords="268,319,199,360,196,355,265,314"/>
+<area shape="poly" id="edge14_Node000008_Node000006" title=" " alt="" coords="353,315,551,443,548,447,350,319"/>
+<area shape="poly" id="edge15_Node000008_Node000007" title=" " alt="" coords="329,321,410,484,436,510,463,531,460,535,432,514,406,487,324,323"/>
+<area shape="poly" id="edge18_Node000009_Node000004" title=" " alt="" coords="707,410,712,447,708,486,689,536,675,555,654,575,610,604,563,624,561,619,608,599,650,571,671,551,685,533,703,485,706,447,701,411"/>
+<area shape="poly" id="edge19_Node000009_Node000006" title=" " alt="" coords="660,408,606,447,603,443,656,404"/>
+<area shape="poly" id="edge21_Node000010_Node000004" title=" " alt="" coords="795,314,819,332,838,356,844,377,839,398,812,459,783,501,743,537,689,576,636,604,580,624,578,619,634,599,687,571,740,533,779,498,808,456,833,396,839,377,834,359,816,336,792,318"/>
+<area shape="poly" id="edge22_Node000010_Node000009" title=" " alt="" coords="722,323,706,358,701,356,717,321"/>
 </map>

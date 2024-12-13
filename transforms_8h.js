@@ -2,9 +2,6 @@ var transforms_8h =
 [
     [ "EogllProjection", "structEogllProjection.html", "structEogllProjection" ],
     [ "EogllModel", "structEogllModel.html", "structEogllModel" ],
-    [ "_EOGLL_TRANSFORMS_H_", "transforms_8h.html#afdbec77ddd96f3e731b3ec7e8069cdd0", null ],
-    [ "EogllModel", "transforms_8h.html#af56bb6947e6d6e72b819028a34022d0c", null ],
-    [ "EogllProjection", "transforms_8h.html#a1841c44611a393c7929a4919579c25f0", null ],
     [ "eogllCreateModel", "transforms_8h.html#a8f0e6793e4dc0f0184c3a6f786dcef5c", null ],
     [ "eogllOrthographicProjection", "transforms_8h.html#aabbc6f29fe59d97ad4fac43d9f5bd515", null ],
     [ "eogllPerspectiveProjection", "transforms_8h.html#a86792d8eb0dd329b5ad80e6fc5665807", null ],

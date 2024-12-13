@@ -31,12 +31,12 @@ var NAVTREE =
     ] ],
     [ "Deprecation", "index.html#autotoc_md8", null ],
     [ "License", "index.html#autotoc_md9", null ],
-    [ "HOGLL (High-level OpenGL Library)", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html", [
-      [ "Usage", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md1", [
-        [ "Installation", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md2", null ],
-        [ "Example", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md3", null ]
+    [ "HOGLL (High-level OpenGL Library)", "md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html", [
+      [ "Usage", "md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html#autotoc_md1", [
+        [ "Installation", "md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html#autotoc_md2", null ],
+        [ "Example", "md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html#autotoc_md3", null ]
       ] ],
-      [ "Documentation", "md__home_runner_work_EOGLL_EOGLL_docs_md_hogll.html#autotoc_md4", null ]
+      [ "Documentation", "md__2home_2runner_2work_2EOGLL_2EOGLL_2docs_2md_2hogll.html#autotoc_md4", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
@@ -66,8 +66,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structEogllFramebuffer.html#a0f89660f44f31bca9a7aa16dcf7215d2",
-"util_8h.html#acc35d4fe744e26187c38bc4c48a94aba"
+"structEogllObjectTexCoord.html#a6f17dcbcf74bbff39301d91496a61aef"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

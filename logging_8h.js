@@ -1,6 +1,5 @@
 var logging_8h =
 [
-    [ "_EOGLL_LOGGING_H_", "logging_8h.html#a191847c579a6b68cc0e6158154bd70b1", null ],
     [ "EOGLL_LOG", "logging_8h.html#ad517648d0507dbcae29d2f1d6f50e4aa", null ],
     [ "EOGLL_LOG_DEBUG", "logging_8h.html#aaa2a56d3fb0a32bf73fb1748b6ad98a8", null ],
     [ "EOGLL_LOG_DEBUG_POS", "logging_8h.html#a85e6d850a959af11390bc86274eeb023", null ],
@@ -15,7 +14,6 @@ var logging_8h =
     [ "EOGLL_LOG_TRACE_POS", "logging_8h.html#a7ed358a4f08df69b52db39193d6b098e", null ],
     [ "EOGLL_LOG_WARN", "logging_8h.html#a2825795d54e3a9b634ac624215c18cd7", null ],
     [ "EOGLL_LOG_WARN_POS", "logging_8h.html#a799973aec747ca311c8963cee0b7c5a0", null ],
-    [ "EogllLogLevel", "logging_8h.html#a70af8a8c45acacbc73ae182e0d9ff72a", null ],
     [ "EogllLogLevel", "logging_8h.html#a609ac9735ca222b485216281072e4e75", [
       [ "EOGLL_LOG_LEVEL_TRACE", "logging_8h.html#a609ac9735ca222b485216281072e4e75a74a1f3e7cd02573ed13ceedc9949787b", null ],
       [ "EOGLL_LOG_LEVEL_DEBUG", "logging_8h.html#a609ac9735ca222b485216281072e4e75afaaa5f19be0ebe5bb3dd265d5687f4c1", null ],

@@ -1,7 +1,16 @@
 <map id="/home/runner/work/EOGLL/EOGLL/include/hogll/objectattrs.hpp" name="/home/runner/work/EOGLL/EOGLL/include/hogll/objectattrs.hpp">
-<area shape="rect" id="node1" title="HOGLL object attributes header file." alt="" coords="120,5,377,47"/>
-<area shape="rect" id="node2" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="46,95,291,136"/>
-<area shape="rect" id="node3" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="113,184,341,225"/>
-<area shape="rect" id="node4" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="164,273,419,315"/>
-<area shape="rect" id="node5" href="$hogll_8hpp_source.html" title=" " alt="" coords="5,363,196,404"/>
+<area shape="rect" id="Node000001" title="HOGLL object attributes header file." alt="" coords="120,5,377,45"/>
+<area shape="rect" id="Node000002" href="$hogll_8hpp_source.html" title=" " alt="" coords="5,357,196,397"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,46,68,65,51,79,36,95,20,127,14,163,17,200,27,237,58,306,89,356,84,358,53,308,22,239,12,201,9,163,15,126,32,92,47,75,65,61,106,41"/>
+<area shape="rect" id="Node000003" href="$bufferobj_8hpp.html" title="HOGLL buffer object header file." alt="" coords="46,93,291,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,57,188,95,184,91,220,54"/>
+<area shape="rect" id="Node000004" href="$model_8hpp.html" title="HOGLL model header file." alt="" coords="113,181,341,221"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="281,53,295,72,306,92,311,114,306,134,286,162,261,183,258,179,282,159,301,132,306,114,301,94,291,74,277,57"/>
+<area shape="rect" id="Node000005" href="$shadergen_8hpp.html" title="HOGLL shader generation header file." alt="" coords="164,269,419,309"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="289,52,309,70,327,92,340,115,347,134,355,181,359,202,355,222,339,250,318,271,314,267,334,246,350,220,353,202,350,182,342,136,335,117,322,95,305,74,285,56"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="132,144,116,162,103,182,91,229,89,278,92,322,99,356,93,357,87,323,83,278,86,229,98,180,111,158,129,140"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="191,143,217,180,212,183,187,146"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="192,232,153,271,127,316,109,358,105,356,122,314,149,268,189,228"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="252,231,279,268,275,271,248,234"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="238,317,144,360,141,355,236,313"/>
 </map>

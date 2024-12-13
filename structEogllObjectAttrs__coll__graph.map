@@ -1,6 +1,9 @@
 <map id="EogllObjectAttrs" name="EogllObjectAttrs">
-<area shape="rect" id="node1" title="A struct that represents object attributes." alt="" coords="127,184,254,211"/>
-<area shape="rect" id="node2" href="$structEogllAttribBuilder.html" title="This struct represents an attribute builder." alt="" coords="11,95,147,121"/>
-<area shape="rect" id="node3" href="$structEogllVertAttribData.html" title="Internal" alt="" coords="5,5,152,32"/>
-<area shape="rect" id="node4" href="$structEogllObjectAttr.html" title="Internal" alt="" coords="171,95,291,121"/>
+<area shape="rect" id="Node000001" title="A struct that represents object attributes." alt="" coords="58,181,185,207"/>
+<area shape="rect" id="Node000002" href="$structEogllObjectAttr.html" title="Internal" alt="" coords="5,93,125,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,129,116,179,111,182,78,132"/>
+<area shape="rect" id="Node000003" href="$structEogllAttribBuilder.html" title="This struct represents an attribute builder." alt="" coords="149,93,285,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,130,136,183,133,179,193,126"/>
+<area shape="rect" id="Node000004" href="$structEogllVertAttribData.html" title="Internal" alt="" coords="144,5,291,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="220,45,220,93,215,93,215,45"/>
 </map>
