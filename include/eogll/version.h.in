@@ -30,6 +30,20 @@ extern "C" {
  */
 EOGLL_DECL_FUNC_ND const char* eogllGetVersionString();
 
+/**
+ * @brief Checks if we are running a version equal to or greater than the specified version
+ */
+#define EOGLL_VERSION_AT_LEAST(major, minor, patch) \
+    (EOGLL_VERSION_MAJOR > major || \
+    (EOGLL_VERSION_MAJOR == major && EOGLL_VERSION_MINOR > minor) || \
+    (EOGLL_VERSION_MAJOR == major && EOGLL_VERSION_MINOR == minor && EOGLL_VERSION_PATCH >= patch))
+
+/**
+ * @brief Creates an error if the version is less than the specified version
+ */
+#define EOGLL_VERSION_CHECK(major, minor, patch) \
+    static_assert(EOGLL_VERSION_AT_LEAST(major, minor, patch), "EOGLL version is not new enough")
+
 #ifdef __cplusplus
 }
 #endif

@@ -29,6 +29,9 @@ extern "C" {
 typedef EOGLL_DECL_STRUCT struct EogllShaderProgram {
     /// The id of the shader program
     unsigned int id;
+    int vertexStatus;
+    int fragmentStatus;
+    int programStatus;
 } EogllShaderProgram;
 
 /**

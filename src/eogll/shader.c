@@ -12,12 +12,18 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
 
+    GLenum er = glGetError();
+    if (er != GL_NO_ERROR) {
+        EOGLL_LOG_ERROR(stderr, "OpenGL error: %d\n", er);
+    }
+
     int success;
     char infoLog[512];
     glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+    shader->vertexStatus = success;
     if (!success) {
         glGetShaderInfoLog(vertexShader, sizeof(infoLog), NULL, infoLog);
-        EOGLL_LOG_ERROR(stderr, "Vertex shader compilation failed: %s\n", infoLog);
+        EOGLL_LOG_ERROR(stderr, "Vertex shader compilation failed (%d): %s\n", success, infoLog);
     }
 
     unsigned int fragmentShader;
@@ -25,7 +31,13 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
 
+    er = glGetError();
+    if (er != GL_NO_ERROR) {
+        EOGLL_LOG_ERROR(stderr, "OpenGL error: %d\n", er);
+    }
+
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+    shader->fragmentStatus = success;
     if (!success) {
         glGetShaderInfoLog(fragmentShader, sizeof(infoLog), NULL, infoLog);
         EOGLL_LOG_ERROR(stderr, "Fragment shader compilation failed: %s\n", infoLog);
@@ -39,6 +51,7 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     glLinkProgram(shader->id);
 
     glGetProgramiv(shader->id, GL_LINK_STATUS, &success);
+    shader->programStatus = success;
     if (!success) {
         glGetProgramInfoLog(shader->id, sizeof(infoLog), NULL, infoLog);
         EOGLL_LOG_ERROR(stderr, "Shader program linking failed: %s\n", infoLog);
