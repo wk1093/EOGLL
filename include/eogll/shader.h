@@ -32,7 +32,7 @@ typedef EOGLL_DECL_STRUCT struct EogllShaderProgram {
     int vertexStatus;
     int fragmentStatus;
     int programStatus;
-    bool successul;
+    bool successful;
 } EogllShaderProgram;
 
 /**

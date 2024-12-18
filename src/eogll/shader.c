@@ -19,7 +19,7 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     if (!success) {
         glGetShaderInfoLog(vertexShader, sizeof(infoLog), NULL, infoLog);
         EOGLL_LOG_ERROR(stderr, "Vertex shader compilation failed (%d): %s\n", success, infoLog);
-        shader->successul = false;
+        shader->successful = false;
         shader->id = 0;
         return shader;
     }
@@ -34,7 +34,7 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     if (!success) {
         glGetShaderInfoLog(fragmentShader, sizeof(infoLog), NULL, infoLog);
         EOGLL_LOG_ERROR(stderr, "Fragment shader compilation failed: %s\n", infoLog);
-        shader->successul = false;
+        shader->successful = false;
         shader->id = 0;
         glDeleteShader(vertexShader);
         return shader;
@@ -52,7 +52,7 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
     if (!success) {
         glGetProgramInfoLog(shader->id, sizeof(infoLog), NULL, infoLog);
         EOGLL_LOG_ERROR(stderr, "Shader program linking failed: %s\n", infoLog);
-        shader->successul = false;
+        shader->successful = false;
         shader->id = 0;
         glDeleteShader(vertexShader);
         glDeleteShader(fragmentShader);
@@ -61,6 +61,8 @@ EogllShaderProgram* eogllLinkProgram(const char* vertexShaderSource, const char*
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+
+    shader->successful = true;
 
     return shader;
 }
