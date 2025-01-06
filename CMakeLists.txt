@@ -7,11 +7,12 @@ project(eogll)
 option(BUILD_EOGLL "Build EOGLL Library" ON)
 option(BUILD_DOCS "Generate Docs" ON)
 option(BUILD_EXAMPLES "Build Examples" ON)
+option(EOGLL_DYNAMIC "Build EOGLL as a shared library" OFF)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
 set(EOGLL_VERSION_MINOR 8)
-set(EOGLL_VERSION_PATCH 4)
+set(EOGLL_VERSION_PATCH 5)
 
 set(PROJECT_VERSION ${EOGLL_VERSION_MAJOR}.${EOGLL_VERSION_MINOR}.${EOGLL_VERSION_PATCH})
 # this version goes into the header eogll_version.h
@@ -78,7 +79,8 @@ if (BUILD_EOGLL)
     )
     FetchContent_MakeAvailable(glm)
 
-    add_library(eogll STATIC include/eogll.h
+    set(EOGLL_SOURCES
+            include/eogll.h
             include/eogll/input.h
             include/eogll/defines.h
             include/eogll/logging.h
@@ -107,6 +109,13 @@ if (BUILD_EOGLL)
             src/eogll/obj_loader.c
             src/eogll/framebuffer.c
             src/eogll/eogll.c)
+
+    if (EOGLL_DYNAMIC)
+        add_library(eogll SHARED ${EOGLL_SOURCES})
+    else()
+        add_library(eogll STATIC ${EOGLL_SOURCES})
+    endif()
+
     target_include_directories(eogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
 
     target_link_libraries(eogll glad glfw hedley stb cglm)
