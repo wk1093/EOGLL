@@ -55,7 +55,7 @@ if (BUILD_EOGLL)
     FetchContent_MakeAvailable(hedley)
     add_library(hedley INTERFACE IMPORTED)
     target_include_directories(hedley INTERFACE ${hedley_SOURCE_DIR})
-
+    set(STB_DYNAMIC ${EOGLL_DYNAMIC} CACHE BOOL "" FORCE)
     add_subdirectory(thirdparty/stb)
     FetchContent_Declare(
             cglm
