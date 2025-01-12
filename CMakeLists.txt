@@ -8,6 +8,7 @@ option(BUILD_EOGLL "Build EOGLL Library" ON)
 option(BUILD_DOCS "Generate Docs" ON)
 option(BUILD_EXAMPLES "Build Examples" ON)
 option(EOGLL_DYNAMIC "Build EOGLL as a shared library" OFF)
+option(BUILD_HOGLL "Build HOGLL Library" ON)
 
 # versioning
 set(EOGLL_VERSION_MAJOR 0)
@@ -65,20 +66,22 @@ if (BUILD_EOGLL)
     )
     FetchContent_MakeAvailable(cglm)
 
-    FetchContent_Declare(
-            assimp
-            GIT_REPOSITORY https://github.com/assimp/assimp.git
-            GIT_TAG v5.4.3
-    )
-    FetchContent_MakeAvailable(assimp)
-    target_compile_options(assimp PRIVATE -Wno-error=pedantic -Wno-error=unknown-pragmas)
+    if (BUILD_HOGLL)
+        FetchContent_Declare(
+                assimp
+                GIT_REPOSITORY https://github.com/assimp/assimp.git
+                GIT_TAG v5.4.3
+        )
+        FetchContent_MakeAvailable(assimp)
+        target_compile_options(assimp PRIVATE -Wno-error=pedantic -Wno-error=unknown-pragmas)
 
-    FetchContent_Declare(
-            glm
-            GIT_REPOSITORY https://github.com/g-truc/glm.git
-            GIT_TAG 1.0.1
-    )
-    FetchContent_MakeAvailable(glm)
+        FetchContent_Declare(
+                glm
+                GIT_REPOSITORY https://github.com/g-truc/glm.git
+                GIT_TAG 1.0.1
+        )
+        FetchContent_MakeAvailable(glm)
+    endif()
 
     set(EOGLL_SOURCES
             include/eogll.h
@@ -129,27 +132,33 @@ if (BUILD_EOGLL)
     if (BUILD_EXAMPLES)
         add_subdirectory(examples)
     endif()
-
-    add_library(hogll STATIC include/hogll.hpp
-            include/hogll/pch.hpp
-            include/hogll/window.hpp
-            include/hogll/bufferobj.hpp
-            include/hogll/objectattrs.hpp
-            include/hogll/transforms.hpp
-            include/hogll/shadergen.hpp
-            include/hogll/model.hpp
-            src/hogll/window.cpp
-            src/hogll/bufferobj.cpp
-            src/hogll/objectattrs.cpp
-            src/hogll/transforms.cpp
-            src/hogll/shadergen.cpp
-            src/hogll/model.cpp)
-    target_include_directories(hogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
-    target_link_libraries(hogll PUBLIC eogll assimp glm)
-    # glm include dir
-    target_include_directories(hogll PUBLIC ${glm_SOURCE_DIR})
-    if (CMAKE_BUILD_TYPE MATCHES Debug)
-        target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
+    if (BUILD_HOGLL)
+        set(HOGLL_SOURCES include/hogll.hpp
+                include/hogll/pch.hpp
+                include/hogll/window.hpp
+                include/hogll/bufferobj.hpp
+                include/hogll/objectattrs.hpp
+                include/hogll/transforms.hpp
+                include/hogll/shadergen.hpp
+                include/hogll/model.hpp
+                src/hogll/window.cpp
+                src/hogll/bufferobj.cpp
+                src/hogll/objectattrs.cpp
+                src/hogll/transforms.cpp
+                src/hogll/shadergen.cpp
+                src/hogll/model.cpp)
+        if(EOGLL_DYNAMIC)
+            add_library(hogll SHARED ${HOGLL_SOURCES})
+        else()
+            add_library(hogll STATIC ${HOGLL_SOURCES})
+        endif()
+        target_include_directories(hogll PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
+        target_link_libraries(hogll PUBLIC eogll assimp glm)
+        # glm include dir
+        target_include_directories(hogll PUBLIC ${glm_SOURCE_DIR})
+        if (CMAKE_BUILD_TYPE MATCHES Debug)
+            target_compile_definitions(hogll PUBLIC EOGLL_DEBUG)
+        endif()
     endif()
 
 
